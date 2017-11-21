@@ -31,6 +31,55 @@
 		font-size: 1.5rem;
 		font-weight: 300;
 	}
+	@media screen and (min-width: 800px) {
+	
+		.container{
+			width: 100%;
+			margin: auto;
+			display: flex;
+			justify-content: center;
+			align-items: top;
+		}
+
+		.column{padding: 35px;}
+
+		.col-main{width: 75%; display: inline-block;}
+		.col-side{width: 25%; display: inline-block;}
+
+		.col-side p{
+			font-size: 11pt;
+			color: #525252;
+		}
+		.toc-wrapper{
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+
+		}
+		.toc-links{list-style: none;}
+		.toc-links>li{font-size: 12pt;}
+		.toc-links>li:before{
+			content: "\25E6";
+			width: 1em;
+			margin-left: -1em;
+			padding: 2px;
+			color: #2D7DDD;
+		}
+
+		.toc-links-nested{list-style: none;}
+		.toc-links-nested li{font-size: 10pt;;}
+		.toc-links-nested li:before{
+			content: "\2014";
+			width: 1em;
+			margin-left: -1em;
+			padding: 2px;
+			color: #2D7DDD;
+		}
+
+		.toc-links{
+			border-bottom: 1px solid #bdbdbd;
+		}
+	}
 </style>
 <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" as="style" onload="this.rel='stylesheet'">
 <link rel="preload" href="https://use.fontawesome.com/9ec86712d8.css" as="style" onload="this.rel='stylesheet'">
@@ -65,9 +114,9 @@
 					<!-- login screen -->
 					<li><a href="#login-screen">Login screen</a></li>
 					<ul class="toc-links-nested">
-						<li><a href="login-screen-about">Why would I need a login screen?</a></li>
-						<li><a href="login-screen-work">How does the login screen work?</a></li>
-						<li><a href="login-screen-run">How do I run the demo?</a></li>
+						<li><a href="#login-screen-about">Why would I need a login screen?</a></li>
+						<li><a href="#login-screen-work">How does the login screen work?</a></li>
+						<li><a href="#login-screen-run">How do I run the demo?</a></li>
 					</ul>
 					<!-- sample 1 -->
 					<li><a href="#hrefs-ex-1">Setting hrefs manually - part 1</a></li>

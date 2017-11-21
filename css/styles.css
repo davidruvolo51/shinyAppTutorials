@@ -100,53 +100,6 @@ pre code span{
 
 
 @media screen and (min-width: 800px) {
-	
-	.container{
-		width: 100%;
-		margin: auto;
-		display: flex;
-		justify-content: center;
-		align-items: top;
-	}
-
-	.column{padding: 35px;}
-
-	.col-main{width: 75%; display: inline-block;}
-	.col-side{width: 25%; display: inline-block;}
-
-	.col-side p{
-		font-size: 11pt;
-		color: #525252;
-	}
-	.toc-wrapper{
-		position: -webkit-sticky;
-		position: sticky;
-		top: 0;
-
-	}
-	.toc-links{list-style: none;}
-	.toc-links>li{font-size: 12pt;}
-	.toc-links>li:before{
-		content: "\25E6";
-		width: 1em;
-		margin-left: -1em;
-		padding: 2px;
-		color: #2D7DDD;
-	}
-
-	.toc-links-nested{list-style: none;}
-	.toc-links-nested li{font-size: 10pt;;}
-	.toc-links-nested li:before{
-		content: "\2014";
-		width: 1em;
-		margin-left: -1em;
-		padding: 2px;
-		color: #2D7DDD;
-	}
-
-	.toc-links{
-		border-bottom: 1px solid #bdbdbd;
-	}
 
 	pre{
 		tab-size: 1;
