@@ -57,7 +57,7 @@
 
 		}
 		.toc-links{list-style: none;}
-		.toc-links>li{font-size: 12pt;}
+		.toc-links>li{font-size: 14pt;}
 		.toc-links>li:before{
 			content: "\25E6";
 			width: 1em;
@@ -67,25 +67,20 @@
 		}
 
 		.toc-links-nested{list-style: none;}
-		.toc-links-nested li{font-size: 10pt;;}
+		.toc-links-nested li{font-size: 11pt;}
 		.toc-links-nested li:before{
 			content: "\2014";
 			width: 1em;
 			margin-left: -1em;
 			padding: 2px;
-			color: #2D7DDD;
+			color: #424242;
 		}
-
-		.toc-links{
-			border-bottom: 1px solid #bdbdbd;
-		}
+		.toc-links-nested li a{color:#424242;}
 	}
 </style>
 <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600" as="style" onload="this.rel='stylesheet'">
-<link rel="preload" href="https://use.fontawesome.com/9ec86712d8.css" as="style" onload="this.rel='stylesheet'">
 <!-- <link rel="preload" href="css/styles.css" as="style" onload="this.rel='stylesheet'"> -->
 <link rel="preload" href="css/styles.min.css" as="style" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://use.fontawesome.com/9ec86712d8.css"></noscript>
 <!-- <noscript><link rel="stylesheet" href="css/styles.css"></noscript> -->
 <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
 <script>
@@ -94,7 +89,7 @@
 	/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
 	!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(a){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
 </script>
-<title>dcrData</title>
+<title>dcrData | Shiny App Tutorials</title>
 </head>
 <body>
 	<!-- //////////////////////////////////////////////// -->
@@ -111,6 +106,7 @@
 			<div class="toc-wrapper">
 				<h2>Contents</h2>
 				<ul class="toc-links">
+					<li><a href="">Back to Top</a></li>
 					<!-- login screen -->
 					<li><a href="#login-screen">Login screen</a></li>
 					<ul class="toc-links-nested">
@@ -140,8 +136,6 @@
 						<li><a href="#data-editor-run">How do I run the demo?</a></li>
 					</ul>
 				</ul>
-				<p>If you'd like to contribute to this collection, open up a pull request on <a href="https://github.com/davidruvolo51/shinyAppTutorials">github</a>.</p>
-				<p>Back to <a href="https://davidruvolo51.github.io">homepage</a>.</p>
 			</div>
 		</div>
 		<!-- //////////////////////////////////////////////// -->
@@ -151,6 +145,8 @@
 				<!-- //////////////////////////////////////////////// -->
 				<!-- App 1 -->
 				<div class="app-block" id="login-screen">
+					<div class="app-block-header">
+					</div>
 					<h1>Simple login screen</h1>
 					<!-- need -->
 					<h2 id="login-screen-about">Why would I need this?</h2>
@@ -161,52 +157,52 @@
 					<h3>1. Write a 1 line UI. Everything is server side</h3>
 					<p>This shiny app works by rending the UI on the server side on successful login. The ui.R file looks like this.</p>
 					<pre><code>
-						<code class="action">ui</code> <- <code class="function">uiOutput</code>("page")
+						<span class="object">ui</span> <- <span class="function">uiOutput</span>(<span class="value">"page"</span>)
 					</code></pre>
 					<h3>2. Set Login Screen ObserveEvent</h3>
-					<p>There is one <code class="function">observeEvent()</code> that checks the user inputs. This event is triggered when the login button is clicked. Here's what it looks like:</p>
+					<p>There is one <code class="inline function">observeEvent</code> that checks the user inputs. This event is triggered when the login button is clicked. Here's what it looks like:</p>
 					<pre><code>
-					<span># On login btn click</span>
-				    observeEvent(input$Login,{
+					<span class="comment"># On login btn click</span>
+				    <span class="function">observeEvent</span>(<span class="value">input$Login</span>,{
 				        
-				        <span># render error message</span>
-				        output$message <- renderUI({
-			            if(!is.null(input$Login)){
-			                my_username <- length(
-			                	users$User[grep(
-			                		pattern = input$userName, 
-			                		x = users$User)])
-			                my_password <- length(
-				                users$User[grep(
-					                pattern = input$passwd, 
-					                x = users$Password)])
-			                if(input$Login > 0){
-			                    if(my_username < 1 ||  my_password < 1){
-			                        HTML("&lt;div id='error-box'&gt;
+				        <span class="comment"># render error message</span>
+				        <span class="object">output$message</span> <- <span class="function">renderUI</span>({
+			            <span class="function">if</span>(<span class="function">!is.null</span>(<span class="value">input$Login</span>)){
+			                <span class="object">my_username</span> <- <span class="function">length</span>(
+			                	<span class="object">users$User</span>[<span class="function">grep</span>(
+			                		<span class="argument">pattern</span> = <span class="value">input$userName</span>,
+			                		<span class="argument">x</span> = <span class="value">users$User</span>)])
+			                <span class="object">my_password</span> <- <span class="function">length</span>(
+				                <span class="object">users$User</span>[<span class="function">grep</span>(
+					                <span class="argument">pattern</span> = <span class="value">input$passwd</span>, 
+					                <span class="argument">x</span> = <span class="value">users$Password</span>)])
+			                <span class="function">if</span>(<span class="object">input$Login</span> > 0){
+			                    <span class="function">if</span>(<span class="object">my_username</span> < 1 ||  <span class="object">my_password</span> < 1){
+			                        <span class="function">HTML</span>(<span class="value">&lt;div id='error-box'&gt;
 			                             Sorry, that's not the right 
 			                             username or password. Please, 
-			                             try again. &lt;/div&gt;")
+			                             try again. &lt;/div&gt;"</span>)
 			                    }
 			                }
 			            }
 				        })
 				        
-				        <span># CHECK INPUT</span>
-				        if (USER$Logged == FALSE) {
-			            if (!is.null(input$Login)) {
-			                if (input$Login > 0) {
-			                    Username <- isolate(input$userName)
-			                    Password <- isolate(input$passwd)
-			                    Id.username <- which(
-					                    users$User == Username
+				        <span class="comment"># CHECK INPUT</span>
+				        <span class="function">if</span>(<span class="object">USER$Logged</span> == <span class="logical">FALSE</span>) {
+			            <span class="function">if</span>(<span class="function">!is.null</span>(<span class="value">input$Login</span>)) {
+			                <span class="function">if</span>(<span class="object">input$Login</span> > 0) {
+			                    <span class="object">Username</span> <- <span class="function">isolate</span>(<span class="object">input$userName</span>)
+			                    <span class="object">Password</span> <- <span class="function">isolate</span>(<span class="object">input$passwd</span>)
+			                    <span class="object">Id.username</span> <- <span class="function">which</span>(
+					                    <span class="object">users$User</span> == <span class="object">Username</span>
 				                		 )
-			                    Id.password <- which(
-					                    users$Password == Password
+			                    <span class="object">Id.password</span> <- <span class="function">which</span>(
+					                    <span class="object">users$Password</span> == <span class="object">Password</span>
 					                    )
-			                    if (length(Id.username) > 0 
-			                    	& length(Id.password) > 0) {
-			                        if (Id.username %in% Id.password) {
-			                            USER$Logged <- TRUE
+			                    <span class="function">if</span>(<span class="function">length</span>(<span class="object">Id.username</span>) > 0 
+			                    	& <span class="function">length</span>(<span class="object">Id.password</span>) > 0) {
+			                        <span class="function">if</span>(<span class="object">Id.username</span> %in% <span class="object">Id.password</span>) {
+			                            <span class="object">USER$Logged</span> <- <span class="logical">TRUE</span>
 			                        }
 			                    }
 			                }
@@ -214,42 +210,42 @@
 				        }
 				    })
 					</code></pre>
-					<p>In the first block (# render error message), the user input is checked against the list registered users. If the credentials supplied does not match any of the existing accounts, then it displays an error message. The input data is matched with existing accounts by using <code>grep</code> to scan through the data for matching username and password, and then returns the length of the data. The return value is numeric and can only have the values of 0 or 1 where 0 equals no match and 1 equals a sucessful match. Both username and password have to return a value of 1 in order to move on.</p>
-					<p>The second block (#check input) uses the same method except that when credentials are successfully matched, it sets the object <code>Logged</code> to TRUE. <code>Logged</code> is the current status of user where <code>TRUE</code> equals logged in and <code>FALSE</code> equals logged out.</p>
+					<p>In the first block (# render error message), the user input is checked against the list registered users. If the credentials supplied does not match any of the existing accounts, then it displays an error message. The input data is matched with existing accounts by using <code class="inline function">grep</code> to scan through the data for matching username and password, and then returns the length of the data. The return value is numeric and can only have the values of 0 or 1 where 0 equals no match and 1 equals a sucessful match. Both username and password have to return a value of 1 in order to move on.</p>
+					<p>The second block (#check input) uses the same method except that when credentials are successfully matched, it sets the object <code class="argument">Logged</code> to TRUE. <code class="argument">Logged</code> is the current status of user where <code class="logical">TRUE</code> equals logged in and <code class="logical">FALSE</code> equals logged out.</p>
 					<h2>3. Rendering the UI When Logged = TRUE</h2>
 					<p>Rendering the UI is fairly straightforward at this point and can be triggered by a conditional statement.</p>
 					<pre><code>
-						observe({
-				        <span># What to do when logged = F</span>
-				        if (USER$Logged == FALSE) {
+						<span class="package">observe</span>({
+				        <span class="comment"># when logged = FALSE</span>
+				        <span class="function">if</span> (<span class="object">USER$Logged</span> == <span class="logical">FALSE</span>) {
 				            
-				            output$page <- renderUI({
-				                div(class="outer",do.call(
+				            <span class="object">output$page</span> <- <span class="function">renderUI</span>({
+				                div(class="outer",<span class="function">do.call</span>(
 				                bootstrapPage,c("",ui1())))
 				            })
 				        }
 				        
-				        <span># Render UI when logged = T</span>
-				        if (USER$Logged == TRUE) 
-				        {
-				            ## get the current user's authorization level 
-				            user_log <- toupper(input$userName)
+				        <span class="comment"># Render UI by user type when logged = TRUE</span>
+				        <span class="function">if</span> (<span class="object">USER$Logged</span> == <span class="logical">TRUE</span>){
+
+				            <span class="comment">## get the current user's authorization level</span>
+				            <span class="object">user_log</span> <- <span class="function">toupper</span>(<span class="value">input$userName</span>)
 				            
-				            # if admin
-				            if(user_log == "ADMIN"){
-				                output$page <- renderUI({
-				                    fluidPage(
-				                    	<span>...</span>
+				            <span class="comment"># if admin</span>
+				            <span class="function">if</span>(<span class="object">user_log</span> == <span class="value">"ADMIN"</span>){
+				                <span class="object">output$page</span> <- <span class="function">renderUI</span>({
+				                    <span class="function">fluidPage</span>(
+				                    	<span class="comment">...</span>
 				                    	)
 				                    )
 				                })
 				            }
 				            
-				            # if standard user
-				            else{
-				                output$page <- renderUI({
-				                    fluidPage(
-					                    <span>...</span>
+				            <span class="comment"># if standard user</span>
+				            <span class="function">else</span>{
+				                <span class="object">output$page</span> <- <span class="function">renderUI</span>({
+				                    <span class="function">fluidPage</span>(
+					                    <span class="comment">...</span>
 				                    )
 				                })
 				            }
@@ -262,27 +258,25 @@
 					<h2 id="login-screen-run">How can I run this app?</h2>
 					<p>There are two ways to run this app:</p>
 					<pre><code>
-						<span># 1. Run in R/Rstudio</span>
-						<code class="function">install.packages</code>("<code class="package">shiny</code>")
+						<span class="comment"># 1. Run in R/Rstudio</span>
+						<span class="function">install.packages</span>("<span class="package">shiny</span>")
 
-						<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Login-Screen"
-						)
+						<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Login-Screen"</span>)
 
-						<span># 2. Run from the terminal</span>
-						<code>Rscript -e "<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Login-Screen",
-								<code class="action">launch.browser</code>=T
-						)"</code>
+						<span class="comment"># 2. Run from the terminal</span>
+						<span class="object">Rscript -e </span>"<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Login-Screen"</span>,
+								<span class="argument">launch.browser</span>=<span class="logical">TRUE)</span>
 					</code></pre>
 
 					<p>Use one of the following demo accounts to test this app.</p>
 					<pre><code>
-						<span># Test out the app with one of the following accounts.</span>
+						<span class="comment"># Test out the app with one of the following accounts.</span>
 					
 						| type     | Username | password |
 						----------------------------------
@@ -293,8 +287,8 @@
 
 					<p>The source code is available on <a class="eLinks" href="https://github.com/davidruvolo51/shinyAppTutorials/tree/master/Login-Screen">github</a>.</p>
 					<ul class="tags">
-						<li>login-screen</li>
-						<li>users-accounts</li>
+						<li>loginscreen</li>
+						<li>useraccounts</li>
 						<li>magic</li>
 					</ul>
 				</div>
@@ -304,58 +298,58 @@
 					<h1>Manually Creating hrefs 1: Simple example</h1>
 					<!-- need -->
 					<h2 id="hrefs-ex-1-about">Why would I need this?</h2>
-					<p>Creating hrefs to tabs in shiny is tricky as the href in <code>&lt;a href='target-page'&gt;...&lt;/a&gt;&lt;/code&gt;</code> generates new links on each <code class="function">runApp()</code>. To accomplish this, you must target the <code>value</code> in <code class="function">tabPanel()</code> using javascript. </p>
+					<p>Creating hrefs to tabs in shiny is tricky as the href in <code class="function">&lt;a href='target-page'&gt;...&lt;/a&gt;</code> generates new links on each <code class="function">runApp()</code>. To accomplish this, you must target the <code class="argument">value</code> in <code class="function">tabPanel()</code> using javascript. </p>
 					<!-- work -->
 					<h2 id="hrefs-ex-1-work">How does the app work?</h2>
 					<h3>1. Create Javascript function</h3>
 					<p>In this example app, the function from this <a href="https://stackoverflow.com/questions/36412407/shiny-add-link-to-another-tabpanel-in-another-tabpanel">SO question</a> loops through each element in the navbar to match the target value with the input value.</p>
 					<pre><code>
-						<span># js file</span>
-						var customHref = function(tabName) {
-						    var dropdownList = document.getElementsByTagName("a");
-						    for (var i = 0; i < dropdownList.length; i++) {
-						        var link = dropdownList[i];
-						        if(link.getAttribute("data-value") == tabName) {
-						            link.click();
+						<span class="comment"># js file</span>
+						<span class="function">var</span> <span class="object">customHref</span> = <span class="function">function</span>(<span class="value">tabName</span>) {
+						    <span class="function">var</span> <span class="object">dropdownList</span> = document.<span class="function">getElementsByTagName</span>(<span class="value">"a"</span>);
+						    <span class="function">for</span> (<span class="function">var</span> <span class="object">i</span> = <span class="value">0</span>; <span class="object">i</span> <<span class="object"> dropdownList</span>.<span class="function">length</span>; <span class="object">i</span><span class="argument">++</span>) {
+						        <span class="function">var</span> <span class="object">link</span> = <span class="object">dropdownList</span>[<span class="value">i</span>];
+						        <span class="function">if</span>(<span class="object">link</span>.<span class="function">getAttribute</span>(<span class="value">"data-value"</span>) == <span class="value">tabName</span>) {
+						            <span class="object">link</span>.<span class="function">click</span>();
 						        }
 						    }
 						};
 					</code></pre>
-					<p>This required additional reworking when using <code>href</code> in leaflet (see next app demo). I couldn't get the <code class="function">a()</code> shiny tag to work with onclick, but <code class="action">HTML(&lt;a onclick='customHref(...)'></a>)</code> is more natural for those who work with HTML.</p>
+					<p>This required additional reworking when using <code class="argument">href</code> in leaflet (see next app demo). I couldn't get the <code class="function">a()</code> shiny tag to work with onclick, but <code class="function">HTML(&lt;a onclick='customHref(...)'></a>)</code> is more natural for those who work with HTML.</p>
 					<h3>2. Setup ui.R (or app.R) file</h3>
-					<p>In order to get shiny to read the javascript function, you will need to load it. Use the <code>tagsList()</code> method for structuring your app and link the javascript file using <code>tags$head(tags$script(src=...))</code></p>
+					<p>In order to get shiny to read the javascript function, you will need to load it. Use the <code class="function">tagsList()</code> method for structuring your app and link the javascript file using <code class="function">tags$head(tags$script(src=...))</code></p>
 					<pre><code>
-						<span># ui.R/app.R</span>
-						<code class="package">ui</code> <- <code class="function">tagList</code>(
-						        <span># head</span>
-						        tags$<code class="function">head</code>(
-						        	tags$<code class="function">link</code>(<code class="action">src</code>="func.js")
-						        	<span>...</span>
+						<span class="comment"># ui.R/app.R</span>
+						<span class="object">ui</span> <- <span class="function">tagList</span>(
+						        <span class="comment"># head</span>
+						        <span class="object">tags</span>$<span class="function">head</span>(
+						        	<span class="object">tags</span>$<span class="function">link</span>(<span class="argument">src</span>=<span class="value">"func.js"</span>)
+						        	<span class="comment">...</span>
 						        )
 
-						        <span># ui</span>
-						        <code class="function">navbarPage</code>(
-					                <span>...</span>
+						        <span class="comment"># ui</span>
+						        <span class="function">navbarPage</span>(
+					                <span class="comment">...</span>
 						        )
 						)
 					</code></pre>
 					<h3>3. Create tabPanels and assign each one a unique value</h3>
-					<p>Create the desired number of tabs and assign the <code class="action">value</code> argument a unique name (i.e.,id).</p>
+					<p>Create the desired number of tabs and assign the <code class="argument">value</code> argument a unique name (i.e.,id).</p>
 					<pre><code>
-						<span># ui.R/app.R</span>
-						<code class="package">ui</code> <- <code class="function">tagList</code>(
-						        <span># head</span>
-						        tags$<code class="function">head</code>(
-						        	tags$<code class="function">link</code>(<code class="action">src</code>="func.js")
-						        	<span>...</span>
+						<span class="comment"># ui.R/app.R</span>
+						<span class="package">ui</span> <- <span class="function">tagList</span>(
+						        <span class="comment"># head</span>
+						        <span class="object">tags</span>$<span class="function">head</span>(
+						        	<span class="object">tags</span>$<span class="function">link</span>(<span class="argument">src</span>=<span class="value">"func.js"</span>)
+						        	<span class="comment">...</span>
 						        )
 
-						        <span># ui</span>
-						        <code class="function">navbarPage</code>(
-						                <code class="function">tabPanel</code>("tab 1", <code class="action">value</code>="tab1"),
-						                <code class="function">tabPanel</code>("tab 2", <code class="action">value</code>="tab2"),
-						                <code class="function">tabPanel</code>("tab 3", <code class="action">value</code>="tab3")
-						                <span>...</span>
+						        <span class="comment"># ui</span>
+						        <span class="function">navbarPage</span>(
+						                <span class="function">tabPanel</span>(<span class="value">"tab 1"</span>, <span class="argument">value</span>=<span class="value">"tab1"</span>),
+						                <span class="function">tabPanel</span>(<span class="value">"tab 2"</span>, <span class="argument">value</span>=<span class="value">"tab2"</span>),
+						                <span class="function">tabPanel</span>(<span class="value">"tab 3"</span>, <span class="argument">value</span>=<span class="value">"tab3")
+						                <span class="comment">...</span>
 						        )
 						)
 					</code></pre>
@@ -367,27 +361,25 @@
 					<h2 id="hrefs-ex-1-run">How can I run this app?</h2>
 					<p>There are two ways to run this app:</p>
 					<pre><code>
-						<span># 1. Run in R/Rstudio</span>
-						<code class="function">install.packages</code>("<code class="package">shiny</code>")
+						<span class="comment"># 1. Run in R/Rstudio</span>
+						<span class="function">install.packages</span>("<span class="package">shiny</span>")
 
-						<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Internal-Links-Basic-Ex"
-						)
+						<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Internal-Links-Basic-Ex"</span>)
 
-						<span># 2. Run from the terminal</span>
-						<code>Rscript -e "<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Internal-Links-Basic-Ex",
-								<code class="action">launch.browser</code>=T
-						)"</code>
+						<span class="comment"># 2. Run from the terminal</span>
+						<span class="object">Rscript -e</span>"<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Internal-Links-Basic-Ex"</span>,
+								<span class="argument">launch.browser</span>=<span class="logical">TRUE</span>)"
 					</code></pre>
 					<p>The source code is available on <a class="eLinks" href="https://github.com/davidruvolo51/shinyAppTutorials/tree/master/Internal-Links-Basic-Ex">github</a>.</p>
 					<ul class="tags">
 						<li>js</li>
-						<li>work-around</li>
+						<li>workaround</li>
 						<li>hrefs</li>
 					</ul>
 				</div>
@@ -404,82 +396,77 @@
 					<h3>1. Setup the ui and enter the value names for each tab.</h3>
 					<p>In this example, I created a mini-tourism app for NYC</p>
 					<pre><code>
-						<span># ui.R/app.R</span>
-						<code class="package">ui</code> <- <code class="function">tagList</code>(
-						        <span># head</span>
-						        tags$<code class="function">head</code>(
-						        	tags$<code class="function">link</code>(<code class="action">src</code>="func.js")
-						        	<span>...</span>
+						<span class="comment"># ui.R/app.R</span>
+						<span class="object">ui</span> <- <span class="function">tagList</span>(
+						        <span class="comment"># head</span>
+						        <span class="object">tags</span>$<span class="function">head</span>(
+						        	<span class="object">tags</span>$<span class="function">link</span>(<span class="argument">src</span>=<span class="value">"func.js"</span>)
+						        	<span class="comment">...</span>
 						        )
 
-						        <span># ui</span>
-						        <code class="function">navbarPage</code>(
-					                <code class="function">tabPanel</code>("Central Park Zoo", 
-					                			<code class="action">value</code>="zoo"),
-					                <code class="function">tabPanel</code>("Guggenheim Museum", 
-					                			<code class="action">value</code>="guggenheim"),
-					                <code class="function">tabPanel</code>("Natural History Museum", 
-					                			<code class="action">value</code>="history")				            
-						        )
+						        <span class="comment"># ui</span>
+						        <span class="function">navbarPage</span>(
+					                <span class="function">tabPanel</span>(<span class="value">"Central Park Zoo"</span>, 
+					                			<span class="argument">value</span>=<span class="value">"zoo"</span>),
+					                <span class="function">tabPanel</span>(<span class="value">"Guggenheim Museum"</span>, 
+					                			<span class="argument">value</span>=<span class="value">"guggenheim"</span>),
+					                <span class="function">tabPanel</span>(<span class="value">"Natural History Museum"</span>, 
+					                			<span class="argument">value</span>=<span class="value">"history"</span>))
 						)
 					</code></pre>
 					<h3>2. Create a dataset</h3>
-					<p>Create a dataset where column <code>hrefValue</code> has the same tab value names.</p>
+					<p>Create a dataset where column <code class="argument">hrefValue</code> has the same tab value names.</p>
 					<pre><code>
-						<code class="package">mapDF</code> <- <code class="function">data.frame</code>(
-							<code class="action">location=</code>c("Central Park Zoo", 
-																"Guggenheim Museum", 
-																"Natural History Museum"),
-							<code class="action">lat=</code>c(40.76780, 40.78292, 40.78133),
-							<code class="action">lng=</code>c(-73.97191,-73.95907, -73.97413),
-							<code class="action">hrefValue=</code>c("zoo","guggenheim","history")
-						)
+						<span class="object">mapDF</span> <- <span class="function">data.frame</span>(
+							<span class="argument">location</span>= c(<span class="value">"Central Park Zoo"</span>, 
+																<span class="value">"Guggenheim Museum"</span>, 
+																<span class="value">"Natural History Museum"</span>),
+							<span class="argument">lat</span>= c(<span class="value">40.76780</span>, <span class="value">40.78292</span>, <span class="value">40.78133</span>),
+							<span class="argument">lng</span>= c(<span class="value">-73.97191</span>,<span class="value">-73.95907</span>, <span class="value">-73.97413</span>),
+							<span class="argument">hrefValue</span>= c(<span class="value">"zoo"</span>,<span class="value">"guggenheim"</span>,<span class="value">"history"</span>))
 					</code></pre>
 					<h3>3. Create a content for marker popups</h3>
-					<p>The links to other tabs will go into a leaflet <code class="action">popup</code>. For the <code class="action">popup</code> argument in <code class="function">addMarkers()</code>, you will need to wrap the target value in <code class="function">paste0()</code> (unless the <code class="action">onclick</code> works in <code class="function">a()</code>. Leaflet will render this a url. This will look something like this:</p>
+					<p>The links to other tabs will go into a leaflet <code class="argument">popup</code>. For the <code class="argument">popup</code> argument in <code class="function">addMarkers()</code>, you will need to wrap the target value in <code class="function">paste0()</code> (unless the <code class="argument">onclick</code> works in <code class="function">a()</code>. Leaflet will render this a url. This will look something like this:</p>
 					<pre><code>
-					<code class="function">leaflet</code>(<code class="action">data</code> = mapDF) %>%
-			            <code class="function">setView</code>(
-			                <code class="action">lat</code>= 40.7752739, 
-			                <code class="action">lng</code>= -73.9688518,
-			                <code class="action">zoom</code>= 14) %>%
-			            <code class="function">addTiles</code>() %>%
-			            <code class="action">addMarkers</code>(<code class="action">lng</code> = ~lng , <code class="action">lat</code> = ~lat,
-			                       <code class="action">popup</code> = <code class="function">paste0</code>(
-			                           "Learn more about the ",
-			                           "&lt;a onclick=",
-			                           "<code class="function">customHref</code>('",
-			                           			mapDF$hrefValue,"')&gt;",
-			                           mapDF$location,
-			                           "&lt;/a&gt;"
-	                   ))
+					<span class="function">leaflet</span>(<span class="argument">data</span> = <span class="value">mapDF</span>) %>%
+			            <span class="function">setView</span>(
+			                <span class="argument">lat</span>= <span class="value">40.7752739</span>, 
+			                <span class="argument">lng</span>= <span class="value">-73.9688518</span>,
+			                <span class="argument">zoom</span>= <span class="value">14</span>) %>%
+			            <span class="function">addTiles</span>() %>%
+			            <span class="argument">addMarkers</span>(<span class="argument">lng</span> = <span class="value">~lng</span>, <span class="argument">lat</span> = <span class="value">~lat</span>,
+			                       <span class="argument">popup</span> = <span class="function">paste0</span>(
+			                           <span class="value">"Learn more about the "</span>,
+			                           <span class="value">"&lt;a onclick="</span>,
+			                           "<span class="function">customHref</span>('",
+			                           			<span class="object">mapDF$hrefValue</span>,<span class="value">"')&gt;"</span>,
+			                           <span class="object">mapDF$location</span>,
+			                           <span class="value">"&lt;/a&gt;"</span>))
 					</code></pre>
 					<p>That's it!</p>
 					<!-- run app -->
 					<h2 id="hrefs-ex-2-run">How can I run this app?</h2>
 					<p>There are two ways to run this app:</p>
 					<pre><code>
-						<span># 1. Run in R/Rstudio</span>
-						<code class="function">install.packages</code>("<code class="package">shiny</code>")
+						<span class="comment"># 1. Run in R/Rstudio</span>
+						<span class="function">install.packages</span>("<span class="package">shiny</span>")
 
-						<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Internal-Links"
-						)
+						<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Internal-Links"</span>)
 
-						<span># 2. Run from the terminal</span>
-						<code>Rscript -e "<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Internal-Links",
-								<code class="action">launch.browser</code>=T
-						)"</code>
+						<span class="comment"># 2. Run from the terminal</span>
+						<span class="object">Rscript -e "</span><span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Internal-Links"</span>,
+								<span class="argument">launch.browser</span>=<span class="logical">TRUE</span>)"
 					</code></pre>
 					<p>The source code is available on <a class="eLinks" href="https://github.com/davidruvolo51/shinyAppTutorials/tree/master/Internal-Links">github</a>.</p>
 					<ul class="tags">
 						<li>js</li>
-						<li>work-around</li>
+						<li>workaround</li>
 						<li>hrefs</li>
 						<li>leaflet</li>
 					</ul>
@@ -490,40 +477,39 @@
 					<h1>A Shiny App for Editing Data in a Shiny App</h1>
 					<h2 id="data-editor-about">Why would I need this?</h2>
 					<p>This app was created in order to figure out a question I've had for a while: "How can I edit a dataset in a shiny app?"</p>
-					<p>As a little background, I've developed several shinyapps for research clinical trial project management and scientific reporting. I often collaborate with others who prefer other software (e.g., excel, SPSS, etc.). VBA is not ideal, but it get's the job done. With all MS products, the more complicated the objective, the harder it is to get it to work.</p>
-					<p>In previous situations, I've used a google form as data entry. All inputs were sent to a google sheet, and then using the <code class="package">googlesheets</code> package, the data can be pulled into R. This method was fine and it works well, but it requires more coordination between all three platforms; ideally, I'd like to have an all-in-one web app.</p>
+					<p>As a little background, I've developed several shinyapps for the project management of clinical trials and for scientific reporting. I often collaborate with others who prefer other software (e.g., excel, SPSS, etc.). VBA is not ideal, but it get's the job done. But after much experience building dashboards this way, I've learned that the more complicated the objective, the harder it is to get it to work.</p>
+					<p>In previous situations, I've used a google form as data entry. All inputs were sent to a google sheet, and then using the <code class="package2">googlesheets</code> package, the data can be pulled into R. This method was fine and it works well, but it requires more coordination between all three platforms; ideally, I'd like to have an all-in-one web app.</p>
 					<p>The app I'm currently building contains several tabs: data entry, data viewer (and soon an editor), visualizations, a reporting page, and a help page. Adding the data editor feature would be useful in the event of typos or other necessary changes (e.g., name changes, modifying a value if it was entered incorrectly, updating information, etc.). This would be better than writing guides on how to modify data in the console or even having an inbox full of data modification requests.</p>
 					<!-- work -->
 					<h2 id="data-editor-work">How does the app work?</h2>
-					<p>The app was developed with the help of vignettes in the wonderful <code class="package">rhandsontable</code> package, various features in the <code class="package">shinyBS</code> and <code class="package">shinyJS</code> packages, and several posts on SO.</p>
+					<p>The app was developed with the help of vignettes in the wonderful <code class="package2">rhandsontable</code> package, various features in the <code class="package2">shinyBS</code> and <code class="package2">shinyJS</code> packages, and several posts on SO. In this example, I'm using the <code class="data">mtcars</code> dataset.</p>
 					<p>To make the app work, there's base file <code class="file">cars<u>&nbsp;</u>data.RDS</code>, which is the primary data file (i.e., current).</p>
 					<ol>
-						<li>Click <code class="action">view</code> to move to edit mode. By default the <code class="action">save</code> button is deactivated. The default table is generated using the <code class="package">DT</code> package.</li>
-						<li>Click the <code class="action">edit</code> button to edit a column, update information, etc, and then click the <code>save</code> button.</li>
-						<li>The <code>observeEvent(input$yes, ({...}))</code> checks to see if a current version of the base file (<code class="file">cars<u>&nbsp;</u>data.RDS</code>) exists.</li>
-						<li>If <code>file.exists == TRUE</code>, then the version will be renamed with the current date and time (e.g., <code class="file">cars_data_20170219_111743.RDS</code>) and the modified data will be saved into the base file.</li>
-						<li>If <code>file.exists == FALSE</code>, the cars_data.RDS will be initiated in the current directory. This is to add a level of 'security'in the event you need to consult previous versions of the data.</li>
+						<li>Click <code class="function">view</code> to move to edit mode. By default the <code class="function">save</code> button is deactivated. The default table is generated using the <code class="package2">DT</code> package.</li>
+						<li>Click the <code class="function">edit</code> button to edit a column, update information, etc, and then click the <code class="function">save</code> button.</li>
+						<li>The <code class="function">observeEvent(input$yes, ({...}))</code> checks to see if a current version of the base file (<code class="file">cars<u>&nbsp;</u>data.RDS</code>) exists.</li>
+						<li>If <code><code class="argument">file.exists</code> == <code class="logical">TRUE</code></code>, then the version will be renamed with the current date and time (e.g., <code class="file">cars_data_20170219_111743.RDS</code>) and the modified data will be saved into the base file.</li>
+						<li>If <code><code class="argument">file.exists</code> == <code class="logical">FALSE</code></code>, the cars_data.RDS will be initiated in the current directory. This is to add a level of 'security'in the event you need to consult previous versions of the data.</li>
 						<li>Refresh the app</li>
 					</ol>
 					<h2 id="data-editor-run">How can I run this app?</h2>
 					<p>There are two ways to run this app:</p>
 					<pre><code>
-						<span># 1. Run in R/Rstudio</span>
-						<code class="function">install.packages</code>("<code class="package">shiny</code>")
+						<span class="comment"># 1. Run in R/Rstudio</span>
+						<span class="function">install.packages</span>("<span class="package">shiny</span>")
 
-						<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Data-Editor"
+						<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Data-Editor"</span>
 						)
 
-						<span># 2. Run from the terminal</span>
-						<code>Rscript -e "<code class="package">shiny</code>::<code class="function">runGitHub</code>(
-								<code class="action">repo</code>="shinyapps",
-								<code class="action">username</code>="davidruvolo51",
-								<code class="action">subdir</code>="Data-Editor",
-								<code class="action">launch.browser</code>=T
-						)"</code>
+						<span class="comment"># 2. Run from the terminal</span>
+						<span class="object">Rscript -e </span>"<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+								<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+								<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+								<span class="argument">subdir</span>=<span class="value">"Data-Editor"</span>,
+								<span class="argument">launch.browser</span>=<span class="logical">TRUE</span>)"
 					</code></pre>
 					<p>The source code is available on <a class="eLinks" href="https://github.com/davidruvolo51/shinyAppTutorials/tree/master/Data-Editor">github</a>.</p>
 					<ul class="tags">
@@ -537,6 +523,7 @@
 	</div>
 </body>
 <footer>
+	<p>If you'd like to contribute to this collection, open up a pull request on <a href="https://github.com/davidruvolo51/shinyAppTutorials">github</a>.</p>
 	<p>Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i> by <a href="https://davidruvolo51.github.io">david ruvolo</a></p>
 </footer>
 </html>
