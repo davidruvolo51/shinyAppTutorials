@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A collection of datasets for rstats">
+	<meta name="keywords" content="David, Christopher, Ruvolo">
+	<meta name="author" content="David Ruvolo">
+	<!-- LINK -->
+	<style type="text/css">
+	.header{
+		background-color: #619B8A;
+		margin-bottom: 2em;
+	}
+
+	.header-content{
+		width: 90%;
+		margin: auto;
+		padding:5em 0 5em 0;
+		color: white;
+	}
+
+	.header-content h1{
+		font-size: 5rem;
+		margin: 0;
+		font-weight: 600;
+	}
+
+	.header-content p{
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+	@media screen and (min-width: 800px) {
+
+		.container{
+			width: 100%;
+			margin: auto;
+			display: flex;
+			justify-content: center;
+			align-items: top;
+		}
+
+		.column{padding: 35px;}
+
+		.col-main{width: 75%; display: inline-block;}
+		.col-side{width: 25%; display: inline-block;}
+
+		.col-side p{
+			font-size: 11pt;
+			color: #525252;
+		}
+		.toc-wrapper{
+			position: -webkit-sticky;
+			position: sticky;
+			top: 0;
+
+		}
+		.toc-links{list-style: none;}
+		.toc-links>li{
+			font-size: 14pt;
+			line-height: 1.5;
+		}
+		.toc-links>li:before{
+			content: "\25E6";
+			width: 1em;
+			margin-left: -1em;
+			padding: 2px;
+			color: #2D7DDD;
+		}
+
+		.toc-links-nested{list-style: none;}
+		.toc-links-nested li{
+			font-size: 11pt;
+			line-height: 1.5;
+		}
+		.toc-links-nested li:before{
+			content: "\2014";
+			width: 1em;
+			margin-left: -1em;
+			padding: 2px;
+			color: #424242;
+		}
+		.toc-links-nested li a{color:#424242;}
+	}
+</style>
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" as="style" onload="this.rel='stylesheet'">
+<link rel="preload" href="https://use.fontawesome.com/9ec86712d8.css" as="style" onload="this.rel='stylesheet'">
+<!-- <link rel="preload" href="css/styles.css" as="style" onload="this.rel='stylesheet'"> -->
+<link rel="preload" href="css/styles.min.css" as="style" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://use.fontawesome.com/9ec86712d8.css"></noscript>
+<!-- <noscript><link rel="stylesheet" href="css/styles.css"></noscript> -->
+<noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+<script>
+	/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+	!function(a){"use strict";var b=function(b,c,d){function j(a){if(e.body)return a();setTimeout(function(){j(a)})}function l(){f.addEventListener&&f.removeEventListener("load",l),f.media=d||"all"}var g,e=a.document,f=e.createElement("link");if(c)g=c;else{var h=(e.body||e.getElementsByTagName("head")[0]).childNodes;g=h[h.length-1]}var i=e.styleSheets;f.rel="stylesheet",f.href=b,f.media="only x",j(function(){g.parentNode.insertBefore(f,c?g:g.nextSibling)});var k=function(a){for(var b=f.href,c=i.length;c--;)if(i[c].href===b)return a();setTimeout(function(){k(a)})};return f.addEventListener&&f.addEventListener("load",l),f.onloadcssdefined=k,k(l),f};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+	/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+	!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(a){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+</script>
+<title>dcrData | Shiny App Tutorials</title>
+</head>
+<body>
+	<!-- //////////////////////////////////////////////// -->
+	<!-- header -->
+	<div class="header">
+		<div class="header-content">
+			<h1>Shiny Tutorial: Linking Tabs (1)</h1>
+			<p>Tutorial on Creating Links to Other Pages in a Shiny App</p>
+		</div>
+	</div>
+
+	<div class="breadcrumbs-wrapper">
+		<ul class="breadcrumbs">
+			<li><a href="index.html"><span class="fa fa-home"></span></a></li>
+			<li>Linking Tabs (1)</li>
+		</ul>
+	</div>
+	<!-- //////////////////////////////////////////////// -->
+	<div class="container">
+		<div class="column col-side">
+			<div class="toc-wrapper">
+				<h2>Contents</h2>
+				<ul class="toc-links">
+					<li><a href="">Back to Top</a></li>
+					<li><a href="#hrefs-ex-1-about">Why would I need to set hrefs?</a></li>
+					<li><a href="#hrefs-ex-1-work">How do I set the links?</a></li>
+					<li><a href="#hrefs-ex-1-run">How do I run the demo?</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //////////////////////////////////////////////// -->
+		<div class="column col-main">
+			<!-- body -->
+			<div class="content">
+				
+			<!-- App 2 -->
+			<div class="app-block" id="hrefs-ex-1">
+				<!-- need -->
+				<h2 id="hrefs-ex-1-about">Why would I need this?</h2>
+				<p>Creating hrefs to tabs in shiny is tricky as the href in <code class="function">&lt;a href='target-page'&gt;...&lt;/a&gt;</code> generates new links on each <code class="function">runApp()</code>. To accomplish this, you must target the <code class="argument">value</code> in <code class="function">tabPanel()</code> using javascript. </p>
+				<!-- work -->
+				<h2 id="hrefs-ex-1-work">How does the app work?</h2>
+				<h3>1. Create Javascript function</h3>
+				<p>In this example app, the function from this <a href="https://stackoverflow.com/questions/36412407/shiny-add-link-to-another-tabpanel-in-another-tabpanel">SO question</a> loops through each element in the navbar to match the target value with the input value.</p>
+				<pre><code>
+					<span class="comment"># js file</span>
+					<span class="function">var</span> <span class="object">customHref</span> = <span class="function">function</span>(<span class="value">tabName</span>) {
+							<span class="function">var</span> <span class="object">dropdownList</span> = document.<span class="function">getElementsByTagName</span>(<span</span> class="value">"a"</span>);
+									<span class="function">for</span> (<span class="function">var</span> <span class="object">i</span> = <span class="value">0</span>; <span class="object">i</span> <<span class="object"> dropdownList</span>.<span class="function">length</span>; <span class="object">i</span><span class="argument">++</span>) {
+											<span class="function">var</span> <span class="object">link</span> = <span class="object">dropdownList</span>[<span class="value">i</span>];
+											<span class="function">if</span>(<span class="object">link</span>.<span class="function">getAttribute</span>(<span class="value">"data-value"</span>) == <span class="value">tabName</span>) {
+													<span class="object">link</span>.<span class="function">click</span>();
+											}
+									}
+					};
+			</code></pre>
+			<p>This required additional reworking when using <code class="argument">href</code> in leaflet (see next app demo). I couldn't get the <code class="function">a()</code> shiny tag to work with onclick, but <code class="function">HTML(&lt;a onclick='customHref(...)'></a>)</code> is more natural for those who work with HTML.</p>
+			<h3>2. Setup ui.R (or app.R) file</h3>
+			<p>In order to get shiny to read the javascript function, you will need to load it. Use the <code class="function">tagsList()</code> method for structuring your app and link the javascript file using <code class="function">tags$head(tags$script(src=...))</code></p>
+			<pre><code>
+			<span class="comment"># ui.R or app.R</span>
+			<span class="object">ui</span> <- <span class="function">tagList</span>(
+					<span class="comment"># head</span>
+					<span class="object">tags</span>$<span class="function">head</span>(
+					<span class="object">tags</span>$<span class="function">link</span>(<span class="argument">src</span>=<span class="value">"func.js"</span>)
+							<span class="comment">...</span>
+					)
+
+					<span class="comment"># ui</span>
+					<span class="function">navbarPage</span>(
+							<span class="comment">...</span>
+					)
+			)
+			</code></pre>
+			<h3>3. Create tabPanels and assign each one a unique value</h3>
+			<p>Create the desired number of tabs and assign the <code class="argument">value</code> argument a unique name (i.e.,id).</p>
+			<pre><code>
+			<span class="comment"># ui.R/app.R</span>
+			<span class="package">ui</span> <- <span class="function">tagList</span>(
+					<span class="comment"># head</span>
+					<span class="object">tags</span>$<span class="function">head</span>(
+					<span class="object">tags</span>$<span class="function">link</span>(<span class="argument">src</span>=<span class="value">"func.js"</span>)
+							<span class="comment">...</span>
+					)
+
+					<span class="comment"># ui</span>
+					<span class="function">navbarPage</span>(
+					<span class="function">tabPanel</span>(<span class="value">"tab 1"</span>, <span class="argument">value</span>=<span class="value">"tab1"</span>),
+					<span class="function">tabPanel</span>(<span class="value">"tab 2"</span>, <span class="argument">value</span>=<span class="value">"tab2"</span>),
+					<span class="function">tabPanel</span>(<span class="value">"tab 3"</span>, <span class="argument">value</span>=<span class="value">"tab3")
+							<span class="comment">...</span>
+					)
+			)
+			</code></pre>
+			<p>That's it! Make sure to check out the next demo for further uses of this technique.</p>
+			<!-- issues -->
+			<h3>Known issues</h3>
+			<p>This does cause issues with the navigation bar remaining open on smaller devices after a link is clicked. To my knowledge, there isn't a solution for this for shiny users.</p>
+			<!-- run app -->
+			<h2 id="hrefs-ex-1-run">How can I run this app?</h2>
+			<p>There are two ways to run this app:</p>
+			<pre><code>
+				<span class="comment"># 1. Run in R/Rstudio</span>
+				<span class="function">install.packages</span>("<span class="package">shiny</span>")
+
+				<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+						<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+						<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+						<span class="argument">subdir</span>=<span class="value">"Internal-Links-Basic-Ex"</span>)
+
+				<span class="comment"># 2. Run from the terminal</span>
+				<span class="object">Rscript -e</span>"<span class="package">shiny</span>::<span class="function">runGitHub</span>(
+						<span class="argument">repo</span>=<span class="value">"shinyapps"</span>,
+						<span class="argument">username</span>=<span class="value">"davidruvolo51"</span>,
+						<span class="argument">subdir</span>=<span class="value">"Internal-Links-Basic-Ex"</span>,
+						<span class="argument">launch.browser</span>=<span class="logical">TRUE</span>)"
+			</code></pre>
+			<p>The source code is available on <a class="eLinks" href="https://github.com/davidruvolo51/shinyAppTutorials/tree/master/Internal-Links-Basic-Ex">github</a>.</p>
+			<ul class="tags">
+				<li>js</li>
+				<li>workaround</li>
+				<li>hrefs</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+<footer>
+	<p>If you'd like to contribute to this collection, open up a pull request on <a href="https://github.com/davidruvolo51/shinyAppTutorials">github</a>.</p>
+	<p>Made with <i class="fa fa-heart"></i> and <i class="fa fa-coffee"></i> by <a href="https://davidruvolo51.github.io">david ruvolo</a></p>
+</footer>
+</html>
