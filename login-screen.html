@@ -137,19 +137,104 @@
 				<!-- App 1 -->
 				<div class="app-block" id="login-screen">
 					<div class="app-block-header"></div>
-					<!-- need -->
+					
+
 					<h2 id="login-screen-about">Why would I need this?</h2>
-					<p>You probably don't. The professional shinyapps.io account has a privacy settings that allows you to make apps private, but it does require a subscription. But if you wanted to create an 'protected' shiny app (on a department network or maybe your own server) this could be a potential solution that was inspired by this SO post.</p>
-					<!-- work -->
+					<p>You probably don't. The professional shinyapps.io account has a privacy settings that allows you to make apps private, but it does require a subscription. But if you wanted to create an 'protected' shiny app (on a control department network) this could be a potential solution that was inspired by this SO post. If you setting up your own shiny server, there are tutorials and guides available for protecting your applications.</p>
+					
+
 					<h2 id="login-screen-work">How does the app work?</h2>
 					<p>The way to visualize the UI structure is that there are three different 'screens': 1. login, 2. standard user UI, and 3. admin UI. When the user logs in, the username/password input is matched to the user account dataset. If the credentials do not match, then an error message is displayed. If successful, the credentials are matched to the corresponding account type (standard or admin), which renders the corresponding UI.</p>
-					<h3>1. Write a 1 line UI. Everything is server side</h3>
+					
+
+					<h3>1. Create a single line ui.R file.</h3>
 					<p>This shiny app works by rending the UI on the server side on successful login. The ui.R file looks like this.</p>
 					<pre><code>
 						<span class="object">ui</span> <- <span class="function">uiOutput</span>(<span class="value">"page"</span>)
 					</code></pre>
-					<h3>2. Set Login Screen ObserveEvent</h3>
-					<p>There is one <code class="inline function">observeEvent</code> that checks the user inputs. This event is triggered when the login button is clicked. Here's what it looks like:</p>
+
+
+					<h3>2. Build the base <code class="argument">ui1()</code></h3>
+					<p>The base ui <code class="argument">ui1()</code> contains the structure and the styling for the login screen. The login screen will have a short greeting and text inputs for username and password. The function, <code class="function">good_time()</code> returns a time of day greeting (e.g., 'good morning' or 'good evening'; see R file). Beneath the input box, we will also create a <code class="function">uiOutput</code> for the error message, which is described in the next step.</p>
+					<pre><code>
+						<span class="comment"># set ui1</span>
+						<span class="object">ui1</span> <- <span class="function">function</span>(){
+							    <span class="function">tagList</span>(
+							        <span class="function">div</span>(<span class="argument">id</span>=<span class="value">"container"</span>,
+							            <span class="function">div</span>(<span class="argument">id</span> = <span class="value">"login"</span>,
+
+							                <span class="comment"># make login panel</span>
+							                <span class="function">wellPanel</span>(id=<span class="value">"well"</span>,
+							                          <span class="function">HTML</span>(<span class="function">paste0</span>('
+							                                <span class="value">&lt;h2&gt;
+							                                Hello, ', <span class="function">good_time()</span>,
+							                                      '&lt;/h2&gt;',
+							                                      '&lt;h3&gt;
+							                                &lt;br&gt;Sign in to your account.
+							                                &lt;/h3&gt;'</span>)
+							                          ),
+							                          <span class="function">br()</span>,
+							                          <span class="function">textInput</span>(<span class="value">"userName"</span>,<span class="value">"Username"</span>),
+							                          <span class="function">passwordInput</span>(<span class="value">"passwd"</span>, <span class="value">"Password"</span>)
+							                ),
+							                <span class="comment"># button</span>
+							                <span class="function">actionButton</span>(<span class="value">"Login"</span>,<span class="value">"Log in"</span>),
+
+							                <span class="comment"># login error message</span>
+							                <span class="function">uiOutput</span>(<span class="value">"message"</span>)
+							            )
+							        ),
+
+							        <span class="comment"># css here</span>
+							        <span class="value">...</span>
+							       )
+							   }
+
+					</code></pre>
+
+
+					<h3>3. Define the user accounts</h3>
+					<p>Create an object with allowed usernames and passwords. You can use email addresses if that's easier and also assign initial passwords. You can also generate random character strings using the <code class="function">stri_rand_strings()</code> function from the <code class="value">stringi</code>package.</p>
+					<pre><code>
+						<span class="comment"># example accounts</span>
+					
+						| type     | Username       | password      |
+						---------------------------------------------
+						| standard | brooke7901     |  somePassword |
+						| admin    | shirley2131    |  somePassword |
+						| admin    | lindsey5876    |  somePassword |
+
+						<span class="comment"># Build data.frame of user accounts</span>
+						<span class="object">users</span> <- <span class="function">data.frame</span>(
+							<span class="argument">"User"</span>=c(<span class="value">"brooke7901"</span>,<span class="value">"shirley2131"</span>,<span class="value">"lindsey5876"</span>),
+							<span class="argument">"Password"</span>=c(<span class="value">"somePassword"</span>,<span class="value">"somePassword"</span>,<span class="value">"somePassword"</span>))
+
+					</code></pre>
+
+					<p>Make sure the user account information are stored separately and kept secure. It would best to consult someone who is familiar with web application security if you were planning to host on the web.</p>
+
+
+					<h3>4. Create an object that will handle the login status</h3>
+					<p>Over on the shiny server side, let's create an object that will handle the user login status (i.e., is the user logged in? yes or no?). Outside the <code class="function">shinyServer()</code>, we create the object <code class="function">Logged</code> and set it to <code class="logical">FALSE</code> (where <code class="logical">FALSE</code> means not logged in).</p>
+
+
+					<pre><code>
+						<span class="comment"># login status</span>
+						<span class="object">Logged</span> = <span class="logical">FALSE</span>
+					</code></pre>
+
+					<p>Place the following code at the top of your <code class="function">shinyServer()</code> code.</p>
+					<pre><code>
+						<span class="comment"># reactive values for login status</span>
+						<span class="object">USER</span> <- <span class="function">reactiveValues</span>(<span class="argument">Logged</span> = <span class="value">Logged</span>)
+
+					</code></pre>
+
+
+					<h3>5. Set Login Screen ObserveEvent</h3>
+					<p>There is one <code class="inline function">observeEvent</code> that checks the user inputs. This event is triggered when the login button is clicked.</p>
+					<p>In the first block (# render error message), the user input is checked against the list registered users. If the credentials supplied does not match any of the existing accounts, then it displays an error message. The input data is matched with existing accounts by using <code class="inline function">grep</code> to scan through the data for matching username and password, and then returns the length of the data. The return value is numeric and can only have the values of 0 or 1 where 0 equals no match and 1 equals a sucessful match. Both username and password have to return a value of 1 in order to move on.</p>
+					<p>The second block (#check input) uses the same method except that when credentials are successfully matched, it sets the object <code class="argument">Logged</code> to TRUE. <code class="argument">Logged</code> is the current status of user where <code class="logical">TRUE</code> equals logged in and <code class="logical">FALSE</code> equals logged out.</p>
 					<pre><code>
 					<span class="comment"># On login btn click</span>
 				    <span class="function">observeEvent</span>(<span class="value">input$Login</span>,{
@@ -199,11 +284,14 @@
 				        }
 				    })
 					</code></pre>
-					<p>In the first block (# render error message), the user input is checked against the list registered users. If the credentials supplied does not match any of the existing accounts, then it displays an error message. The input data is matched with existing accounts by using <code class="inline function">grep</code> to scan through the data for matching username and password, and then returns the length of the data. The return value is numeric and can only have the values of 0 or 1 where 0 equals no match and 1 equals a sucessful match. Both username and password have to return a value of 1 in order to move on.</p>
-					<p>The second block (#check input) uses the same method except that when credentials are successfully matched, it sets the object <code class="argument">Logged</code> to TRUE. <code class="argument">Logged</code> is the current status of user where <code class="logical">TRUE</code> equals logged in and <code class="logical">FALSE</code> equals logged out.</p>
-					<h2>3. Rendering the UI When Logged = TRUE</h2>
-					<p>Rendering the UI is fairly straightforward at this point and can be triggered by a conditional statement.</p>
+					
+					
+					<h3>6. Rendering the UI When Logged = TRUE</h3>
+
+					<p>Rendering the UI is fairly straightforward at this point and can be triggered by a conditional statement. The following code demonstrates how the object <code class="function">logged</code> (as defined in the previous steps) is used to render the UI.</p>
+					<p>If the value of <code class="function">logged</code> == <code class="logical">FALSE</code>, then render the UI object <code class="function">ui1</code> that was defined in step 2. Since the initial value of <code class="function">logged</code> is <code class="logical">FALSE</code>, the login ui will render by default (e.g., on app load).</p>
 					<pre><code>
+						<span class="comment"># render ui based on admin rights</span>
 						<span class="package">observe</span>({
 				        <span class="comment"># when logged = FALSE</span>
 				        <span class="function">if</span> (<span class="object">USER$Logged</span> == <span class="logical">FALSE</span>) {
@@ -215,7 +303,7 @@
 				        }
 				        
 				        <span class="comment"># Render UI by user type when logged = TRUE</span>
-				        <span class="function">if</span> (<span class="object">USER$Logged</span> == <span class="logical">TRUE</span>){
+				        <span class="function">else if</span>(<span class="object">USER$Logged</span> == <span class="logical">TRUE</span>){
 
 				            <span class="comment">## get the current user's authorization level</span>
 				            <span class="object">user_log</span> <- <span class="function">toupper</span>(<span class="value">input$userName</span>)
@@ -241,8 +329,37 @@
 				        }
 				    })
 					</code></pre>
+
+					<p>Setting admin rights is optional. If you do not want it, restructure the logged = TRUE section as written below.</p>
+					<pre><code>
+						<span class="comment"># render ui without admin rights</span>
+						<span class="package">observe</span>({
+				        <span class="comment"># when logged = FALSE</span>
+				        <span class="function">if</span> (<span class="object">USER$Logged</span> == <span class="logical">FALSE</span>) {
+				            
+				            <span class="object">output$page</span> <- <span class="function">renderUI</span>({
+				                div(class="outer",<span class="function">do.call</span>(
+				                bootstrapPage,c("",ui1())))
+				            })
+				        }
+				        
+				        <span class="comment"># Render UI by user type when logged = TRUE</span>
+				        <span class="function">else if</span>(<span class="object">USER$Logged</span> == <span class="logical">TRUE</span>){
+				            
+				            <span class="comment"># render ui</span>
+			                <span class="object">output$page</span> <- <span class="function">renderUI</span>({
+			                    <span class="function">fluidPage</span>(
+			                    	<span class="comment">...</span>
+			                    	)
+		                    )
+
+				        }
+				    })
+					</code></pre>
+					<p>You may replace <code class="function">fluidPage</code> with any type of shiny ui layout (e.g., sidebarLayout, tabsetPanel, etc.). See <a href="https://shiny.rstudio.com/articles/layout-guide.html">https://shiny.rstudio.com/articles/layout-guide.html</a> for more information.</p>
+
 					<h3>Thoughts</h3>
-					<p>Honestly, this is some Poltergeist level stuff that for some reason works. I've used this method to create a project management tool to manage daily activities and tasks. It was hosted on department servers and I added this login screen only those with an account could view it. In the real app, the account data was stored separately. I don't see much use for it elsewhere and it was a pain to setup. I wouldn't really use this if you have sensitive information you'd like to protect.</p>
+					<p>I've used this method to create a project management tool to manage daily activities and tasks. It was hosted on department servers and I added this login screen only those with an account could view it. In the real app, the account data was stored separately. I don't see much use for it elsewhere and it was a pain to setup. I wouldn't really use this if you have sensitive information you'd like to protect.</p>
 					<!-- run app -->
 					<h2 id="login-screen-run">How can I run this app?</h2>
 					<p>There are two ways to run this app:</p>
