@@ -52,7 +52,7 @@ footer a{
 	color: #2D7DDD;
 }
 
-.breadcrumbs li:nth-child(2):before{
+.breadcrumbs li:nth-child(2):before, .breadcrumbs li:nth-child(3):before, .breadcrumbs li:nth-child(4):before{
 	content: "/";
 	margin-left: 4px;
 	margin-right: 8px;
