@@ -1,0 +1,54 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval=TRUE, message=FALSE, warning=FALSE)
+```
+
+
+## Where are librarians?
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+
+```{r}
+
+# find top areas by selected state
+top_ten <- librariansSubset %>% 
+    group_by(area_name) %>%
+    summarize("tot_emp" = sum(tot_emp)) %>%
+    top_n(10) %>%
+    arrange(tot_emp) %>%
+    mutate(area_name = factor(area_name, area_name))
+
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+
+## Plot
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+
+```{r, fig.width=16}
+# plot top 10 areas by selected state
+ggplot(data = top_ten, aes(x = area_name, y= tot_emp)) + 
+    geom_col() +
+    coord_flip() + 
+    ggtitle("Which states have the most employed librarians?") + 
+    labs(x = NULL, y= "Total Employed") + 
+    theme_minimal()
+
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar.
+
+## Data
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar.
+
+```{r,fig.width=12,fig.align='center'}
+kableExtra::kable(top_ten) %>% kable_styling()
+```
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
