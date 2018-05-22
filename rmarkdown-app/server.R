@@ -42,7 +42,7 @@ shinyServer(function(input,output){
         # render report
         output$renderedReport <- renderUI({
             
-            includeMarkdown(knitr::knit("markdown/report_template.Rmd"))
+            includeMarkdown(knitr::knit("report_template.Rmd"))
             
         })
         

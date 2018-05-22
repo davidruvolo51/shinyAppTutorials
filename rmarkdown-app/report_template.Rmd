@@ -12,6 +12,10 @@ knitr::opts_chunk$set(echo = FALSE, eval=TRUE, message=FALSE, warning=FALSE)
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
 
 ```{r}
+# pkgs
+library(tidyverse,quietly = TRUE)
+library(kableExtra, quietly = TRUE)
+
 
 # find top areas by selected state
 top_ten <- librariansSubset %>% 
