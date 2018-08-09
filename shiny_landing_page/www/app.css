@@ -1,0 +1,54 @@
+html,body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* overriding bootstrap */
+.container-fluid,
+.navbar{
+    width: 100%;
+    padding: 0 !important;
+    margin:0 !important;
+}
+
+/* layout css */
+.landing-wrapper {}
+
+
+.landing-wrapper .landing-block{
+    width: 100%;
+    height: 100vh;
+}
+
+.landing-wrapper .background-content{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row-gap: 0;
+    grid-row-columns: 0;
+}
+
+.landing-wrapper .background-content img{
+    display: block;
+    width: 100%;
+}
+
+.landing-wrapper .foreground-content{
+    position: absolute;
+    top: 10%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-wrapper .foreground-content .foreground-text{
+    width: 50%;
+    padding: 7.5%;
+    color: black;
+    background-color: white;
+    text-align: center;
+}
+
+.landing-wrapper .foreground-content .foreground-text h1{font-size: 4.5rem;}
+.landing-wrapper .foreground-content .foreground-text p{font-size: 2.5rem;}
