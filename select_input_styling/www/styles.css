@@ -1,0 +1,71 @@
+/*
+Stylings for the customing <select> input using css
+*/
+
+
+/* get rid of the text select cursor */
+html,body{
+    cursor: default;
+}
+
+/* style the input label */
+.input-label{
+    font-size: 14pt;
+}
+
+/* primary styling for <select> + manually add menu button */
+#state{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    width: 90%;
+    padding: 15px;
+    font-size: 14pt;
+    border-radius: 0;
+    outline: none;
+    border: 2px solid #3A506B;
+    color: #3A506B;
+    background: url(menu-chevron-down.svg) no-repeat;
+    background-position: 95% 20px;
+    background-color: white;
+}
+
+/* manually set :focus for web acessibility */
+#state:focus{
+    -webkit-box-shadow: 0 0 20px #636363;
+    -moz-box-shadow: 0 0 20px #636363;
+    box-shadow: 0 0 20px #636363;
+    border-color: #2d7ddd;
+}
+
+/* add a little bit of spacing for <optgroup> and make a border similar to shiny */
+#state optgroup{
+    padding: 5px;
+    border-top: 1px solid #bdbdbd;
+}
+
+/* using attribute selector to add spacing to the default option. This will make sure the spacing of the menu button is evenly spaced from top to bottom */
+#state option[value="none"]{
+   height: 32.5px;
+}
+
+/* apply styling to the all <option> elements; mainly spacing to let things breathe */
+#state option , #state optgroup option{
+    padding: 5px;
+    overflow-y: scroll;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* set the background color of the first <option> in each <optgroup> */
+#state optgroup option:nth-child(1){
+    background-color: #31E981 !important;
+    color: white;
+}
+
+/* manually set the :hover state + override the background color for the first <option> in each <optgroup> (set in lines 56:59) */
+#state option:hover, #state optgroup option:nth-child(1):hover{
+    background: black !important;
+    color: white;
+    cursor: pointer;
+}
