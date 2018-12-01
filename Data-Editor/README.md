@@ -3,7 +3,7 @@
 
 ![Data Editor demo](data-editor.gif)
 
-Read about this app [here](https://davidruvolo51.github.io/projects/shinyapptutorials/tutorials/data-editor.html).
+Read about this app [davidruvolo51.github.io/pages/shinytutorials/tutorials/data-editor.html](https://davidruvolo51.github.io/pages/shinytutorials/tutorials/data-editor.html).
 
 ### How can I run this app?
 

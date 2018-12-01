@@ -2,7 +2,7 @@
 
 ![](shiny-login-screen.gif)
 
-Read more about this app [here](https://davidruvolo51.github.io/projects/shinyapptutorials/tutorials/login-screen.html).
+Read more about this app [davidruvolo51.github.io/pages/shinytutorials/tutorials/login-screen.html](https://davidruvolo51.github.io/pages/shinytutorials/tutorials/login-screen.html).
 
 ### How can I run this app?
 
