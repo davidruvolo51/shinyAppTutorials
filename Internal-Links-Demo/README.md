@@ -17,3 +17,6 @@ shiny::runGitHub(
 ```
 
 
+### Other Resources
+
+Check out the longer write-up and other demos here: [https://davidruvolo51.github.io/pages/shinytutorials/tutorials/internal-links-c.html](https://davidruvolo51.github.io/pages/shinytutorials/tutorials/internal-links-c.html).
