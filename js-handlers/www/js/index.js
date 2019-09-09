@@ -3,6 +3,9 @@
 // css focused module
 var styles = (function(){
 
+    // set defaults
+    var appDefaultTheme = "light-theme";
+
     // add css to element
     var addCSS = function (elem, css) {
         var elem = document.querySelector(elem);
@@ -20,17 +23,18 @@ var styles = (function(){
         var target = document.querySelector(elem);
         var css = Array.from(target.classList)[0];
         if (typeof css === "undefined" || css === null) {
-            return "light-theme";
+            return appDefaultTheme;
         } else {
             return css;
         }
     }
 
-    // export
+    // export functions
     return {
-        addCSS    : addCSS,
-        removeCSS : removeCSS,
-        findCSS   : findCSS
+        addCSS          : addCSS,
+        appDefaultTheme : appDefaultTheme,
+        removeCSS       : removeCSS,
+        findCSS         : findCSS
     }
 
 })();
@@ -53,13 +57,13 @@ var file = (function(){
     var setDefault = function (elem) {
         var defaultTheme = load();
         if (typeof defaultTheme === "undefined" || defaultTheme === null) {
-            styles.addCSS(elem, "light-theme");
+            styles.addCSS(elem, styles.appDefaultTheme);
         } else {
             styles.addCSS(elem, defaultTheme);
         }
     }
 
-    // export
+    // export functions
     return {
         save       : save,
         load       : load,
@@ -87,7 +91,7 @@ var text = (function () {
 // create handler that toggles the theme and saves to local storage
 Shiny.addCustomMessageHandler("toggleTheme", function (value) {
     
-    // find theme
+    // find theme and init a var to write the name of the new theme
     var currentTheme = styles.findCSS(value);
     var newTheme = '';
 
