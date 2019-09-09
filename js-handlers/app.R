@@ -10,6 +10,7 @@
 
 # pkgs
 suppressPackageStartupMessages(library(shiny))
+suppressPackageStartupMessages(library(ggplot2))
 
 # ui
 ui <- tagList(
@@ -56,7 +57,7 @@ server <- function(input, output, session){
     # event when button is clicked
     observeEvent(input$toggle, {
         session$sendCustomMessage(type="toggleTheme", "body")
-    })    
+    })
 }
 
 
