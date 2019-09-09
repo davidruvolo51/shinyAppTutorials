@@ -16,7 +16,7 @@ The available apps are listed in the following table. Not all demos have tutoria
 | Internal Links Basic Example | learn how to create a link from one shiny page to another | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/internal-links-a/)
 | Internal Links Demo | navigate to a specifc tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/internal-links-c/)
 | Internal Links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/internal-links-b/)
-| JS Handlers | learn how to create a theme switcher through custom js handlers | tbd | tbd |
+| JS Handlers | learn how to create a theme switcher through custom js handlers | in.progress | in.progress |
 | Login Screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/login-screen/)
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | NA |
 | select input styling | custom styling for inputs | working | NA |
