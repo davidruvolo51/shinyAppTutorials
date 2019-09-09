@@ -1,0 +1,10 @@
+{
+	"folders":[
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"svg.preview.background": "transparent"
+	}
+}
