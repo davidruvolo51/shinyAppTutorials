@@ -14,14 +14,13 @@ header {
     top: 0;
     left: 0;
     text-align: right;
-    z-index: 999;
 }
 
 main {
     display: block;
     margin: 0 auto;
     width: 90%;
-    height: 73.5%;
+    height: 100%;
     background-color: transparent;
 }
 
@@ -45,14 +44,6 @@ p {
     font-size: 16pt;
 }
 
-output {
-    display: block;
-    font-family: none;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 16px 32px;
-    font-weight: bold;
-}
-
 button {
     display: block;
     -webkit-appearance: none;
@@ -70,41 +61,44 @@ button {
     border-radius: 4px;
 }
 
-.surprise {
-    opacity: 0;
-    background-color: transparent;
-    background-image: url(../imgs/wave.svg);
-    background-size: 100%;
-    background-position: 0% 0%;
-    background-repeat: no-repeat;
-    padding: 102px;
-}
-
-.light-theme {
-    background-color: white;
-}
-
-.light-theme h1, 
-.light-theme output {
-    color: #252525;
-}
-
-.light-theme p {
+.theme-label {
+    display: block;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 12px;
+    margin-top: 12px;
+    font-weight: bold;
     color: #3f454b;
 }
 
-.light-theme .surprise {
-    opacity: 0;
+
+.light {
+    background-color: white;
 }
 
-.light-theme button {
+.light h1, 
+.light .theme-label {
+    color: #252525;
+}
+
+.light p {
+    color: #3f454b;
+}
+
+.light .theme-label output {
+    color: hsla(211, 65%, 50%, 1);
+}
+
+
+.light button {
     border-color: hsla(211, 65%, 50%, 1);
     background-color: hsla(211, 65%, 50%, 0.1);
     color: hsla(211, 65%, 50%, 1);
 }
 
-.light-theme button:hover, 
-.light-theme button:focus {
+.light button:hover, 
+.light button:focus {
     background-color: hsla(211, 65%, 50%, 1);
     color: hsla(211, 65%, 50%, 0.3);
     color: white;
@@ -112,30 +106,30 @@ button {
     box-shadow: 0 0 12px 0 #3f454b;
 }
 
-.dark-theme {
+.dark {
     background-color: #1A1C20;
 }
 
-.dark-theme h1, 
-.dark-theme p, 
-.dark-theme output {
+.dark h1, 
+.dark p, 
+.dark .theme-label {
     color: #f1f1f1;
 }
 
-.dark-theme .surprise {
-    opacity: 1;
-}
-
-.dark-theme button {
+.dark button {
     border-color: #C4DFFF;
     background-color: #C4DFFF;
     color: #3f454b;
 }
 
-.dark-theme button:hover, 
-.dark-theme button:focus {
+.dark button:hover, 
+.dark button:focus {
     -webkit-box-shadow: 0 0 12px 0 #C4DFFF;
     box-shadow: 0 0 12px 0 #C4DFFF;
+}
+
+.dark .theme-label output {
+    color: #C4DFFF;
 }
 
 @media screen and (min-width: 712px) {

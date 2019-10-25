@@ -2,15 +2,14 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-09-06
-#' MODIFIED: 2019-09-06
+#' MODIFIED: 2019-10-25
 #' PURPOSE: ui for shiny app
-#' PACKAGES: *see global*
+#' PACKAGES: shiny
 #' COMMENTS: NA
 #'//////////////////////////////////////////////////////////////////////////////
 
 # pkgs
 suppressPackageStartupMessages(library(shiny))
-suppressPackageStartupMessages(library(ggplot2))
 
 # ui
 ui <- tagList(
@@ -26,21 +25,18 @@ ui <- tagList(
 
     # header
     tags$header(
-        tags$output(id="themeStatus")
+        tags$span(class="theme-label", "current theme:", tags$output(id="themeStatus"))
     ),
 
 
-    # main content - manually set <main>
-    HTML("<main>"),
+    # main content
+    tags$main(
         tags$section(`aria-labelledby`="title",
             tags$h1("Custom JS Handlers", id="title"),
             tags$p("This shiny app demonstrates how to create your own javascript functions and register them with shiny server. In this example, we created a simple javascript that toggles a css class and stores the user's selection to local storage, as well as display the selected theme in the top right corner. Click the button."),
             tags$button(id="toggle", class="action-button shiny-bound-input", "Toggle Theme")
-        ),
-    HTML("</main>"),
-    
-    # surprise for dark theme
-    tags$div(class="surprise"),
+        )
+    ),
 
     # load js
     tags$script(type="text/javascript", src="js/index.js")

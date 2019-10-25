@@ -4,7 +4,7 @@
 var styles = (function(){
 
     // set defaults
-    var appDefaultTheme = "light-theme";
+    var appDefaultTheme = "light";
 
     // add css to element
     var addCSS = function (elem, css) {
@@ -96,14 +96,14 @@ Shiny.addCustomMessageHandler("toggleTheme", function (value) {
     var newTheme = '';
 
     // run logic
-    if (currentTheme === "dark-theme") {
-        styles.removeCSS(value, "dark-theme");
-        styles.addCSS(value, "light-theme");
-        newTheme = "light-theme";
+    if (currentTheme === "dark") {
+        styles.removeCSS(value, "dark");
+        styles.addCSS(value, "light");
+        newTheme = "light";
     } else {
-        styles.removeCSS(value, "light-theme");
-        styles.addCSS(value, "dark-theme");
-        newTheme = "dark-theme";
+        styles.removeCSS(value, "light");
+        styles.addCSS(value, "dark");
+        newTheme = "dark";
     }
 
     // save theme and update output element
