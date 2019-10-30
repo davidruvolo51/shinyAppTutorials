@@ -1,5 +1,8 @@
 ---
 output: html_document
+params: 
+    selection: null
+    data: null
 ---
 
 ```{r setup, include=FALSE}
@@ -7,18 +10,46 @@ knitr::opts_chunk$set(echo = FALSE, eval=TRUE, message=FALSE, warning=FALSE)
 ```
 
 
-## Where are librarians?
+# Here is your the report
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+You selected `r params$selection`. 
+
+This is an example of a parameterized report in shiny. The markdown template is stored in the same location as the `app.R` file. There isn't much to the markdown template except for the YAML setup. Here's how the data is passed from shiny into the markdown file.
+
+The YAML looks like this.
+
+```{r echo=TRUE, eval=FALSE}
+---
+output: html_document
+params:
+    selection: null
+    data: null
+---
+```
+
+I set each param to null in this example. If you want the document to render when the app is started, then set the params accordingly. 
+
+To access the params in the markdown file, use `params$some_param_name`. In this example, we will use `param$selection` and `param$data`. Define other parameters as needed.
+
+In our shiny server code, we will use the function to `includeMarkdown()` and `render()` from the `rmarkdown` package to render out markdown template. We will also pass objects to our markdown template through the `render` function. Here's what this function will look.
+
+```{r echo=TRUE, eval=FALSE}
+includeMarkdown(
+    rmarkdown::render("report_template.Rmd", params = list(selection = input$state, data = librariansDF()))
+)
+```
+
+`librariansDF` is an object that is created when the render button is clicked and we can define the selection by calling `input$state`.
+
 
 ```{r}
 # pkgs
-library(tidyverse,quietly = TRUE)
-library(kableExtra, quietly = TRUE)
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(kableExtra))
 
 
 # find top areas by selected state
-top_ten <- librariansSubset %>% 
+top_ten <- params$data %>% 
     group_by(area_name) %>%
     summarize("tot_emp" = sum(tot_emp)) %>%
     top_n(10) %>%
@@ -27,13 +58,25 @@ top_ten <- librariansSubset %>%
 
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+## Example Plot
 
-## Plot
+Now that we have our params defined and passed data into them. Let's use them.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+In this example, we will find the top 10 states that have the most employed librarians. We will create a new object `top_ten` and use that to make a chart and a display a table. Here's the r code that defines our `top_ten` object. We will use `params$data` to use our data object passed through by our render function.
 
-```{r, fig.width=16}
+```{r echo=TRUE, eval=FALSE}
+# find top areas by selected state
+top_ten <- params$data %>% 
+    group_by(area_name) %>%
+    summarize("tot_emp" = sum(tot_emp)) %>%
+    top_n(10) %>%
+    arrange(tot_emp) %>%
+    mutate(area_name = factor(area_name, area_name))
+```
+
+Here's the chart.
+
+```{r}
 # plot top 10 areas by selected state
 ggplot(data = top_ten, aes(x = area_name, y= tot_emp)) + 
     geom_col() +
@@ -44,15 +87,10 @@ ggplot(data = top_ten, aes(x = area_name, y= tot_emp)) +
 
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar.
+Here's the table.
 
-## Data
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar.
-
-```{r,fig.width=12,fig.align='center'}
+```{r,fig.fig.align='center'}
 kableExtra::kable(top_ten) %>% kable_styling()
 ```
 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie nulla in arcu venenatis pulvinar. In nec sagittis metus. In ut tristique orci. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce consequat ac erat non consectetur. Nulla eu consequat ligula. Donec pharetra, erat quis maximus semper, risus mauris maximus dui, non sollicitudin velit ligula ac nisi.
+For more information on parameterized reports, check out the [documentation](https://rmarkdown.rstudio.com/developer_parameterized_reports.html%23parameter_types%2F).

@@ -1,0 +1,135 @@
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main, header {
+    margin: 0 auto;
+    width: 90%;
+}
+
+header {
+    padding-top: 32px;
+}
+
+main {
+    margin: 0 auto;
+    padding-bottom: 44px;
+}
+
+h1, h2, h3 {
+    color: #252525;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+p {
+    color: #3f454b;
+    line-height: 1.8;
+}
+
+header h1, header h2 {
+    line-height: 1.1;
+}
+
+header h2 {
+    font-weight: 400;
+}
+
+button, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+button {
+    width: 125px;
+    padding: 4px 0;
+    border-radius: 4px;
+    margin: 0;
+    border: none;
+    border: 2px solid #666A86;
+    background-color: #666A86;
+    color: #f3f3f3;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f3f3f3;
+    border: 2px solid #666A86;
+    color: #666A86;
+}
+
+select {
+    padding: 6px 0;
+    padding-left: 6px;
+    width: 250px;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: url(menu-chevron-down.svg) no-repeat;
+    background-position: 90% 10px;
+    background-color: white;
+    background-size: 16px;
+}
+
+legend {
+    font-size: 16pt;
+    margin-bottom: 12px;
+    color: #252525;
+}
+
+label {
+    font-size: 14pt;
+    color: #252525;
+}
+
+form {
+    background-color: #f3f3f3;
+    padding: 16px;
+    margin: 12px 0;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form button, form select {
+    display: inline-block;
+}
+
+form select {
+    margin-right: 12px;
+}
+
+#report {
+    margin: 0;
+    padding: 0;
+    font-size: 16pt;
+}
+
+#report pre code {
+    font-size: 14pt;
+}
+
+.shiny-html-output .container-fluid,
+.shiny-html-output .main-container {
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (min-width: 972px) {
+    main, header {
+        width: 100%;
+        max-width: 912px;
+    }
+}
