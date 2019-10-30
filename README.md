@@ -25,5 +25,5 @@ The available apps are listed in the following table. Not all demos have tutoria
 
 ## Contributing to this project
 
-I plan on writting an example every now and then. Comments and suggestions are always welcome, as well as if you would like to add your own tutorial. Get in touch with me by opening a new message.  
+I plan on writting an example every now and then. Comments and suggestions are always welcome, as well as if you would like to add your own tutorial. Get in touch with me by opening a new message and checkout the [Contributing Guidelines](https://github.com/davidruvolo51/shinyAppTutorials/blob/master/CONTRIBUTING.md).
 

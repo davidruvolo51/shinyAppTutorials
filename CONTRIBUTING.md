@@ -9,8 +9,7 @@ Suggestions, comments, ideas for improvement are always warmly welcomed. If you 
 1. Background
     - About the project
     - The structure of the project
-2. Contributing to the shiny apps repo
-3. Contributing to the shiny tutorials repo
+2. Contributing
 
 ## Background
 
@@ -27,13 +26,26 @@ There are two repos to this project.
 1. [shinyAppTutorials](https://github.com/davidruvolo51/shinyAppTutorials)
 2. [shinytutorials](https://github.com/davidruvolo51/shinytutorials)
 
-The `shinyAppTutorials` repo contains all of the shinyapps and examples, as well as all related code discussed in the tutorials (e.g., css, js,  etc.). All written tutorials are stored in the `shinytutorials` repo. The static site is built with [gatsbyjs](https://www.gatsbyjs.org) and all tutorials are written in markdown. More information on each repo can be found below.
+The `shinyAppTutorials` repo contains all of the shinyapps and examples, as well as all related code discussed in the tutorials (e.g., css, js,  etc.). All written tutorials are stored in the `shinytutorials` repo. The static site is built with [gatsbyjs](https://www.gatsbyjs.org) and all tutorials are written in markdown.
 
 
-## Contributing to the shiny apps repo
+## Contributing 
 
-tbd
+If you have any ideas to improve the tutorials (either in the code or in the writings), fork the repository, make all the changes, and then open a pull request. Make sure to include a README if you are adding a new app. 
 
-## Contributing to the shiyn tutorials repo
+If you would like to write or contribute to a tutorial, then create a fork of the shinytutorials repository. The static site is built using gatsbyJS. All development takes place on the `dev` branch. All tutorials are written in markdown using the following YAML header:
 
-tbd
+```
+---
+title: "Some Title"
+subtitle: "A Subtitle"
+abstract: "A summary of the tutorial"
+date: "2019-09-06"
+updated: "2019-10-25"
+keywords: ["keyword1", "keyword2"]
+---
+```
+
+The build process can be a bit confusing, so it might be easier to open a pull request from the dev branch.
+
+Take a look at the existing directories and files to see how the projects are structured. Let me know if you have any questions.
