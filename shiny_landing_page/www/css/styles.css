@@ -13,9 +13,6 @@ html,body{
 }
 
 /* layout css */
-.landing-wrapper {}
-
-
 .landing-wrapper .landing-block{
     width: 100%;
     height: 100vh;
@@ -25,7 +22,6 @@ html,body{
     display: grid;
     grid-template-columns: 50% 50%;
     grid-row-gap: 0;
-    grid-row-columns: 0;
 }
 
 .landing-wrapper .background-content img{

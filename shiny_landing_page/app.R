@@ -1,3 +1,18 @@
+#'//////////////////////////////////////////////////////////////////////////////
+#' FILE: app.R
+#' AUTHOR: David Ruvolo
+#' CREATED: 2019-08-09
+#' MODIFIED: 2019-10-30
+#' PURPOSE: single file shiny app
+#' PACKAGES: shiny
+#' COMMENTS: 
+#'      - the purpose of this app is to demonstrate how to layer content on top
+#'        of a series of images. 
+#'     - I decided to use navbar page layout
+#'     - All images come from unsplash.com and are defined below
+#'     - styles are located in www/css/styles.css
+#'     - app was built in response to this question: https://community.rstudio.com/t/background-images-in-shiny/12261/
+#'//////////////////////////////////////////////////////////////////////////////
 
 # set image urls -- replace with your own files
 top_left <- "https://images.unsplash.com/photo-1495834041987-92052c2f2865?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3d771d2cc226047515072dba7a5f03bc&auto=format&fit=crop&w=1050&q=80"
@@ -8,7 +23,7 @@ bottom_right <- "https://images.unsplash.com/photo-1525869916826-972885c91c1e?ix
 
 
 # pkgs
-library(shiny)
+suppressPackageStartupMessages(library(shiny))
 
 # ui
 ui <- tagList(
@@ -16,7 +31,7 @@ ui <- tagList(
     #'////////////////////////////////////////
     # head + css
     tags$head(
-        tags$link(href="app.css", rel="stylesheet", type="text/css")
+        tags$link(href="css/styles.css", rel="stylesheet", type="text/css")
     ),
     
     #'////////////////////////////////////////
@@ -25,8 +40,7 @@ ui <- tagList(
         
         # layout
         navbarPage(title = 'National Park',
-                   
-                   
+
                    # tab 1: landing page
                    tabPanel(title = "Home", 
                             
@@ -36,29 +50,18 @@ ui <- tagList(
                                      # child element 1: images
                                      tags$div(class="landing-block background-content",
                                               
-                                              # top left
-                                              img(src=top_left),
-                                              
-                                              # top right
-                                              img(src=top_right),
-                                              
-                                              # bottom left
-                                              img(src=bottom_left), 
-                                              
-                                              # bottom right
-                                              
-                                              img(src=bottom_right)
-                                              
+                                              # images - top -> bottom, left -> right
+                                              tags$img(src=top_left),
+                                              tags$img(src=top_right),
+                                              tags$img(src=bottom_left), 
+                                              tags$img(src=bottom_right)
                                      ),
                                      
                                      # child element 2: content
                                      tags$div(class="landing-block foreground-content",
                                               tags$div(class="foreground-text",
                                                        tags$h1("Welcome"),
-                                                       tags$p("This shiny app demonstrates
-                                                     how to create a 2 x 2 layout
-                                                              using css grid and
-                                                              overlaying content."),
+                                                       tags$p("This shiny app demonstrates how to create a 2 x 2 layout using css grid and overlaying content."),
                                                        tags$p("Isn't this cool?"),
                                                        tags$p("Yes it is!")
                                               )
@@ -75,10 +78,9 @@ ui <- tagList(
 
 
 # server
-server <- shinyServer(function(input, output){
-    
-})
+server <- shinyServer(function(input, output){ 
 
+})
 
 # app
 shinyApp(ui, server)
