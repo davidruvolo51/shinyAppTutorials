@@ -1,5 +1,9 @@
 /*
 Stylings for the customing <select> input using css
+I would use caution in using this approach as overriding
+browser defaults can cause things to break or not function
+properly. Check site such as caniuse.com for browerser support
+before implementing into your production app.
 */
 
 

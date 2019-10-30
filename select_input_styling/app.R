@@ -1,18 +1,17 @@
 #'//////////////////////////////////////////////////////////////////////////////
 #' FILE: app.R
 #' CREATED: 16 August 2018
-#' MODIFIED: 16 August 2018
+#' MODIFIED: 30 October 2019
 #' PURPOSE: demo for custom styling of <select> input
 #' PACKAGES: shiny
 #' STATUS: working + complete;
-#' COMMENTS: see comments in www/styles.css for information on css
+#' COMMENTS: see comments in www/css/styles.css for information on css
 #'//////////////////////////////////////////////////////////////////////////////
 #' GLOBAL OPTIONS:
 options(stringsAsFactors = FALSE)
 
-
 # pkgs
-library(shiny)
+suppressPackageStartupMessages(library(shiny))
 
 # app
 shinyApp(
@@ -20,7 +19,7 @@ shinyApp(
         
         # head
         tags$head(
-            tags$link(type="text/css",href="styles.css",rel="stylesheet")
+            tags$link(type="text/css",href="css/styles.css",rel="stylesheet")
         ),
         
         #'////////////////////////////////////////
@@ -45,23 +44,23 @@ shinyApp(
                         
                         # east coast
                         tags$optgroup("label" = "East Coast",
-                                      tags$option(value = "NY", "NY"),
-                                      tags$option(value = "NJ", "NJ"),
-                                      tags$option(value = "CT", "CT")
+                            tags$option(value = "NY", "NY"),
+                            tags$option(value = "NJ", "NJ"),
+                            tags$option(value = "CT", "CT")
                         ),
                         
                         # west coast
                         tags$optgroup("label" = "West Coast",
-                                      tags$option(value = "WA","WA"),
-                                      tags$option(value = "OR","OR"),
-                                      tags$option(value = "CA","CA")
+                            tags$option(value = "WA","WA"),
+                            tags$option(value = "OR","OR"),
+                            tags$option(value = "CA","CA")
                         ),
                         
                         # midwest
                         tags$optgroup("label" = "Midwest",
-                                      tags$option(value = "MN","MN"),
-                                      tags$option(value = "WI","WI"),
-                                      tags$option(value = "IA","IA")
+                            tags$option(value = "MN","MN"),
+                            tags$option(value = "WI","WI"),
+                            tags$option(value = "IA","IA")
                         )
             )
         ),
@@ -75,6 +74,8 @@ shinyApp(
         )
         
     ),
+
+    # server
     server = function(input, output) {
         
         output$selection <- renderText(
