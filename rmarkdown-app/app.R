@@ -36,7 +36,7 @@ shinyApp(
             # input
             tags$form(
                 tags$legend("Define Parameters for the Report"),
-                tags$label(`for`="id", "Select a State"),
+                tags$label(`for`="state", "Select a State"),
                 tags$select(id="state", HTML(
                         c("Select a State",
                             sapply(
@@ -52,7 +52,7 @@ shinyApp(
             ),
 
             # output
-            tags$section(
+            tags$article(`aria-label`="report",
                 htmlOutput("report")
             )
 
