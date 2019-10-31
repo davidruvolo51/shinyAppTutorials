@@ -12,15 +12,15 @@ The available apps are listed in the following table. Not all demos have tutoria
 
 | Name | Description | Status | Link |
 | :--- | :---        | :----  | :--- |
-| Data Editor | edit a dataset in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/data-editor/)
-| Internal Links Basic Example | learn how to create a link from one shiny page to another | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/internal-links-a/)
-| Internal Links Demo | navigate to a specifc tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/internal-links-c/)
-| Internal Links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/internal-links-b/)
-| JS Handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/js-handlers/) |
-| Login Screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/login-screen/)
-| rmarkdown app | Write content in an RMD file and use it as the UI | working | NA |
+| Data Editor | edit a dataset in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/)
+| Internal Links Basic Example | learn how to create a link from one shiny page to another | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
+| Internal Links Demo | navigate to a specifc tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
+| Internal Links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
+| JS Handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/) |
+| Login Screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
+| rmarkdown app | Write content in an RMD file and use it as the UI | working | [turorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/) |
 | select input styling | custom styling for inputs | working | NA |
-| shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/landing-page/)
+| shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 
 
 ## Contributing to this project
