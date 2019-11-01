@@ -1,6 +1,20 @@
+#'//////////////////////////////////////////////////////////////////////////////
+#' FILE: app.R
+#' AUTHOR: David Ruvolo
+#' CREATED: 2017-03-17
+#' MODIFIED: 2019-11-01
+#' PURPOSE: creating links to other tabs in leaflet maps
+#' STATUS: working
+#' PACKAGES: shiny, leaflet
+#' COMMENTS:
+#'  In response to this question: https://groups.google.com/forum/#!topic/shiny-discuss/fZORQAqkKsQ
+#'//////////////////////////////////////////////////////////////////////////////
+#' OPTIONS
+options(stringsAsFactors = FALSE)
+
 # packages
-library(shiny)
-library(leaflet)
+suppressPackageStartupMessages(library(shiny))
+suppressPackageStartupMessages(library(leaflet))
 
 # make df for leaflet
 mapDF <- data.frame(
@@ -10,86 +24,73 @@ mapDF <- data.frame(
     hrefValue = c("zoo", "guggenheim", "history")
 )
 
-# ui
+# app
 ui <- tagList(
-    # link js
-    tags$head(tags$link(includeScript("func.js"))),
-    tags$head(tags$style("a{cursor:pointer;}")),
+    
+    # head
+    tags$head(
+        
+        # javascript
+        tags$script(type="text/javascript", src="js/index.js"),
+        
+        # css
+        tags$style(
+            "a{cursor:pointer;}",
+            "img{ display: block; max-width: 60%; }"
+        )
+    ),
+    
     # UI
     navbarPage(
         title = "Shiny Demo",
         #///////////////////////////////////////////////
         # Home
         tabPanel("Home",value ="home",
-                 titlePanel("Shiny Demo: A mini New York tourism map"),
-                 p("The purpose of this shiny app is to demonstrate how to create links
-                   to other pages, tabs, panels, etc. in your shiny app."),
+                 tags$h1("Shiny Demo: A mini New York tourism map"),
+                 p("The purpose of this shiny app is to demonstrate how to create links to other pages, tabs, panels, etc. in your shiny app."),
                  leafletOutput("map")
         ),
         #///////////////////////////////////////////////
         # Central Park Zoo
         tabPanel("Central Park Zoo",value="zoo",
-                 titlePanel("Central Park Zoo"),
-                 tags$a("data-flickr-embed"="true",
-                        href="https://www.flickr.com/photos/paulakoala/5889405633/in/album-72157627088736680/",
-                        title="Central Park Zoo Entrance",
-                        img(src="https://farm7.staticflickr.com/6047/5889405633_11dddf7208_n.jpg",
-                            width="640", height="393", alt="Central Park Zoo Entrance")),
-                 tags$script("async", src="//embedr.flickr.com/assets/client-code.js", charset="utf-8"),
-                 helpText("Would you like to go back? If so click ", 
-                          HTML("<a onclick=","customHref('home')" ,">",
-                               "here","</a>"))),
+                 tags$h1("Central Park Zoo"),
+                 tags$p("Photo by Fred Heap on Unsplash"),
+                 tags$p("Would you like to go back? If so click ", HTML("<a onclick=","customHref('home')" ,">","here","</a>")),
+                 tags$img(src="https://images.unsplash.com/photo-1525125804400-4b77d2bc5ada?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1137&q=80", alt="a sea lion swimming in the water")
+        ),
         
         #///////////////////////////////////////////////
         # Guggenheim
         tabPanel("Guggenheim",value="guggenheim",
-                 titlePanel("Guggenheim Museum"),
-                 tags$a("data-flickr-embed" ="true",  
-                        href="https://www.flickr.com/photos/88017382@N00/7799729420", 
-                        title="The Solomon R. Guggenheim Museum", 
-                        img(src="https://farm9.staticflickr.com/8442/7799729420_908211ebc1_n.jpg", 
-                            width="640", height="393", alt="The Solomon R. Guggenheim Museum")),
-                 tags$script("async", src="//embedr.flickr.com/assets/client-code.js", charset="utf-8"),
-                 helpText("Would you like to go back? If so click ", 
-                          HTML("<a onclick=","customHref('home')" ,">",
-                               "here","</a>"))),
+                 tags$h1("Guggenheim Museum"),
+                 tags$p("Photo by Leslie Holder on Unsplash"),
+                 tags$p("Would you like to go back? If so click ", HTML("<a onclick=","customHref('home')" ,">","here","</a>")),
+                 tags$img(src="https://images.unsplash.com/photo-1518418360632-725a012d9c3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80", alt="high-top photography of building interior")
+        ),
         
         #///////////////////////////////////////////////
         # American Museum of Natural History
         tabPanel("Natural History Museum",value="history",
-                 titlePanel("Natural History Museum"),
-                 tags$a("data-flickr-embed" = "true",
-                        href="https://www.flickr.com/photos/29394931@N06/6123226397/in/photolist-ak68SV-UH51Uq-UH51RQ-V3JdUQ-cFVHcY-U9Lfmz-TLkm2J-QNi6eY-V3SQGW-TLkmfj-V6swR4-W1Ta7o-9vcbAQ-V3JcPo-UH54Ef-TLhceu-T4TkAE-V3SRSm-V3JcgE-UH55pw-UH54eW-V3SSrC-UH55tu-V6AEKV-eeJ18L-V3JapU-TLkkEm-VvNUdd-UH51wG-V3SScj-VeLUDd-97BS9N-UH51p7-rZrMEq-sgS2RQ-ae5Hm7-iFnZRH-sDx51X-nKPZez-6QSYne-V3JbVj-V6stCa-mwNN6E-V3JdrL-9vccqw-UH4Xys-7sTCCL-V6AFmK-V3SR1m-UH53yY",
-                        title="American Museum of Natural History, New York",
-                        img(src="https://farm7.staticflickr.com/6197/6123226397_f0e03fca6b_n.jpg",
-                            width="640", height="393",alt="American Museum of Natural History, New York")),
-                 tags$script("async",src="//embedr.flickr.com/assets/client-code.js",charset="utf-8"),
-                 helpText("Would you like to go back? If so click ", 
-                          HTML("<a onclick=","customHref('home')" ,">",
-                               "here","</a>")))
+                 tags$h1("Natural History Museum"),
+                 tags$p("Photo by Aditya Vyas on Unsplash"),
+                 tags$p("Would you like to go back? If so click ", HTML("<a onclick=","customHref('home')" ,">", "here","</a>")),
+                 tags$img(src="https://images.unsplash.com/photo-1539233487784-1a29074b0f57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", alt="people standing besides dinosaur skeletons")
+        )
     )
 )
 
+#'////////////////////////////////////////
 # server
 server <- function(input, output){
     
     # make map
     output$map <- renderLeaflet({
         leaflet(data = mapDF) %>%
-            setView(
-                lat = 40.7752739, 
-                lng = -73.9688518,
-                zoom = 14) %>%
+            setView( lat = 40.7752739,  lng = -73.9688518, zoom = 14) %>%
             addTiles() %>%
-            addMarkers(lng = ~lng , lat = ~lat,
-                       popup = paste0(
-                           "Learn more about the ",
-                           "<a onclick=","customHref('",mapDF$hrefValue,"')>",
-                           mapDF$location,
-                           "</a>"
-                       ))
+            addMarkers(lng = ~lng , lat = ~lat, popup = paste0("Learn more about the ", "<a onclick=","customHref('",mapDF$hrefValue,"')>", mapDF$location,"</a>"))
     })
 }
 
-# launch
+# run app
 shinyApp(ui, server)
