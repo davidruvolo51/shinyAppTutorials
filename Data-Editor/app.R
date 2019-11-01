@@ -1,8 +1,13 @@
-#'/////////////////////////////////////////////////////////////////////////////
-#' File: data-editor-app.R
-#' Date Created: 15 February 2017
-#' Author: David Ruvolo
-#' Purpose: The purpose of this app is to develop a method for editing data
+#'//////////////////////////////////////////////////////////////////////////////
+#' FILE: app.R
+#' AUTHOR: David Ruvolo
+#' CREATED: 2019-02-15
+#' MODIFIED: 2019-11-01
+#' PURPOSE: a data editor app in shiny
+#' STATUS: working
+#' PACKAGES: shiny, rhandsontable, DT, shinyjs, shinybs
+#' COMMENTS: 
+#'          The purpose of this app is to develop a method for editing data
 #'          within a shiny app. To make this work, there's base file 
 #'          'cars_data.RDs', which is the primary version. Click the 'edit'
 #'          button to edit a column, update information, etc, and then click
@@ -12,9 +17,8 @@
 #'          modified df will be saved into the base file. Otherwise, the 
 #'          cars_data.RDS will be initiated. This is to add a level of 'security'
 #'          in the event you need to consult previous versions of the data.
-#'/////////////////////////////////////////////////////////////////////////////
-#' INITIALIZATION
-#' 
+#'//////////////////////////////////////////////////////////////////////////////
+
 #' load packages
 library(shiny)
 library(rhandsontable)
@@ -46,7 +50,6 @@ ui <- shinyUI(
         
         # use shinyjs
         useShinyjs(),
-        extendShinyjs(text = "shinyjs.refresh = function(){history.go(0);}"),
         
         # title
         titlePanel("Data Editor"),
@@ -156,7 +159,7 @@ server <- function(input, output, session){
     
     # define refresh
     observeEvent(input$refresh, {
-        js$refresh()
+        shinyjs::runjs("history.go(0)")
     })
     
     ## when view or cancel, when present, is clicked
