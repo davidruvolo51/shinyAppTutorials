@@ -2,7 +2,7 @@
 
 Creating hrefs to tabs in shiny is tricky as the href in `<a href='target-page'>...</a>` generates new links on each `runApp()`. To accomplish this, you must target the `value` in `tabPanel()` using javascript. 
 
-Read more about this app [davidruvolo51.github.io/pages/shinytutorials/tutorials/internal-links-a.html](https://davidruvolo51.github.io/pages/shinytutorials/tutorials/internal-links-a.html).
+Read more about this app [davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/).
 
 ### How can I run this app?
 
