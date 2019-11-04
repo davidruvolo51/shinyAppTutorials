@@ -21,6 +21,7 @@ html,body{
 #state{
     -webkit-appearance:none;
     -moz-appearance:none;
+    appearance:none;
     width: 90%;
     padding: 15px;
     font-size: 14pt;
@@ -63,13 +64,13 @@ html,body{
 
 /* set the background color of the first <option> in each <optgroup> */
 #state optgroup option:nth-child(1){
-    background-color: #31E981 !important;
+    background-color: #31E981;
     color: white;
 }
 
 /* manually set the :hover state + override the background color for the first <option> in each <optgroup> (set in lines 56:59) */
 #state option:hover, #state optgroup option:nth-child(1):hover{
-    background: black !important;
+    background: black;
     color: white;
     cursor: pointer;
 }

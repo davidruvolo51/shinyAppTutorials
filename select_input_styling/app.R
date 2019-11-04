@@ -1,7 +1,7 @@
 #'//////////////////////////////////////////////////////////////////////////////
 #' FILE: app.R
 #' CREATED: 16 August 2018
-#' MODIFIED: 30 October 2019
+#' MODIFIED: 04 November 2019
 #' PURPOSE: demo for custom styling of <select> input
 #' PACKAGES: shiny
 #' STATUS: working + complete;
@@ -36,8 +36,7 @@ shinyApp(
             tags$label("for"="state", "Select a State", class="input-label"),
             
             # input
-            tags$select(id="state","onfocus"='this.size=13;', "onblur"='this.size=1;' ,
-                        "onchange"='this.size=1; this.blur();',
+            tags$select(id="state",
                         
                         # default
                         tags$option(value = "none", ""),
@@ -71,7 +70,10 @@ shinyApp(
             # output result
             tags$h2("Your Selection:"),
             textOutput("selection")
-        )
+        ),
+
+        # load js
+        tags$script(type="text/javascript", src="js/index.js")
         
     ),
 
