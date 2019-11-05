@@ -70,11 +70,7 @@ shinyApp(
             # output result
             tags$h2("Your Selection:"),
             textOutput("selection")
-        ),
-
-        # load js
-        tags$script(type="text/javascript", src="js/index.js")
-        
+        )
     ),
 
     # server
