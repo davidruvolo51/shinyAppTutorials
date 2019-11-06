@@ -34,18 +34,20 @@ ui <- tagList(
 
                # tab 1 - home
                tabPanel("Home", value = "home", 
-                        icon = icon("fa-home"),
-                        h1("Some title here"),
-                        p("...some cool stuff will go here..."),
-                        tags$a("Go to 'other' tab", onclick="customHref('other')", class="btn btn-default")
+                        h1("Home"),
+                        tags$a("Go to 'about' page", onclick="customHref('about')")
                ),
-               # tab 2 - other 
-               tabPanel("Other", 
-                        value = "other",
-                        h1("Another title here"),
-                        p("...some cool stuff will go here..."),
-                        tags$a("Go to 'home' tab", onclick="customHref('home')", class="btn btn-default")
-               )
+               # tab 2 - about 
+               tabPanel("About", value = "about",
+                        h1("About"),
+                        tags$a("Go to 'contact me' page", onclick="customHref('contact')")
+               ),
+               
+               # tab 3 - contact me
+               tabPanel("Contact Me", value="contact",
+                        tags$h1("Contact Me"),
+                        tags$a("Go to 'home' page", onclick="customHref('home')")
+                )
     ))
 
 # SERVER
