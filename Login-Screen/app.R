@@ -47,14 +47,14 @@ signin <- tagList(
 
             # inputs
             tags$label(`for`="username", "Enter your username"),
-            tags$input(type="text", id="username", class="shiny-bound-input"),
+            tags$input(type="text", id="username"),
             tags$output(id="user_status", class="error-message"),
             
             tags$label(`for`="password", "Enter your password"),
-            tags$input(type="password", id="password", class="shiny-bound-input"),
+            tags$input(type="password", id="password"),
 
             # submit button
-            actionButton(inputId = "submit", "Submit")
+            tags$button(id="submit", type="submit", "Submit", class="action-button shiny-bound-input")
         )
     )
 )
@@ -86,7 +86,7 @@ ui <- tagList(
     # app output
     uiOutput("app"),
 
-    # debugging js
+    # load script
     tags$script(type="text/javascript", src="js/index.js")
 )
 
