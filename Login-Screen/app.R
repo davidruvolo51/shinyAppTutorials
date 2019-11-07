@@ -87,11 +87,7 @@ ui <- tagList(
     uiOutput("app"),
 
     # debugging js
-    tags$script(type="text/javascript","
-        Shiny.addCustomMessageHandler('innerHTML', function(value){
-            document.getElementById(value[0]).innerHTML = value[1]
-        }) 
-    ")
+    tags$script(type="text/javascript", src="js/index.js")
 )
 
 #'////////////////////////////////////////
