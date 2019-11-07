@@ -69,7 +69,6 @@ input[type=text], input[type=password]{
     width: 95%;
     margin: 0; 
     margin-top: 4px;
-    margin-bottom: 16px;
     padding: 8px;
     padding-left: 12px;
     font-size: 12pt;
@@ -83,6 +82,14 @@ input[type=text]:focus,
 input[type=password]:focus {
     border-color: #252525;
 }
+
+.invalid-usr #username,
+.invalid-pwd #password,
+.invalid-all #username,
+.invalid-all #password {
+    border: 2px solid red;
+}
+
 
 .main {
     width: 100%;
@@ -111,6 +118,7 @@ input[type=password]:focus {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
+    margin-bottom: 16px;
 }
 
 

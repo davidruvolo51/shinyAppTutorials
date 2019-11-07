@@ -39,7 +39,7 @@ signin <- tagList(
     tags$main(class="main signin-screen",
 
         # create a form
-        tags$form(class="signin-form",
+        tags$form(class="signin-form", id="form",
 
             # create a title for the form
             tags$legend("Sign in to your account"),
@@ -52,6 +52,7 @@ signin <- tagList(
             
             tags$label(`for`="password", "Enter your password"),
             tags$input(type="password", id="password"),
+            tags$output(id="password_status", class="error-message"),
 
             # submit button
             tags$button(id="submit", type="submit", "Submit", class="action-button shiny-bound-input")
@@ -95,12 +96,8 @@ ui <- tagList(
 # SERVER
 server <- function(input, output, session){
 
-    #'////////////////////////////////////////
-        
-    # session handler for update innerHTML
-    innerHTML <- function(id, string){
-        session$sendCustomMessage(type="innerHTML", list(id, string))
-    }
+    # source handlers
+    source("utils/server_01_handlers.R", local=TRUE)
 
     # define reactive values
     username <- reactiveVal(NA)
@@ -113,6 +110,10 @@ server <- function(input, output, session){
         # reset all form statuses
         innerHTML(id="form_status", "")
         innerHTML(id="user_status", "")
+        innerHTML(id="password_status", "")
+        removeCSS(id="form", css="invalid-all")
+        removeCSS(id="form", css="invalid-usr")
+        removeCSS(id="form", css="invalid-pwd")
 
         # search users for match this returns row.index
         # use it to verify password via sodium's password_verify function
@@ -120,8 +121,21 @@ server <- function(input, output, session){
         
         # logic for form validation
         if( input$username == "" || input$password == ""){
-            innerHTML(id="form_status","One or more fields are empty. All fields are required.")
-        } else if( length(usr) > 0) {
+            # further validate blank inputs
+            if(input$username == "" && input$password == ""){
+                innerHTML(id="form_status","Username and password is missing.")
+                addCSS(id="form", css="invalid-all")
+            } else if (input$username == "" && !(input$password == "") ){
+                innerHTML(id="user_status", "Username is missing")
+                addCSS(id="form", css="invalid-usr")
+            } else if(!(input$username == "") && input$password == "") {
+                innerHTML(id="password_status","No password was entered.")
+                addCSS(id="form", css="invalid-pwd")
+            } else {
+                innerHTML(id="form_status", "Something went wrong. Please enter your details again.")
+                addCSS(id="form", css="invalid-all")
+            }
+        } else if( length(usr) ) {
 
             # validate password
             pwd <- password_verify(users$password[usr], input$password)
@@ -131,12 +145,16 @@ server <- function(input, output, session){
                 username(input$username)
                 logged(TRUE)
             } else {
-                innerHTML(id="form_status", string="The username or password was incorrect")
+                innerHTML(id="password_status", string="The password is incorrect.")
+                addCSS(id="form", css="invalid-pwd")
             }
-        }  else if( length(usr) == 0 ){
+
+        }  else if( !length(usr) ){
             innerHTML(id="user_status", "The username is incorrect")
+            addCSS(id="form", css="invalid-usr")
         } else {
             innerHTML(id="form_status", "The username or password is incorrect")
+            addCSS(id="form", css="invalid-all")
         }
     })
 

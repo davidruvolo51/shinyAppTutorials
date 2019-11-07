@@ -1,8 +1,6 @@
-# shinyTutorials
-
 ![shiny app tutorials](shinytutorials.png)
 
----
+# shinyTutorials
 
 This repo contains the code for the examples and demonstrations presented on my shiny tutorials site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/). 
 
@@ -27,7 +25,7 @@ The available apps are listed in the following table. Not all demos have tutoria
 | JS Handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/) |
 | Login Screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | [turorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/) |
-| select input styling | custom styling for inputs | working | NA |
+| select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/) |
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 
 ## Resources
