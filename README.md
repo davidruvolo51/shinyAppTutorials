@@ -49,7 +49,9 @@ Many of the tutorials use css and javascript, as well as html to specifc layouts
 
 ### Communities
 
+- [Data Visualization Society](https://www.datavisualizationsociety.com)
 - [dev.to](https://dev.to)
+- [RStudio Community](https://community.rstudio.com)
 
 ## Contributing to this project
 
