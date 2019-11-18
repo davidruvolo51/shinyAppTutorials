@@ -27,7 +27,7 @@ The available apps are listed in the following table. Not all demos have tutoria
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | [turorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/) |
 | select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/) |
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
-| time input | getting `<input type="time">` to work in shiny applications | in.progress | tbd
+| time input | getting `<input type="time">` to work in shiny applications | working | in.progress
 
 ## Resources
 
@@ -56,4 +56,4 @@ Many of the tutorials use css and javascript, as well as html to specifc layouts
 
 ## Contributing to this project
 
-I plan on writting an example every now and then. Comments and suggestions are always welcome, as well as if you would like to add your own tutorial. Get in touch with me by opening a new message and checkout the [Contributing Guidelines](https://github.com/davidruvolo51/shinyAppTutorials/blob/master/CONTRIBUTING.md).
+I plan on writting an example every now and then. Check open issues for the label `tutorial ideas`. Comments and suggestions are always welcome, as well as if you would like to add your own tutorial. Get in touch with me by opening a new message and checkout the [Contributing Guidelines](https://github.com/davidruvolo51/shinyAppTutorials/blob/master/CONTRIBUTING.md).
