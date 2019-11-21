@@ -2,165 +2,108 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-02-15
-#' MODIFIED: 2019-11-01
+#' MODIFIED: 2019-11-21
 #' PURPOSE: a data editor app in shiny
 #' STATUS: working
 #' PACKAGES: shiny, rhandsontable, DT, shinyjs, shinybs
 #' COMMENTS: 
 #'          The purpose of this app is to develop a method for editing data
 #'          within a shiny app. To make this work, there's base file 
-#'          'cars_data.RDs', which is the primary version. Click the 'edit'
+#'          'nyc_dogs.RDS', which is the primary version. Click the 'edit'
 #'          button to edit a column, update information, etc, and then click
 #'          the 'save' button. The observeEvent input$yes checks to see if a
-#'          current version of the base file ('cars_data.RDS') exists. If return
+#'          current version of the base file ('nyc_dogs.RDS') exists. If return
 #'          == TRUE, then the version will be renamed with today's date and the
 #'          modified df will be saved into the base file. Otherwise, the 
-#'          cars_data.RDS will be initiated. This is to add a level of 'security'
+#'          nyc_dogs.RDS will be initiated. This is to add a level of 'security'
 #'          in the event you need to consult previous versions of the data.
 #'//////////////////////////////////////////////////////////////////////////////
 
 #' load packages
-library(shiny)
-library(rhandsontable)
-library(DT)
-library(shinyjs)
-library(shinyBS)
+suppressPackageStartupMessages(library(shiny))
+suppressPackageStartupMessages(library(rhandsontable))
+suppressPackageStartupMessages(library(DT))
+suppressPackageStartupMessages(library(shinyjs))
+suppressPackageStartupMessages(library(shinyBS))
 
-#' cd = pwd
-# setwd(getwd())
-
-#' logic for loading data file
-testFile <- "cars_data.rds"                  # primary data file
-
-if(file.exists(testFile)){
-    mtcarsDF <- readRDS("cars_data.rds")     # load data
-} else {                                     # create new data
-    mtcarsDF <- mtcars                       # bypass overwrite messages
-    row.names(mtcarsDF) <- NULL              # null rownames and
-    mtcarsDF$car <- row.names(mtcars)        # bring them into a new col
-    mtcarsDF <- mtcarsDF[,c(12, 1:11)]       # re-order so cars are first
-}
-
-#'/////////////////////////////////////////////////////////////////////////////
-## MAKE UI
-ui <- shinyUI(
+ui <- fluidPage(
     
-    # begin page
-    fluidPage(
-        
-        # use shinyjs
-        useShinyjs(),
-        
-        # title
-        titlePanel("Data Editor"),
-        
-        # open sidebar layout - side + main
-        sidebarLayout(
+    # use shinyjs
+    shinyjs::useShinyjs(),
+
+    # dialogue box: 'Are you sure you want to save changes?'
+    bsModal(id = "savePrompt",  title = "Do you want to save changes?", trigger ="save",  size = "small",
+        wellPanel(    
+            helpText("Saving will overwrite existing data! This cannot be undone."),
+            actionButton(inputId = "no", label =  "No"),
+            actionButton(inputId = "yes",label = "Yes")
+        )
+    ),
+
+    # dialogue box: 'Changes were saved'
+    bsModal(id = "saveSuccess", title = "Save was successful!", trigger = "yes", size = "small",
+        wellPanel(
+            helpText("Changes were saved successfully. Refresh the page for changes to take effect.")
+        )
+    ),
+
+    # title
+    titlePanel("Data Editor"),
+    
+    # open sidebar layout - side + main
+    sidebarLayout(
             
-            # open sidebar panel
-            sidebarPanel(
+        # open sidebar panel
+        sidebarPanel(
                 
-                # helper text
-                helpText("What would you like to do?"),
-                
-                # button: view
-                actionButton("view",label = "view", icon=icon("binoculars")),
-                
-                # button: edit
-                actionButton("edit",label = "edit", icon=icon("pencil")),
-                
-                
-                # button: cancel
+            # helper text
+            helpText("What would you like to do?"),
+            
+            # buttons: view, edit, cancel, save, refresh
+            actionButton("view",label = "view", icon=icon("binoculars")),
+            actionButton("edit",label = "edit", icon=icon("pencil")),
+            shinyjs::hidden(
                 actionButton("cancel", label = "cancel", icon=icon("times")),
-                
-                # button: save
                 actionButton("save", label = "save", icon=icon("save")),
-                
-                # button: refresh
-                actionButton("refresh", label = "refresh", icon = icon("refresh")),
-                
-                # dialogue box: 'Are you sure you want to save changes?'
-                bsModal(id = "saveChanges", 
-                        title = "Do you want to save changes?",
-                        trigger =  "save", 
-                        size = "small",
-                        
-                        # inner well panel
-                        wellPanel(
-                            
-                            # helper text
-                            helpText("Saving will overwrite existing data! 
-                                     This cannot be undone."),
-                            
-                            # button: no
-                            actionButton(inputId = "no",
-                                         label =  "No"),
-                            
-                            # button: yes
-                            actionButton(inputId = "yes",
-                                         label = "Yes")
-                        )
-                ),
-                
-                # dialogue box: 'Changes were saved'
-                bsModal(id = "okay", 
-                        title = "Save was successful!", 
-                        trigger = "yes", 
-                        size = "small",
-                        
-                        # inner content
-                        wellPanel(
-                            
-                            # text
-                            helpText("Changes were saved successfully. 
-                                     Refresh the page for changes
-                                     to take effect.")
-                        )
-                )
-            ),
-            
-            # main panel
-            mainPanel(
-                
-                # orientation text: current mode - view vs edit
-                uiOutput("helperText"),
-                hr(),
-                
-                # table outputs
-                dataTableOutput("table"),
-                rHandsontableOutput("hot")
+                actionButton("refresh", label = "refresh", icon = icon("refresh"))
             )
+        ),
+            
+        # main panel
+        mainPanel(
+            tags$h2(textOutput("helperText")),
+            DT::dataTableOutput("dt_view"),
+            rhandsontable::rHandsontableOutput("dt_edit")
         )
     )
 )
 
-
-#'/////////////////////////////////////////////////////////////////////////////
-## MAKE SERVER
+# server
 server <- function(input, output, session){
-    
+
+    # load data
+    nycDogs <- readRDS("data/nyc_dogs.RDS")
+
+    #'////////////////////////////////////////
+    # SET APP DEFAULTS
+
     # orientation text: mode - view vs edit
-    output$helperText <- renderUI({
-        h3("View Mode")
-    })
+    output$helperText <- renderText("View Mode")
     
-    # datatable: view
-    output$table <- DT::renderDataTable({
-        DT::datatable(mtcarsDF, selection="none")
+    # datatable default render
+    output$dt_view <- DT::renderDataTable({
+        DT::datatable(nycDogs, selection="none")
     })
     
     # initiate values for edits
-    values = reactiveValues()
-    
-    # by default hide the following buttons
-    shinyjs::hide("cancel")
-    shinyjs::hide("save")
-    shinyjs::hide("refresh")
+    values <- reactiveValues()
     
     # define refresh
     observeEvent(input$refresh, {
         shinyjs::runjs("history.go(0)")
     })
+    
+    #'////////////////////////////////////////
     
     ## when view or cancel, when present, is clicked
     observeEvent({
@@ -171,13 +114,11 @@ server <- function(input, output, session){
         shinyjs::show("edit")
         shinyjs::hide("cancel")
         shinyjs::hide("save")
-        shinyjs::show("table")
-        shinyjs::hide("hot")
+        shinyjs::show("dt_view")
+        shinyjs::hide("dt_edit")
         
         # modifying header text
-        output$helperText <- renderUI({
-            h3("View Mode")
-        })
+        output$helperText <- renderText("View Mode")
     })
     
     ## when edit is clicked
@@ -186,21 +127,19 @@ server <- function(input, output, session){
         shinyjs::hide("edit")
         shinyjs::show("cancel")
         shinyjs::show("save")
-        shinyjs::hide("table")
-        shinyjs::show("hot")
+        shinyjs::hide("dt_view")
+        shinyjs::show("dt_edit")
         
         # update the helperText: "You are now in edit mode"
-        output$helperText <- renderUI({
-            h3("Data Edit Mode")
-        })
+        output$helperText <- renderText("Edit Mode")
         
         # make dataframe of edits
-        data = reactive({
-            if(!is.null(input$hot)){
-                DF = hot_to_r(input$hot)
+        data <- reactive({
+            if(!is.null(input$dt_edit)){
+                DF = hot_to_r(input$dt_edit)
             } else {
                 if(is.null(values[["DF"]])){
-                    DF = data.frame(mtcarsDF)
+                    DF = data.frame(nycDogs)
                 } else {
                     DF = values[["DF"]]
                 }
@@ -208,14 +147,14 @@ server <- function(input, output, session){
             
             values[["DF"]] = DF
             DF
-            
         })
-        
-        ## generate HOT
-        output$hot <- renderRHandsontable({
+
+        # render table
+        output$dt_edit <- rhandsontable::renderRHandsontable({
             DF = data()
-            if (!is.null(DF))
+            if (!is.null(DF)){
                 rhandsontable(DF, stretchH = "all")
+            }
         })
     })
     
@@ -223,34 +162,28 @@ server <- function(input, output, session){
     observeEvent(input$yes,{
         
         # close popup 
-        toggleModal(session, modalId = "saveChanges", toggle = "close")
+        toggleModal(session, modalId = "savePrompt", toggle = "close")
         
         # isoloate changes and assign to new object,
         # and then the original df
-        finalDF <- isolate(values[["DF"]])
-        mtcarsDF <<- finalDF
+        out <- isolate(values[["DF"]])
         
         # save to RDS, but backup previous versions
-        if(file.exists("cars_data.RDS")){
+        if(file.exists( "data/nyc_dogs.RDS" )){
             
             # c = file prefix & date & RDS
-            file.rename(from = "cars_data.RDS",
-                        to = paste0(
-                            # prefix
-                            "cars_data_",
-                            # system date formatted
-                            format(Sys.time(),"%Y%m%d-%H%M%S"),
-                            # extension
-                            ".RDS")
+            file.rename(
+                from = "data/nyc_dogs.RDS",
+                to = paste0("data/archive/nyc_dogs_",format(Sys.time(),"%Y%m%d-%H%M%S"),".RDS")
             )
             
             # replace base file name with latest version
-            saveRDS(mtcarsDF, file = "cars_data.RDS")
+            saveRDS(out, "data/nyc_dogs.RDS")
             
         } else{
             
             # save base file
-            saveRDS(mtcarsDF, file = "cars_data.RDS")
+            saveRDS(out, "data/nyc_dogs.RDS")
         }
         
         # closing: hide save buttons
@@ -261,9 +194,8 @@ server <- function(input, output, session){
     
 }
 
-#'/////////////////////////////////////////////////////////////////////////////
-## RUN APP
-shinyApp(ui = ui, server = server)
+# app
+shinyApp(ui, server)
 
 
 
