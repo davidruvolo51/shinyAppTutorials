@@ -25,7 +25,7 @@ Suggestions, comments, ideas for improvement are always welcome!
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | [turorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/) |
 | select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/) |
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
-| time input | creating a time input widget | working | in.progress
+| time input | creating a time input widget | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 
 Do you have an idea for a tutorial? Have you written a tutorial? Suggestions are always welcome! Check the contributing guidelines for more information.
 
