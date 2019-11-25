@@ -29,13 +29,20 @@
 
     // update input value
     const time = document.getElementById("time");
-    time.addEventListener("input", function(){
-        console.log("input:", time.value)
-        Shiny.onInputChange("time", time.value)
-    });
+    time.value = "12:00";
 
-    Shiny.addCustomMessageHandler("resetForm", function(event){
-        time.value = "12:00";
+    // return value as is
+    // time.addEventListener("input", function(event){
+    //     console.log("input:",event.target.value);
+    //     Shiny.setInputValue("time", event.target.value);
+    // });
+
+    // return value formatted
+    time.addEventListener("input", function(event){
+        let input = event.target.valueAsDate;
+        let value = input.toLocaleString("en-us", { hour: "numeric", minute: "numeric"})
+        console.log("input:", value)
+        Shiny.setInputValue("time", value)
     })
 
 })();

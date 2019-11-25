@@ -18,7 +18,7 @@ shinyApp(
     ui = tagList(
         # <head>
         tags$head(
-            tags$link(type = "text/css", rel = "stylesheet", href = "css/styles.min.css"),
+            tags$link(type = "text/css", rel = "stylesheet", href = "css/styles.css"),
             tags$title("Time Input Example")
         ),
         # <body>
@@ -39,13 +39,10 @@ shinyApp(
                     tags$output(id="output", class="output", "[ enter a time ]")
                 )
             ),
-            tags$script(type="text/javascript", src="js/index.min.js")
+            tags$script(type="text/javascript", src="js/index.js")
         )
     ),
     server = function(input, output, session) {
-
-        # reset input value - send dummy value
-        session$sendCustomMessage("resetForm", "event")
 
         # on form submit - explicit conditions
         observeEvent(input$submit, {
