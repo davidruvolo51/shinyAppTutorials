@@ -22,6 +22,7 @@ Suggestions, comments, ideas for improvement are always welcome!
 | internal links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
 | js handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/) |
 | login screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
+| responsive datatables | creating datatables that look good on all screens | in.progress | in.progress
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | [turorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/) |
 | select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/) |
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
