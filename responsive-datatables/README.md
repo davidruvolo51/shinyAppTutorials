@@ -1,3 +1,4 @@
-# responsive Datatables
+# Responsive Datatables in Shiny
 
-Learn how to create responsive data tables in shiny. More information coming soon!
+See the longer write up on [responsive datatables](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/) for more information and usage.
+
