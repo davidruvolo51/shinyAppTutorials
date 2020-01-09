@@ -2,9 +2,9 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-12-05
-#' MODIFIED: 2019-12-05
+#' MODIFIED: 2020-01-08
 #' PURPOSE: create responsive datatables in shiny
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: shiny
 #' COMMENTS: NA
 #'//////////////////////////////////////////////////////////////////////////////
