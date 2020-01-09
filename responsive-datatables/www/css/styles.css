@@ -78,7 +78,9 @@ p {
 
 .datatable thead tr th {
 	font-weight: 600;
-	padding: 4px 12px;
+    padding: 4px 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 	border-bottom: 1px solid var(--dark);
     color: var(--dark);
 }
@@ -93,6 +95,15 @@ p {
 	background-color: var(--light);
 }
 
+.datatable .hidden-colname {
+    display: inline-block;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 @media (max-width: 892px){
     .datatable thead {
 		display: none;
@@ -104,13 +115,12 @@ p {
         padding:  5px 0 5px 12px;
     }
     
-    .datatable tbody tr th {
-        font-weight: 600;
-    }
-    
-	.datatable tbody tr td::before {
-        content: attr(data-colname) ": ";
+
+    .datatable .hidden-colname {
         display: inline-block;
+        clip: auto;
         width: 150px;
+        height: 100%;
+        line-height: 1;
     }
 }
