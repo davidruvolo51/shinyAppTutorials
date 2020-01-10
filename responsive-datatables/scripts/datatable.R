@@ -2,7 +2,7 @@
 #' FILE: datatable.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-12-05
-#' MODIFIED: 2020-01-09
+#' MODIFIED: 2020-01-10
 #' PURPOSE: build datatable function and helpers
 #' STATUS: working
 #' PACKAGES: shiny
@@ -49,7 +49,7 @@ datatable_helpers <- list()
 datatable_helpers$build_header <- function(data){
     columns <- colnames(data)
     cells <- lapply(1:length(columns), function(n){
-        cell <- tags$th(columns[n])
+        cell <- tags$th(scope="col",columns[n])
         cell
     })
     tags$thead(tags$tr(cells))
@@ -62,12 +62,12 @@ datatable_helpers$build_body <- function(data, options){
         cells <- lapply(1:NCOL(data), function(col){
             if(isTRUE(options$responsive)){
                 if(col == 1 & isTRUE(options$rowHeaders)){
-                    cell <- tags$th(role="cell")
+                    cell <- tags$th(role="rowheader", scope="row")
                 } else {
                     cell <- tags$td(role="cell")
                 }
                 cell$children <- list(
-                    tags$span(class="hidden-colname", colnames(data)[col]),
+                    tags$span(class="hidden-colname", `aria-hidden`="true", colnames(data)[col]),
                     data[row,col]
                 )
                 cell

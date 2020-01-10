@@ -47,6 +47,7 @@ Many of the tutorials use css and javascript, as well as html to specific layout
 
 - [a11y project](https://a11yproject.com)
 - [Mozilla's Learn Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+- [macOS Voice Over Commands](https://help.apple.com/voiceover/command-charts/)
 - [WAI's Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/)
 - [Web Accessibility Initiative](https://www.w3.org/WAI/)
 

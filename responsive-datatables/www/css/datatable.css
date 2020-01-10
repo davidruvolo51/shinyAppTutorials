@@ -1,35 +1,34 @@
 .datatable {
-	width: 100%;
-	border-spacing: 0;
-	text-align: left;
+    width: 100%;
+    border-spacing: 0;
+    text-align: left;
     font-size: 13pt;
 }
 
 .datatable caption {
-	text-align: left;
-	font-size: 16pt;
-	margin: 12px 0;
-	color: #252525;
-	font-weight: 600;
+    text-align: left;
+    font-size: 16pt;
+    margin: 12px 0;
+    color: var(--dark);
+    font-weight: 600;
 }
 
 .datatable thead tr th {
-	font-weight: 600;
+    font-weight: 600;
     padding: 4px 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
-	border-bottom: 1px solid #252525;
-    color: #252525;
+    border-bottom: 1px solid var(--dark);
+    color: var(--dark);
 }
 
-.datatable tbody tr th,
-.datatable tbody tr td {
+.datatable tbody tr th, .datatable tbody tr td {
     font-weight: 400;
-	padding: 24px 12px;
+    padding: 24px 12px;
 }
 
 .datatable tbody tr:nth-child(even) {
-	background-color: #f6f6f6;
+    background-color: var(--light);
 }
 
 .datatable .hidden-colname {
@@ -41,22 +40,24 @@
     overflow: hidden;
 }
 
-@media (max-width: 892px){
+@media (max-width: 892px) {
     .datatable thead {
-		display: none;
+        position: absolute;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
     }
-	
-	.datatable tbody tr th,
-	.datatable tbody tr td {
+    .datatable tbody tr th, .datatable tbody tr td {
         display: block;
-        padding:  5px 0 5px 12px;
+        padding: 5px 0 5px 12px;
     }
-    
     .datatable .hidden-colname {
         display: inline-block;
         clip: auto;
         width: 150px;
-        height: 100%;
+        height: auto;
         line-height: 1;
     }
 }

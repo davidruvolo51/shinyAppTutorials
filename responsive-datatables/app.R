@@ -2,11 +2,13 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-12-05
-#' MODIFIED: 2020-01-08
+#' MODIFIED: 2020-01-10
 #' PURPOSE: create responsive datatables in shiny
 #' STATUS: working
 #' PACKAGES: shiny
-#' COMMENTS: NA
+#' COMMENTS:
+#'      The datatable function can be found here: scripts/datatable.R. The
+#'      re-orgranizing of content is handled by css (see www/css/*.css for info).
 #'//////////////////////////////////////////////////////////////////////////////
 
 # pkgs
@@ -34,7 +36,7 @@ ui <- tagList(
         tags$main(class="main", 
             tags$section(class="section",
                 tags$h2("Responsive datatables in shiny"),
-                tags$p("This application demonstrates how to create response datatables in shiny. The custom function datatable() renders the required table elements and adds data to html elements using `data` attributes. The data attributes can then be used as restructure tables using css pseudo elements. In this example, I'm using data from birdData Australia. The data is the top 25 most commonly reported birds in 2018 Birds in Backyards program. Resize the browser to see this in action!"),
+                tags$p("This application demonstrates how to create responsive and accessible datatables in shiny. The custom function datatable() renders the required table elements from your dataset and adds visually hidden and displayed elements when the screen is resized or if accessed on mobile. In this example, a datatable is generated using data from birdData Australia. The data is the top 25 most commonly reported birds in 2018 Birds in Backyards program. Resize the browser to see how the table visually changes and examine the code to see how the table is rendered."),
                 uiOutput("table")
             )
         )
