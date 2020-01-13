@@ -26,6 +26,8 @@
 #'              in a row is related, e.g., patient data. If set to TRUE,
 #'              the data must be organized so that the row header is the
 #'              first column.
+#'          - `asHTML`: a logical argument used to render cell text as html
+#'               elements (default = FALSE)
 #'
 #'      ABOUT:
 #'      The datatable function requires two helper functions: 1) to generate the
