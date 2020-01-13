@@ -28,8 +28,6 @@ Suggestions, comments, ideas for improvement are always welcome!
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 | time input | creating a time input widget | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 
-Do you have an idea for a tutorial? Have you written a tutorial? Suggestions are always welcome! Check the contributing guidelines for more information.
-
 ## Resources
 
 Many of the tutorials use css and javascript, as well as html to specific layouts and custom designs rather than shinyUI functions. These are good skills to have and will come in handy in future shiny development. Here are some links that you may find useful.
