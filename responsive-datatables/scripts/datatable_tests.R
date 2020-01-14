@@ -2,7 +2,7 @@
 #' FILE: datatable_tests.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-01-13
-#' MODIFIED: 2020-01-13
+#' MODIFIED: 2020-01-14
 #' PURPOSE: run tests for datatable.R
 #' STATUS: working
 #' PACKAGES: htmltools
@@ -71,3 +71,16 @@ datatable(
         asHTML = FALSE
     )
 )
+
+#'////////////////////////////////////////
+
+# test helper functions
+df <- iris[1, ]
+opts <- list(responsive = TRUE, rowHeaders = TRUE, asHTML = TRUE)
+
+# header
+datatable_helpers$build_header(df, opts)
+
+
+# body
+datatable_helpers$build_body(df, opts)
