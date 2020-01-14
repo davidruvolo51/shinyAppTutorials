@@ -132,7 +132,7 @@ datatable <- function(data, id = NULL, caption = NULL, options = list(responsive
 
     # add id
     if (!is.null(id)) {
-        tbl$attribs$id <- paste0("datatable-", id)
+        tbl$attribs$id <- id
     }
 
     # should a caption be rendered?
