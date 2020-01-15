@@ -1,3 +1,3 @@
-## Using SASS in Shiny apps
+## Using SASS in Shiny
 
-More information comming soon.
+More information coming soon.
