@@ -1,0 +1,18 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $dark;
+    box-shadow: $boxshadow;
+
+    h1 {
+        padding: 12px 0;
+        font-size: 14pt; 
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+        color: $light;
+    }
+}
