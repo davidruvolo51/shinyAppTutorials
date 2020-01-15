@@ -1,0 +1,54 @@
+
+// import scss files -- load _variables first
+@import "_variables";
+@import "_base","_header", "_datatable";
+
+// all base and default styles are separated into 
+// smaller files. Use the rest of this file to 
+// modify specific elements.
+
+
+// align table columns
+#birds-summary {
+
+    thead {
+        tr {
+            th {
+                &:nth-child(2),
+                &:nth-child(3),
+                &:nth-child(4) {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                &:nth-child(2),
+                &:nth-child(4) {
+                    text-align: center;
+                }
+
+                &:nth-child(3){
+                    text-align: right;
+                }
+            }
+
+            &:hover {
+                background-color: lighten($color: $blue, $amount: 18%);
+                color: $dark;
+
+                td {
+                    &:last-of-type {
+                        a {
+                            color: $dark;
+                            box-shadow: inset 0 -2px 0 0 $dark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

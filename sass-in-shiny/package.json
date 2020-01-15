@@ -1,0 +1,26 @@
+{
+  "name": "sass-in-shiny",
+  "version": "1.0.0",
+  "description": "example shiny app using sass",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch www/css/index.scss:www/css/styles.css --style expanded",
+    "shiny": "Rscript -e 'shiny::runApp(launch.browser=FALSE, port=1234)'",
+    "dev": "npm run shiny & npm run sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
+  },
+  "keywords": [
+    "shiny",
+    "r",
+    "sass"
+  ],
+  "author": "davidruvolo51",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
+  },
+  "homepage": "https://github.com/davidruvolo51/shinyAppTutorials#readme"
+}
