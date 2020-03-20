@@ -28,6 +28,7 @@ Suggestions, comments, ideas for improvement are always welcome!
 | select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/)
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 | time input | creating a time input widget | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
+| time input R6 | creating a time input widget using R6 classes | working | tbd
 
 ## Resources
 
