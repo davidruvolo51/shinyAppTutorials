@@ -20,13 +20,15 @@ Suggestions, comments, ideas for improvement are always welcome!
 | internal links basic example | learn how to create a link from one shiny page to another | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
 | internal links demo | navigate to a specifc tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
 | internal links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
-| js handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/) |
+| js handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/)
 | login screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
 | responsive datatables | creating datatables that look good on all screens | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/)
-| rmarkdown app | Write content in an RMD file and use it as the UI | working | [turorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/) |
-| select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/) |
+| rmarkdown app | Write content in an RMD file and use it as the UI | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/)
+| sass in shiny | setting up sass for use in shiny apps | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/)
+| select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/)
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 | time input | creating a time input widget | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
+| time input R6 | creating a time input widget using R6 classes | working | tbd
 
 ## Resources
 
