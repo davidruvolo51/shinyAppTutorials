@@ -1,0 +1,120 @@
+.progress-bar-parent {
+    position: relative;
+}
+
+.progress-bar-container {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+}
+
+.progress-bar-container.progress-bar-fixed {
+    position: fixed;
+    z-index: 100;
+}
+
+.progress-bar-container.position-top {
+    top: 0;
+    left: 0;
+}
+
+.progress-bar-container.position-bottom {
+    bottom: 0;
+    left: 0;
+}
+
+.progress-bar-container .progress-bar {
+    height: 13px;
+    background-color: #bdbdbd;
+    -webkit-transform: scaleX(0);
+    -o-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    -moz-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
+    -o-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+/* example styling */
+:root {
+    --brand: #299996;
+    --brand-alt: hsla(178, 58%, 38%, 0.06);
+    --light: #f0f0f0;
+    --text: #3f454b;
+    --dark: #252525;
+    --shadow: hsla(0, 0%, 0%, 0.18);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+}
+
+p {
+    color: var(--text);
+    line-height: 1.7;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+header {
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: var(--dark);
+    -webkit-box-shadow: 0 0 4px 0 var(--shadow);
+    box-shadow: 0 0 4px 0 var(--shadow);
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin: 0;
+    padding: 16px 0;
+    padding-left: 32px;
+    color: var(--light);
+}
+
+button {
+    display: inline-block;
+    width: 125px;
+    border: none;
+    font-size: 11pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 4px 6px;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button.primary {
+    background-color: #299996;
+    color: var(--light);
+}
+
+button.secondary {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+@media (min-width: 912px) {
+    main {
+        max-width: 912px;
+    }
+}
