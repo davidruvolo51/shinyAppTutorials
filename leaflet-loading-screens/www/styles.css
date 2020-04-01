@@ -1,0 +1,82 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* class to visually hide loading screens */
+.visually-hidden {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* styling for loading container */
+.loading-container {
+    position: relative;
+}
+
+/* loading ui  */
+.loading-container .loading-ui {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+    text-align: center;
+    z-index: 9999;
+}
+
+/* styles for loading message */
+.loading-container .loading-message {
+    font-size: 16pt;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+
+/* default loading: blinking dots */
+.loading-container .dots-container .dots {
+    display: inline-block;
+    margin-right: 12px;
+    background-color: #299996;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: none;
+}
+
+@-webkit-keyframes dotBlink {
+    0% { opacity: 0; }
+    75% { opacity: 1; }
+}
+
+@keyframes dotBlink {
+    0% { opacity: 0; }
+    75% { opacity: 1; }
+}
+
+#dot1 {
+    -webkit-animation: dotBlink 1s infinite;
+    animation: dotBlink 1s infinite;
+}
+
+#dot2 {
+    -webkit-animation: dotBlink 1s .2s infinite;
+    animation: dotBlink 1s .2s infinite;
+}
+
+#dot3 {
+    -webkit-animation: dotBlink 1s .4s infinite;
+    animation: dotBlink 1s .4s infinite;
+}
