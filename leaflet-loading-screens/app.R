@@ -2,7 +2,7 @@
 #' FILE: leaflet-on-render-app.R (generic loading)
 #' AUTHOR: @dcruvolo
 #' CREATED: 2020-04-01
-#' MODIFIED: 2020-04-01
+#' MODIFIED: 2020-04-02
 #' PACKAGES: shiny, leaflet
 #' STATUS: working
 #' PURPOSE: creating busy screens for leaflet maps in shiny
@@ -25,7 +25,7 @@ loading_elem <- function(id, text = NULL) {
     # generate element with dots
     el <- tags$div(
         id = id,
-        class = "loading-ui loading-dots",
+        class = "visually-hidden loading-ui loading-dots",
         `aria-hidden` = "true",
         tags$div(
             class = "dots-container",
@@ -53,6 +53,10 @@ loading_elem <- function(id, text = NULL) {
 loading_message <- function(..., id, text = NULL) {
     tags$div(
         class = "loading-container",
+        tags$span(
+            class = "visually-hidden",
+            "map is loading"
+        ),
         loading_elem(id = id, text = text),
         ...
     )
@@ -100,9 +104,10 @@ server <- function(input, output, session) {
             ) %>%
             onRender(., "
                 function(el, x, data) {
-                    // select map and busy ui
+                    // select map, loader, button
                     var m = this;
                     const elem = document.getElementById('leafletBusy');
+                    const b = document.getElementById('plotbutton');
 
                     // when map is rendered, display loading
                     // adjust delay as needed
@@ -113,8 +118,8 @@ server <- function(input, output, session) {
                         }, 3000)
                     });
 
-                    const b = document.getElementById('plotbutton');
-                    plotbutton.addEventListener('click', function(event) {
+                    // click event
+                    b.addEventListener('click', function(event) {
 
                         // show loading element
                         elem.classList.remove('visually-hidden');
@@ -139,8 +144,8 @@ server <- function(input, output, session) {
                         }).catch(function(error) {
 
                             // throw errors
-                            console.error(error)
-                        })
+                            console.error(error);
+                        });
                     });
                 }")
     })
