@@ -21,7 +21,9 @@ Suggestions, comments, ideas for improvement are always welcome!
 | internal links demo | navigate to a specifc tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
 | internal links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
 | js handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/)
+| leaflet loading screens | create a busy element during leaflet rendering | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/)
 | login screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
+| progress bar R6 | example app to create a progress bar while clicking through screens | working | tbd
 | responsive datatables | creating datatables that look good on all screens | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/)
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/)
 | sass in shiny | setting up sass for use in shiny apps | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/)
