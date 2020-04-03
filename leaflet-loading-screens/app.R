@@ -15,55 +15,8 @@ library(shiny)
 library(leaflet)
 library(htmlwidgets)
 
-
-#'/////////////////////////////////////
-
-# loading screen functional component: child element
-loading_elem <- function(id, text = NULL) {
-    stopifnot(!is.null(id))
-
-    # generate element with dots
-    el <- tags$div(
-        id = id,
-        class = "visually-hidden loading-ui loading-dots",
-        `aria-hidden` = "true",
-        tags$div(
-            class = "dots-container",
-            tags$span(class = "dots", id = "dot1"),
-            tags$span(class = "dots", id = "dot2"),
-            tags$span(class = "dots", id = "dot3")
-        )
-    )
-
-    # add message if specified + update attribs
-    if (length(text) > 0) {
-        el$attribs$class <- "loading-ui loading-text"
-        el$children <- tags$p(
-            class = "loading-message",
-            as.character(text)
-        )
-    }
-
-    # return
-    return(el)
-}
-
-#' loading screen: primary component wrapper around child
-#' and leafletOuput
-loading_message <- function(..., id, text = NULL) {
-    tags$div(
-        class = "loading-container",
-        tags$span(
-            class = "visually-hidden",
-            "map is loading"
-        ),
-        loading_elem(id = id, text = text),
-        ...
-    )
-}
-
-
-#'/////////////////////////////////////
+# components
+source("leaflet_loader.R")
 
 # ui
 ui <- tagList(
@@ -71,12 +24,15 @@ ui <- tagList(
         tags$link(
             rel = "stylesheet",
             href = "styles.css"
-        ),
-        tags$title("Leaflet Loading Sreens")
+        )
     ),
     tags$main(
         tags$h2("Map Output"),
-        actionButton("plotbutton", label = "Add Markers"),
+        tags$button(
+            id = "plotbutton",
+            class = "action-button shiny-bound-input",
+            "Add Markers"
+        ),
 
         # leaflet map inside loading container
         loading_message(
