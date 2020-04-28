@@ -1,0 +1,74 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16pt;
+}
+
+body {
+    background-color: #f6f6f6;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+.main {
+    width: 90%;
+    margin: 32px auto;
+}
+
+@media (min-width: 912px) {
+    .main {
+        max-width: 712px;
+    }
+}
+
+.droparea,
+.card {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 32px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background-color: white;
+}
+
+.droparea {
+    height: 3em;
+}
+
+.card :first-child { padding-top: 16px; }
+.card :last-child { padding-bottom: 16px; }
+
+.card .card-button {
+    position: absolute;
+    display: block;
+    top: 25%;
+    right: 32px;
+}
+
+.drag {
+    box-shadow: 0 0 9px 3px hsla(0, 0%, 0%, 0.3);
+}
