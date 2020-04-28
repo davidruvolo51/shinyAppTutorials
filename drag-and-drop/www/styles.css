@@ -1,3 +1,5 @@
+/* reseting base styles */
+
 html, body {
     padding: 0;
     margin: 0;
@@ -12,14 +14,16 @@ body {
 h2 {
     padding: 0;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.3;
+    color: #252525;
 }
 
 p {
     padding: 0;
     margin: 0;
     margin-bottom: 16px;
-    line-height: 1.7;
+    line-height: 1.6;
+    color: #3f454b;
 }
 
 button {
@@ -31,18 +35,20 @@ button {
     cursor: pointer;
 }
 
-.main {
+main {
     width: 90%;
     margin: 32px auto;
+    margin-bottom: 72px;
 }
 
 @media (min-width: 912px) {
-    .main {
+    main {
         max-width: 712px;
     }
 }
 
-.droparea,
+/* styling for cards */
+
 .card {
     position: relative;
     box-sizing: border-box;
@@ -52,15 +58,27 @@ button {
 }
 
 .card {
+    border: 2px solid transparent;
     background-color: white;
 }
 
-.droparea {
-    height: 3em;
+/* reset p margins */
+
+.card p {
+    margin-bottom: 0;
 }
 
-.card :first-child { padding-top: 16px; }
-.card :last-child { padding-bottom: 16px; }
+/* adjust inner padding */
+
+.card :first-child {
+    padding-top: 16px;
+}
+
+.card :last-child {
+    padding-bottom: 16px;
+}
+
+/* position the card button */
 
 .card .card-button {
     position: absolute;
@@ -69,6 +87,41 @@ button {
     right: 32px;
 }
 
+/* classes to add when an element is dragged */
+
 .drag {
+    -webkit-box-shadow: 0 0 9px 3px hsla(0, 0%, 0%, 0.3);
     box-shadow: 0 0 9px 3px hsla(0, 0%, 0%, 0.3);
+}
+
+.highlighting {
+    border-color: #09BC8A;
+}
+
+/* droparea styles */
+
+.droparea {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 3em;
+    border-radius: 6px;
+    padding: 16px 32px;
+    border: 3px dashed #bdbdbd;
+    text-align: center;
+}
+
+.droparea p {
+    color: #b8b8b8;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11pt;
+    font-weight: bold;
 }

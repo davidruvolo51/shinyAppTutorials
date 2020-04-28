@@ -4,11 +4,10 @@
 #' CREATED: 2020-04-24
 #' MODIFIED: 2020-04-24
 #' PURPOSE: example application for creating drag/drop elements
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: shiny
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
-options(stringsAsFactors = FALSE)
 
 # pkgs
 suppressPackageStartupMessages(library(shiny))
@@ -21,7 +20,6 @@ card <- function(id, title, text) {
     stopifnot(!is.null(id))
     stopifnot(!is.null(title))
     stopifnot(!is.null(text))
-    ns <- NS(id)
 
     # set defaults
     fill_color <- "#09BC8A"
@@ -37,7 +35,7 @@ card <- function(id, title, text) {
             title
         ),
         tags$button(
-            id = ns("button"),
+            id = id,
             class = "card-button",
             tag(
                 "svg",
@@ -101,19 +99,27 @@ ui <- tagList(
         tags$link(rel = "stylesheet", href = "styles.css")
     ),
     tags$main(
-        class = "main",
         tags$h2("Moveable Elements"),
         tags$p(
-            "Order the cards by the number of cases or by group."
+            "Order the cards by the number of cases or by group.",
+            "Drag and drop a card into the drop zone or on top of",
+            "another card."
         ),
         tags$div(
             class = "dragarea",
-            card("group-a", "Group A", "14 cases"),
-            card("group-b", "Group B", "3 cases"),
-            card("group-c", "Group C", "33 cases"),
-            card("group-d", "Group D", "7 cases"),
-            card("group-e", "Group E", "21 cases"),
-            tags$div(class = "droparea")
+
+            # primary elements
+            card("groupA", "Group A", "14 cases"),
+            card("groupB", "Group B", "3 cases"),
+            card("groupC", "Group C", "33 cases"),
+            card("groupD", "Group D", "7 cases"),
+            card("groupE", "Group E", "21 cases"),
+
+            # extra drop zone
+            tags$div(
+                class = "droparea",
+                tags$p("Drop here")
+            )
         )
     ),
     tags$script(src = "index.js")
@@ -121,7 +127,6 @@ ui <- tagList(
 
 # server
 server <- function(input, output, session) {
-
 }
 
 # app
