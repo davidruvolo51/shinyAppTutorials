@@ -14,7 +14,7 @@ suppressPackageStartupMessages(library(shiny))
 
 
 # functional component for building draggable cards
-card <- function(id, title, text) {
+draggable_card <- function(id, title, text) {
 
     # validate props
     stopifnot(!is.null(id))
@@ -109,11 +109,11 @@ ui <- tagList(
             class = "dragarea",
 
             # primary elements
-            card("groupA", "Group A", "14 cases"),
-            card("groupB", "Group B", "3 cases"),
-            card("groupC", "Group C", "33 cases"),
-            card("groupD", "Group D", "7 cases"),
-            card("groupE", "Group E", "21 cases"),
+            draggable_card("groupA", "Group A", "14 cases"),
+            draggable_card("groupB", "Group B", "3 cases"),
+            draggable_card("groupC", "Group C", "33 cases"),
+            draggable_card("groupD", "Group D", "7 cases"),
+            draggable_card("groupE", "Group E", "21 cases"),
 
             # extra drop zone
             tags$div(
