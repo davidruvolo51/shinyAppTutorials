@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-04-24
-#' MODIFIED: 2020-04-24
+#' MODIFIED: 2020-05-05
 #' PURPOSE: example application for creating drag/drop elements
 #' STATUS: working
 #' PACKAGES: shiny
@@ -30,6 +30,7 @@ draggable_card <- function(id, title, text) {
         id = paste0("card-", id),
         class = "card",
         draggable = "true",
+        `data-value` = title,
         tags$h2(
             class = "card-title",
             title
@@ -103,7 +104,7 @@ ui <- tagList(
         tags$p(
             "Order the cards by the number of cases or by group.",
             "Drag and drop a card into the drop zone or on top of",
-            "another card."
+            "another card. Press 'done' when you are finished."
         ),
         tags$div(
             class = "dragarea",
@@ -120,6 +121,12 @@ ui <- tagList(
                 class = "droparea",
                 tags$p("Drop here")
             )
+        ),
+        tags$button(
+            id = "submit",
+            type = "submit",
+            class = "shiny-bound-input action-button",
+            "Done"
         )
     ),
     tags$script(src = "index.js")

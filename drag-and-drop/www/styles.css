@@ -78,6 +78,11 @@ main {
     padding-bottom: 16px;
 }
 
+/* highlighting class for cards */
+.highlighting {
+    border-color: #09BC8A;
+}
+
 /* position the card button */
 
 .card .card-button {
@@ -87,15 +92,16 @@ main {
     right: 32px;
 }
 
+/* drag container */
+.dragarea {
+    margin-bottom: 32px;
+}
+
 /* classes to add when an element is dragged */
 
 .drag {
     -webkit-box-shadow: 0 0 9px 3px hsla(0, 0%, 0%, 0.3);
     box-shadow: 0 0 9px 3px hsla(0, 0%, 0%, 0.3);
-}
-
-.highlighting {
-    border-color: #09BC8A;
 }
 
 /* droparea styles */
@@ -113,7 +119,9 @@ main {
     height: 3em;
     border-radius: 6px;
     padding: 16px 32px;
-    border: 3px dashed #bdbdbd;
+    border-width: 3px;
+    border-style: dashed;
+    border-color: #bdbdbd;
     text-align: center;
 }
 
@@ -124,4 +132,25 @@ main {
     letter-spacing: 2px;
     font-size: 11pt;
     font-weight: bold;
+}
+
+/* droparea focus */
+.droparea.focus {
+    background-color: White;
+    border-color: #09BC8A;
+}
+
+/* submit button */
+#submit {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 16px 0;
+    font-size: 14pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: hsla(163, 91%, 39%, 0.1);
+    border: 2px solid #09BC8A;
+    color: #09BC8A;
 }
