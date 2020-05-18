@@ -17,7 +17,7 @@ Suggestions, comments, ideas for improvement are always welcome!
 | Name | Description | Status | Link |
 | :--- | :---        | :----  | :--- |
 | data editor | edit a dataset in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/)
-| drag and drop | a shinyapp with elements that can be dragged and dropped | working | in.progress
+| drag and drop | a shinyapp with elements that can be dragged and dropped | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/)
 | internal links basic example | learn how to create a link from one shiny page to another | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
 | internal links demo | navigate to a specifc tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
 | internal links | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
