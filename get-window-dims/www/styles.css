@@ -4,4 +4,43 @@ html, body {
     padding: 0;
     margin: 0;
     font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* main */
+main {
+    margin: 16px auto;
+    width: 90%;
+}
+
+/* h2 */
+h2 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px;
+    color: #353535;
+}
+
+/* paragraphs */
+p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px;
+    color: #3f454b;
+}
+
+/* text output */
+#results {
+    display: block;
+    background-color: #f6f6f6;
+    color: #353535;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+/* media query */
+@media (min-width: 972px) {
+    main {
+        max-width: 972px; 
+    }
 }
