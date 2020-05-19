@@ -27,7 +27,7 @@ function setWindowSize() {
 }
 
 // attach when shiny:connected (need to use jQuery's 'on')
-$(document).on("shiny:connected", function(event) {
+$(document).on("shiny:connected", function() {
     
     // run on shiny:connected (i.e., initial)
     setWindowSize();

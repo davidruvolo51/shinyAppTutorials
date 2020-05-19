@@ -30,7 +30,7 @@ p {
 }
 
 /* text output */
-#results {
+.shiny-text-output {
     display: block;
     background-color: #f6f6f6;
     color: #353535;

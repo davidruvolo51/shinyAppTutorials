@@ -15,13 +15,12 @@ suppressPackageStartupMessages(library(shiny))
 # ui
 ui <- tagList(
     tags$head(
-        tags$link(rel = "stylesheet", href = "styles.css"),
-        tags$title("shinyTutorials | get window dims example")
+        tags$link(rel = "stylesheet", href = "styles.css")
     ),
     tags$main(
         tags$h2("Get Window Dimensions Example"),
         tags$p("Resize the browser."),
-        textOutput("results")
+        verbatimTextOutput("winSize")
     ),
     tags$script(src = "index.js")
 )
@@ -29,8 +28,8 @@ ui <- tagList(
 # server
 server <- function(input, output, session) {
     observeEvent(input$window, {
-        d <- jsonlite::fromJSON(input$window, simplifyVector = TRUE)
-        output$results <- renderPrint({
+        d <- jsonlite::fromJSON(input$window)
+        output$winSize <- renderPrint({
             d
         })
     })
