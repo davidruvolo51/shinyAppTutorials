@@ -2,7 +2,7 @@
 // FILE: index.js
 // AUTHOR: David Ruvolo
 // CREATED: 2020-06-29
-// MODIFIED: 2020-06-29
+// MODIFIED: 2020-07-01
 // PURPOSE: compile js and scss
 // DEPENDENCIES: NA
 // STATUS: in.progress
@@ -23,91 +23,103 @@ $.extend(selectInput, {
     initialize: function(el) {
 
         // get the value of the first option
-        var firstChild = $(el).find("button.input-button").first();
+        var firstChild = $(el).find("li.select-input-list-option").first();
         var firstValue = {
-            value: firstChild.data("value"),
-            text: firstChild.text()
+            id: firstChild.attr("id"),
+            value: firstChild.attr("data-value"),
+            text: firstChild.text().trim()
         }
         
-        // set firstChild's values to elements
-        firstChild.addClass("selected");
+        // // set firstChild's values to elements
+        firstChild.attr("aria-selected", true);
+        $(el).find(".select-input-list").attr("aria-activedescendant", firstValue.id);
         $(el).find("span.toggle-text").text(firstValue.text);
-        $(el).data("value", firstValue.value);
+        $(el).attr("data-value", firstValue.value);
         
     },
     getValue: function(el) {
-        return $(el).data("value");
+        return $(el).attr("data-value");
     },
     subscribe: function(el, callback) {
         
         // select primary elements
-        var selectText = $(el).find("span.toggle-text");
-        var selectMenu = $(el);
-        var menuList = $(el).find("ol.select-input-list");
-        var menuIsOpen = menuList.attr("aria-hidden") === "false";
+        var inputGroup = $(el);
+        var currentInputValue = inputGroup.find("span.toggle-text");
+        var inputGroupToggle = inputGroup.find(".select-list-toggle");
+        var inputList = inputGroup.find("ul.select-input-list");
+        var inputListOptions = inputGroup.find("li.select-input-list-option");
 
-        // define event that open/closes the input list
-        selectMenu.on("click", "button.select-list-toggle", function(e){
 
-            // toggle menu state
-            selectMenu.toggleClass("hidden");
-
-            // adjust select Input List; scroll, aria
-            menuList.scrollTop(0);
-            menuIsOpen = !menuIsOpen
-            menuList.attr("aria-hidden", menuIsOpen);
-
-            // if the menu is open, set selected text to a default message
-            if (!selectMenu.hasClass("hidden")) {
-                selectText.text("Select an item");
+        // define a function that opens/closes menu
+        // @param group receives `el`
+        // @param list <ul> element
+        // @param toggle <button> that toggles the input list (i.e., all <li> elems)
+        function toggleMenu(group = inputGroup, list = inputList, toggle = inputGroupToggle) {
+            if (group.hasClass("hidden")) {
+                group.removeClass("hidden");
+                toggle.attr("aria-expanded", "true");
+                list.removeAttr("aria-hidden");
+                list.scrollTop(0);
+            } else {
+                group.addClass("hidden");
+                toggle.attr("aria-expanded", "false");
+                list.attr("aria-hidden", "true");
             }
-        });
+        }
 
-        // define event that updates el's input value
-        // this event finds the clicked element, extract's it's data (i.e.,
-        // text and value), and then updates the corresponding elements.
-        selectMenu.on("click", "button.input-button", function(e) {
+        // define a function that writes inputList selections
+        // make sure <li> is selected (in case <span> is clicked)
+        // @param elem the newly selected option
+        // @param list <ul> element
+        // @param output <span> object to write the selected value into
+        // @param group receives $(el)
+        function updateInputValue(elem, list = inputList, output = currentInputValue, group = inputGroup) {
+            var selectedElem = elem.closest(".select-input-list-option");
+            var newValues = {
+                id: selectedElem.id,
+                value: selectedElem.data("value"),
+                text: selectedElem.text().trim()
+            }
 
-            // remove selected class
-            selectMenu.find("button.input-button").removeClass("selected");
-
-            // select click element + extract data
-            var newElem = $(e.target);
-            var newValue = {
-                value: newElem.data("value"),
-                text: newElem.text()
-            };
-            
-            // add class to new selection
-            newElem.addClass("selected");
-
-            // update el's input value
-            selectMenu.data("value", newValue.value);
-
-            // update select input toggle text and close menu
-            selectText.text(newValue.text);
-            selectMenu.toggleClass("hidden");
-
-            // adjust select Input List; scroll, aria
-            menuList.scrollTop(0);
-            menuIsOpen = !menuIsOpen
-            menuList.attr("aria-hidden", menuIsOpen);
+            // update attributes
+            list.find("li").removeAttr("aria-selected");
+            selectedElem.attr("aria-selected", "true");
+            list.attr("aria-activedescendant", newValues.id);
+            group.attr("data-value", newValues.value);
+            output.text(newValues.text);
 
             // run callback
             callback();
+        } 
+
+        // define event that open/closes the input list
+        inputGroup.on("click", "button.select-list-toggle", function(e){
+            toggleMenu();
         });
 
         // event for focus
         // the purpose of this event is to add support for keyboard navigation
         // if the user toggles (via TAB) and lands on the select input element,
         // then this component must open (i.e., display list)
-        selectMenu.on("focus", "button.select-list-toggle", function(e) {
-            selectMenu.toggleClass("hidden");
+        inputGroup.on("focus", "button.select-list-toggle", function(e) {
+            toggleMenu();
+        });
 
-            // adjust select Input List; scroll, aria
-            menuList.scrollTop(0);
-            menuIsOpen = !menuIsOpen
-            menuList.attr("aria-hidden", menuIsOpen);
+        // event for blur
+        inputGroup.keydown(function(e) {
+            if (e.key === "Escape") {
+                toggleMenu();
+            }
+        });
+
+        // focus
+        inputList.on("focus", function(e) {
+            toggleMenu();
+        })
+
+        // blur
+        inputList.on("blur", function(e) {
+            toggleMenu();
         })
 
         // event for focus and blur of child elements
@@ -115,32 +127,55 @@ $.extend(selectInput, {
         // the child elements. If a child button is focused (i.e., tabbed),
         // then the menu must remain open. If the last child element is exited,
         // then the menu must close.
-        var btns = selectMenu.find("button.input-button");
-        $(btns).on("focus", function(e) {
+        inputListOptions.each(function(n) {
+            var option = $(inputListOptions[n]);
 
-            // make sure menu is open
-            selectMenu.removeClass("hidden");
+            // click
+            option.on("click", function(e) {
+                updateInputValue($(e.target))
+                toggleMenu();
+            });
 
-            // prep for final element blur (i.e., exited from focus)
-            var lastIndex = btns.length = - 1;
-            var lastBtn = btns[lastIndex];
-            if (e.target.nextSibling) {
-                $(lastBtn).on("blur", function(e) {
+            // keydown events
+            option.keydown(function(e) {
+                console.log(e.key);
+                // when enter is pressed
+                if (e.key === "Enter") {
+                    updateInputValue($(e.target));
+                    toggleMenu();
+                }
 
-                    // close menu
-                    selectMenu.addClass("hidden");
+                // when up arrow is pressed
+                if (e.key === "ArrowUp") {
+                    var previousChildIndex = inputListOptions.index(e.target) - 1;
+                    if (previousChildIndex > -1) {
+                        var previousElem = inputListOptions[previousChildIndex];
+                        previousElem.focus();
+                    }
+                }
 
-                    // adjust select Input List; scroll, aria
-                    menuList.scrollTop(0);
-                    menuIsOpen = !menuIsOpen
-                    menuList.attr("aria-hidden", menuIsOpen);
-                });
-            }
-        });
+                // when down arrow is pressed
+                if (e.key === "ArrowDown") {
+                    var nextChildIndex = inputListOptions.index(e.target) + 1;
+                    if (nextChildIndex < inputListOptions.length) {
+                        var nextElement = inputListOptions[nextChildIndex]
+                        nextElement.focus();
+                    }
+                }
+
+                // when escape is pressed
+                if (e.key === "Escape" || e.key === "13") {
+                    console.log("escape pressed")
+                    toggleMenu();
+                }
+            })
+        })
     },
     unsubscribe: function(el) {
         $(el).off(".selectInput");
     }
 });
 
+
+// register
 Shiny.inputBindings.register(selectInput);

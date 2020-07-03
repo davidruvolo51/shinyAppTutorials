@@ -25,17 +25,27 @@ ui <- tagList(
     ),
     tags$main(
         class = "main",
-        tags$h2("Custom Select Input"),
-        tags$p(
-            "This example app demonstrates how to create a custom select",
-            "input component using", tags$code("tags"), ", SCSS, and",
-            "JavaScript."
+        tags$header(
+            class = "header",
+            `aria-labelledby` = "header-title",
+            tags$h2(
+                id = "header-title",
+                "Custom Select Input"
+            ),
+            tags$p(
+                "This shiny app demonstrates how to create a custom select",
+                "input component using shiny Tags, SCSS, and JavaScript.",
+                "This is a potential solution for styling custom inputs, but",
+                "semantic HTML is always better than "
+            )
         ),
         tags$form(
             class = "form",
+            `aria-labelledby` = "popularTech__title",
             select_input(
                 inputId = "popularTech",
                 title = "Most Popular Technologies",
+                label = "Select a technology",
                 options = c(
                     "JavaScript",
                     "HTML/CSS",

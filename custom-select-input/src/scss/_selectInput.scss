@@ -10,7 +10,7 @@ $shadow: hsla(0, 0%, 0%, 0.18);
     padding: 0;
     margin: 0;
     border: 0;
-    width: 100%;
+    width: 300px;
     position: relative;
 
     // reset buttons
@@ -29,7 +29,14 @@ $shadow: hsla(0, 0%, 0%, 0.18);
     .select-input-title {
         margin: 0;
         padding: 0;
-        margin-bottom: 12px;
+    }
+
+    // input label
+    .select-input-label {
+        display: block;
+        padding: 0;
+        margin: 6px 0;
+        font-size: 13pt;
     }
 
     // select input toggle
@@ -38,19 +45,22 @@ $shadow: hsla(0, 0%, 0%, 0.18);
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        background-color: $light;
+        background-color: #ffffff;
         border: 1px solid $text;
 
         .toggle-text {
-            width: 80%;
-            min-width: 200px;
+            width: 75%;
+            max-width: 450px;
+            padding: 6px;
+            padding-left: 16px;
             overflow: hidden;
+            white-space: nowrap;
             text-overflow: ellipsis;
         }
 
         .toggle-icon {
-            width: 20%;
-            min-width: 50px;
+            width: 25%;
+            max-width: 50px;
             transform: rotate(180deg);
             transform-origin: center;
             transition: all 0.3s ease-in-out;
@@ -73,42 +83,48 @@ $shadow: hsla(0, 0%, 0%, 0.18);
         box-shadow: 0 12px 9px 3px $shadow;
 
         // individual items
-        .select-input-list-item {
+        .select-input-list-option {
             border-bottom: 1px solid $medium;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: left;
+            padding: 8px 0;
+            background-color: #ffffff;
+            cursor: pointer;
 
-            // list item buttons
-            .input-button {
-                width: 100%;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                text-align: left;
-                padding: 8px 0;
-                padding-left: 16px;
-                background-color: #ffffff;
+            // text
+            .input-text {
+                width: 80%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
 
-                // inner icon
+            // inner icon
+            .input-icon {
+                margin: 0;
+                margin-left: 12px;
+                margin-right: 12px;
+                opacity: 0;
+            }
+
+            // states
+            &:hover,
+            &:focus {
+                background-color: $dark;
+                color: $light;
+            }
+
+            // when button is selected
+            &[aria-selected=true] {
+                background-color: $dark;
+                color: $light;
+
+                // make sure icon is visible
                 .input-icon {
-                    margin-right: 6px;
-                    opacity: 0;
-                }
-
-                // states
-                &:hover,
-                &:focus {
-                    background-color: $dark;
-                    color: $light;
-                }
-
-                // when button is selected
-                &.selected {
-                    background-color: $dark;
-                    color: $light;
-
-                    // make sure icon is visible
-                    .input-icon {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
 
