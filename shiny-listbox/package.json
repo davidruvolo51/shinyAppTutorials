@@ -1,0 +1,38 @@
+{
+    "name": "custom-select-input",
+    "version": "1.0.0",
+    "description": "shinyapp for creating custom select inputs",
+    "author": "@dcruvolo",
+    "license": "MIT",
+    "scripts": {
+        "shiny": "Rscript -e \"shiny::runApp(launch.browser = FALSE, port = 8000)\"",
+        "dev": "parcel src/index.js -d www/ -o www/index.min.js --no-source-maps",
+        "build": "parcel build src/index.js -d www/ -o www/index.min.js --no-source-maps",
+        "clean": "rm -rf www/index.min.*",
+        "start": "concurrently \"npm run shiny\" \"npm run dev\""
+    },
+    "keywords": [
+        "r",
+        "shiny",
+        "components"
+    ],
+    "devDependencies": {
+        "concurrently": "^5.2.0",
+        "parcel": "^1.12.4",
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "autoprefixer": "^9.7.6",
+        "babel-preset-minify": "^0.5.1",
+        "cssnano": "^4.1.10",
+        "postcss-modules": "^2.0.0",
+        "sass": "^1.26.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davidruvolo51/shiny-app-template"
+    },
+    "bugs": {
+        "url": "https://github.com/davidruvolo51/shiny-app-template/issues"
+    }
+}
