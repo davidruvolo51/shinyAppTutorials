@@ -31,14 +31,15 @@ Suggestions, comments, ideas for improvement are always welcome!
 | sass in shiny | setting up sass for use in shiny apps | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/)
 | select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/)
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
+| shiny listbox | create a listbox component as an alternative to select inputs | working | tbd
 | time input | creating a time input widget | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 | time input R6 | creating a time input widget using R6 classes | working | tbd
 
 ## Resources
 
-Many of the tutorials use css and javascript, as well as html to specific layouts and custom designs rather than shinyUI functions. These are good skills to have and will come in handy in future shiny development. Here are some links that you may find useful.
+Many of the tutorials use css and javascript, as well as html to create specific layouts and custom designs rather than shinyUI functions (e.g., fluidPage, navbarPage, etc.). These are good skills to have and will come in handy when building custom shiny applications. Here are some links that you may find useful.
 
-### HTML, CSS, JS
+### Web Development
 
 - [CSS Tricks](https://css-tricks.com)
 - [Mozilla's CSS documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -50,6 +51,7 @@ Many of the tutorials use css and javascript, as well as html to specific layout
 ### Accessibility
 
 - [a11y project](https://a11yproject.com)
+- [Accessiblity Developer Guide](https://www.accessibility-developer-guide.com)
 - [Mozilla's Learn Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
 - [macOS Voice Over Commands](https://help.apple.com/voiceover/command-charts/)
 - [WAI's Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/)
@@ -60,6 +62,11 @@ Many of the tutorials use css and javascript, as well as html to specific layout
 - [Data Visualization Society](https://www.datavisualizationsociety.com)
 - [dev.to](https://dev.to)
 - [RStudio Community](https://community.rstudio.com)
+
+
+### Courses
+
+- [W3C Online Courses](https://www.edx.org/school/w3cx) (free on [edx.org](https://www.edx.org))
 
 ## Contributing to this project
 
