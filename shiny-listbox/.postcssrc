@@ -12,12 +12,6 @@
                 "not ie < 9"
             ],
             "flexbox": "no-2009"
-        },
-        "cssnano": {
-            "calc": true,
-            "discardComments": {
-                "removeAll": true
-            }
         }
     }
 }

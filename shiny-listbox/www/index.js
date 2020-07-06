@@ -184,7 +184,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel/src/builtins/bundle-url.js"}],"scss/index.scss":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel/src/builtins/bundle-url.js"}],"index.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -193,234 +193,21 @@ module.exports = {
   "main": "main",
   "form": "form",
   "shiny-text-output": "shiny-text-output",
-  "select-input-group": "select-input-group",
-  "select-input-title": "select-input-title",
-  "select-input-label": "select-input-label",
-  "select-list-toggle": "select-list-toggle",
+  "listbox-group": "listbox-group",
+  "listbox-title": "listbox-title",
+  "listbox-label": "listbox-label",
+  "listbox-toggle": "listbox-toggle",
   "toggle-text": "toggle-text",
   "toggle-icon": "toggle-icon",
-  "select-input-list": "select-input-list",
-  "select-input-list-option": "select-input-list-option",
-  "input-text": "input-text",
-  "input-icon": "input-icon",
+  "rotated": "rotated",
+  "listbox-list": "listbox-list",
+  "listbox-option": "listbox-option",
+  "option-text": "option-text",
+  "option-icon": "option-icon",
   "hidden": "hidden",
   "header": "header"
 };
-},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./scss/index.scss");
-
-////////////////////////////////////////////////////////////////////////////////
-// FILE: index.js
-// AUTHOR: David Ruvolo
-// CREATED: 2020-06-29
-// MODIFIED: 2020-07-01
-// PURPOSE: compile js and scss
-// DEPENDENCIES: NA
-// STATUS: in.progress
-// COMMENTS: NA
-////////////////////////////////////////////////////////////////////////////////
-// BEGIN
-////////////////////////////////////////
-// input binding
-var selectInput = new Shiny.InputBinding();
-$.extend(selectInput, {
-  find: function find(scope) {
-    return $(scope).find(".select-input-group");
-  },
-  initialize: function initialize(el) {
-    // get the value of the first option
-    var firstChild = $(el).find("li.select-input-list-option").first();
-    var firstValue = {
-      id: firstChild.attr("id"),
-      value: firstChild.attr("data-value"),
-      text: firstChild.text().trim()
-    }; // // set firstChild's values to elements
-
-    firstChild.attr("aria-selected", true);
-    $(el).find(".select-input-list").attr("aria-activedescendant", firstValue.id);
-    $(el).find("span.toggle-text").text(firstValue.text);
-    $(el).attr("data-value", firstValue.value);
-  },
-  getValue: function getValue(el) {
-    return $(el).attr("data-value");
-  },
-  subscribe: function subscribe(el, callback) {
-    // select primary elements
-    var inputGroup = $(el);
-    var currentInputValue = inputGroup.find("span.toggle-text");
-    var inputGroupToggle = inputGroup.find(".select-list-toggle");
-    var inputList = inputGroup.find("ul.select-input-list");
-    var inputListOptions = inputGroup.find("[role='option']"); // focus first item
-
-    function focusFirstItem() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : inputListOptions;
-      var firstItem = options[0];
-      firstItem.focus();
-    } // focus last item
-
-
-    function focusLastItem() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : inputListOptions;
-      var lastItem = options[options.length - 1];
-      lastItem.focus();
-    } // function for close Menu
-
-
-    function closeMenu() {
-      var group = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : inputGroup;
-      var list = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : inputList;
-      var toggle = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : inputGroupToggle;
-      group.addClass("hidden");
-      toggle.attr("aria-expanded", "false");
-      list.attr("aria-hidden", "true");
-    } // function for opening menu
-
-
-    function openMenu() {
-      var group = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : inputGroup;
-      var list = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : inputList;
-      var toggle = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : inputGroupToggle;
-      group.removeClass("hidden");
-      toggle.attr("aria-expanded", "true");
-      list.removeAttr("aria-hidden");
-      list.scrollTop(0);
-      focusFirstItem();
-    } // define a function that opens/closes menu
-    // @param group receives `el`
-    // @param list <ul> element
-    // @param toggle <button> that toggles the input list (i.e., all <li> elems)
-
-
-    function toggleMenu() {
-      var group = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : inputGroup;
-      var list = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : inputList;
-      var toggle = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : inputGroupToggle;
-
-      if (group.hasClass("hidden")) {
-        openMenu();
-      } else {
-        closeMenu();
-      }
-    } // define a function that writes inputList selections
-    // make sure <li> is selected (in case <span> is clicked)
-    // @param elem the newly selected option
-    // @param list <ul> element
-    // @param output <span> object to write the selected value into
-    // @param group receives $(el)
-
-
-    function updateInputValue(elem) {
-      var list = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : inputList;
-      var output = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : currentInputValue;
-      var group = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : inputGroup;
-      var selectedElem = elem.closest("li[role='option']");
-      var newValues = {
-        id: selectedElem.id,
-        value: selectedElem.data("value"),
-        text: selectedElem.text().trim()
-      }; // update attributes
-
-      list.find("li").removeAttr("aria-selected");
-      selectedElem.attr("aria-selected", "true");
-      list.attr("aria-activedescendant", newValues.id);
-      group.attr("data-value", newValues.value);
-      output.text(newValues.text); // run callback
-
-      callback();
-    } // define event that open/closes the input list
-
-
-    inputGroup.on("click", "button.select-list-toggle", function (e) {
-      toggleMenu();
-    }); // event for keydown
-
-    inputGroupToggle.keydown(function (e) {
-      switch (e.key) {
-        // when escape, only close menu
-        case "Escape":
-          closeMenu();
-          break;
-        // when space, toggle menu
-
-        case "Space":
-          toggleMenu();
-          break;
-      }
-    }); // event for focus and blur of child elements
-    // like the previous event, this event extends keyboard navigation to
-    // the child elements. If a child button is focused (i.e., tabbed),
-    // then the menu must remain open. If the last child element is exited,
-    // then the menu must close.
-
-    inputListOptions.each(function (n) {
-      var option = $(inputListOptions[n]); // click
-
-      option.on("click", function (e) {
-        updateInputValue($(e.target));
-        toggleMenu();
-      });
-      option.on("focus", function (e) {
-        console.log("focusing", e.target);
-      }); // keydown events
-
-      option.keydown(function (e) {
-        e.preventDefault();
-        console.log(e.key);
-
-        switch (e.key) {
-          // if keydown is enter
-          case "Enter":
-            updateInputValue($(e.target));
-            toggleMenu();
-            break;
-          // if up arrow
-
-          case "ArrowUp":
-            var previousChildIndex = inputListOptions.index(e.target) - 1; // focus previous element
-
-            if (previousChildIndex > -1) {
-              updateInputValue($(e.target));
-              var previousElem = inputListOptions[previousChildIndex];
-              previousElem.focus();
-            } // close menu
-
-
-            if (previousChildIndex === -1) {
-              inputGroupToggle.focus();
-              toggleMenu();
-            }
-
-            break;
-          // if down arrow
-
-          case "ArrowDown":
-            // find the index of the next item
-            var nextChildIndex = inputListOptions.index(e.target) + 1;
-
-            if (nextChildIndex < inputListOptions.length) {
-              var nextElement = inputListOptions[nextChildIndex];
-              nextElement.focus();
-            }
-
-            break;
-          // if home
-
-          case "Home":
-            focusFirstItem();
-            break;
-        }
-      });
-    });
-  },
-  unsubscribe: function unsubscribe(el) {
-    $(el).off(".selectInput");
-  }
-}); // register
-
-Shiny.inputBindings.register(selectInput);
-},{"./scss/index.scss":"scss/index.scss"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel/src/builtins/css-loader.js"}],"../node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -448,7 +235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50419" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -624,4 +411,4 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../node_modules/parcel/src/builtins/hmr-runtime.js"], null)

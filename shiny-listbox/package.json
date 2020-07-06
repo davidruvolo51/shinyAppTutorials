@@ -6,8 +6,8 @@
     "license": "MIT",
     "scripts": {
         "shiny": "Rscript -e \"shiny::runApp(launch.browser = FALSE, port = 8000)\"",
-        "dev": "parcel src/index.js -d www/ -o www/index.min.js --no-source-maps",
-        "build": "parcel build src/index.js -d www/ -o www/index.min.js --no-source-maps",
+        "dev": "parcel src/index.scss -d www/ -o www/index.css --no-source-maps",
+        "build": "parcel build src/index.scss -d www/ -o www/index.scss --no-source-maps",
         "clean": "rm -rf www/index.min.*",
         "start": "concurrently \"npm run shiny\" \"npm run dev\""
     },

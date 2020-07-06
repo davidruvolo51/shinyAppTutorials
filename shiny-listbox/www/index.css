@@ -1,0 +1,194 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 16pt;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.main {
+  width: 90%;
+  margin: 0 auto;
+  padding: 72px 0;
+}
+.main .form, .main .shiny-text-output {
+  margin: 0;
+  padding: 24px;
+}
+.main .form {
+  background-color: #f6f6f6;
+}
+.main .shiny-text-output {
+  background-color: #3f454b;
+  color: #f1f1f1;
+  word-break: break-all;
+}
+
+.listbox-group {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 300px;
+  position: relative;
+}
+.listbox-group button {
+  display: block;
+  margin: 0;
+  padding: 6px 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+.listbox-group .listbox-title {
+  margin: 0;
+  padding: 0;
+}
+.listbox-group .listbox-label {
+  display: block;
+  padding: 0;
+  margin: 6px 0;
+  font-size: 13pt;
+}
+.listbox-group .listbox-toggle {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #3f454b;
+}
+.listbox-group .listbox-toggle .toggle-text {
+  width: 75%;
+  max-width: 450px;
+  padding: 6px;
+  padding-left: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+.listbox-group .listbox-toggle .toggle-icon {
+  width: 25%;
+  max-width: 50px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.listbox-group .listbox-toggle .toggle-icon.rotated {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.listbox-group .listbox-list {
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+  top: 100%;
+  left: 0;
+  border: 1px solid #dad6d6;
+  z-index: 2;
+  -webkit-box-shadow: 0 12px 9px 3px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 12px 9px 3px rgba(0, 0, 0, 0.18);
+}
+.listbox-group .listbox-list .listbox-option {
+  border-bottom: 1px solid #dad6d6;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
+  text-align: left;
+  padding: 8px 0;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.listbox-group .listbox-list .listbox-option .option-text {
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+.listbox-group .listbox-list .listbox-option .option-icon {
+  margin: 0;
+  margin-left: 12px;
+  margin-right: 12px;
+  opacity: 0;
+}
+.listbox-group .listbox-list .listbox-option:hover, .listbox-group .listbox-list .listbox-option:focus {
+  background-color: #dad6d6;
+  color: #252525;
+}
+.listbox-group .listbox-list .listbox-option[aria-selected=true] {
+  background-color: #252525;
+  color: #f6f6f6;
+}
+.listbox-group .listbox-list .listbox-option[aria-selected=true] .option-icon {
+  opacity: 1;
+}
+.listbox-group .listbox-list .listbox-option:first-child {
+  border-top: 1px solid #dad6d6;
+}
+.listbox-group .listbox-list .listbox-option:last-child {
+  border-bottom: none;
+}
+.listbox-group .listbox-list.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0, 0, 0);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .listbox-group .listbox-toggle .toggle-icon {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+@media (min-width: 712px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header header" "form output";
+    -webkit-column-gap: 2em;
+       -moz-column-gap: 2em;
+            column-gap: 2em;
+  }
+  .main .header {
+    grid-area: header;
+  }
+  .main .form, .main .shiny-text-output {
+    height: 300px;
+  }
+  .main .form {
+    grid-area: form;
+  }
+  .main .shiny-text-output {
+    grid-area: output;
+  }
+}

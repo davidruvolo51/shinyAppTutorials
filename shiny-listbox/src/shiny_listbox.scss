@@ -6,7 +6,7 @@ $light: #f6f6f6;
 $shadow: hsla(0, 0%, 0%, 0.18);
 
 // parent selector
-.select-input-group {
+.listbox-group {
     padding: 0;
     margin: 0;
     border: 0;
@@ -26,13 +26,13 @@ $shadow: hsla(0, 0%, 0%, 0.18);
     }
 
     // <legend>
-    .select-input-title {
+    .listbox-title {
         margin: 0;
         padding: 0;
     }
 
     // input label
-    .select-input-label {
+    .listbox-label {
         display: block;
         padding: 0;
         margin: 6px 0;
@@ -40,7 +40,7 @@ $shadow: hsla(0, 0%, 0%, 0.18);
     }
 
     // select input toggle
-    .select-list-toggle {
+    .listbox-toggle {
         width: 100%;
         display: flex;
         justify-content: flex-start;
@@ -61,18 +61,22 @@ $shadow: hsla(0, 0%, 0%, 0.18);
         .toggle-icon {
             width: 25%;
             max-width: 50px;
-            transform: rotate(180deg);
+            transform: rotate(0deg);
             transform-origin: center;
             transition: all 0.3s ease-in-out;
+
+            &.rotated {
+                transform: rotate(180deg);
+            }
         }
     }
 
     // drop down list
-    .select-input-list {
+    .listbox-list {
         list-style: none;
         position: absolute;
         width: 100%;
-        max-height: 250px;
+        max-height: 200px;
         overflow-y: scroll;
         padding: 0;
         margin: 0;
@@ -83,7 +87,7 @@ $shadow: hsla(0, 0%, 0%, 0.18);
         box-shadow: 0 12px 9px 3px $shadow;
 
         // individual items
-        .select-input-list-option {
+        .listbox-option {
             border-bottom: 1px solid $medium;
             width: 100%;
             display: flex;
@@ -95,7 +99,7 @@ $shadow: hsla(0, 0%, 0%, 0.18);
             cursor: pointer;
 
             // text
-            .input-text {
+            .option-text {
                 width: 80%;
                 overflow: hidden;
                 white-space: nowrap;
@@ -103,7 +107,7 @@ $shadow: hsla(0, 0%, 0%, 0.18);
             }
 
             // inner icon
-            .input-icon {
+            .option-icon {
                 margin: 0;
                 margin-left: 12px;
                 margin-right: 12px;
@@ -113,17 +117,17 @@ $shadow: hsla(0, 0%, 0%, 0.18);
             // states
             &:hover,
             &:focus {
-                background-color: $dark;
-                color: $light;
+                background-color: $medium;
+                color: $dark;
             }
 
             // when button is selected
-            &[aria-selected=true] {
+            &[aria-selected="true"] {
                 background-color: $dark;
                 color: $light;
 
                 // make sure icon is visible
-                .input-icon {
+                .option-icon {
                     opacity: 1;
                 }
             }
@@ -138,38 +142,23 @@ $shadow: hsla(0, 0%, 0%, 0.18);
                 border-bottom: none;
             }
         }
-    }
 
-    // when hidden...
-    &.hidden {
-        // hide list
-        .select-input-list {
+        &.hidden {
             position: absolute;
             width: 1px;
             height: 1px;
-            margin: -1px;
             clip: rect(0, 0, 0, 0);
             clip: rect(0 0 0 0);
             overflow: hidden;
             white-space: nowrap;
-        }
-
-        // unrotate icon
-        .select-list-toggle {
-            .toggle-icon {
-                transform: rotate(0deg);
-            }
         }
     }
 }
 
 // reduce motion
 @media screen and (prefers-reduced-motion: reduce) {
-    // parent element
-    .select-input-group {
-        // select input toggle
-        .select-list-toggle {
-            // turn off transitions
+    .listbox-group {
+        .listbox-toggle {
             .toggle-icon {
                 transition: none;
             }

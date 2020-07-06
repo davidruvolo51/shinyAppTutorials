@@ -5,6 +5,10 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+p {
+    line-height: 1.5;
+}
+
 .main { 
     width: 90%;
     margin: 0 auto;
@@ -26,13 +30,9 @@ html, body {
    }
 }
 
-@import "_selectInput";
+@import "shiny_listbox";
 
-// #popularTech {
-//     width: 400px;
-// }
-
-@media (min-width: 7812px) {
+@media (min-width: 712px) {
 
     .main {
         display: grid;
