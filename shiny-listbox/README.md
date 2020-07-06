@@ -1,2 +1,4 @@
-# Creating a Listbox component for shiny applications
+# Shiny Listbox Component
+
+More information coming soon
 
