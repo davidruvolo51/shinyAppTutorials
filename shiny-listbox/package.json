@@ -1,14 +1,13 @@
 {
     "name": "custom-select-input",
     "version": "1.0.0",
-    "description": "shinyapp for creating custom select inputs",
+    "description": "create listbox components in shiny",
     "author": "@dcruvolo",
     "license": "MIT",
     "scripts": {
         "shiny": "Rscript -e \"shiny::runApp(launch.browser = FALSE, port = 8000)\"",
-        "dev": "parcel src/index.scss -d www/ -o www/index.css --no-source-maps",
-        "build": "parcel build src/index.scss -d www/ -o www/index.scss --no-source-maps",
-        "clean": "rm -rf www/index.min.*",
+        "dev": "parcel src/index.scss src/listbox.scss -d www/ --no-source-maps --no-cache",
+        "build": "parcel build src/index.scss src/listbox.scss -d www/ --no-source-maps --no-cache",
         "start": "concurrently \"npm run shiny\" \"npm run dev\""
     },
     "keywords": [
@@ -24,15 +23,14 @@
         "@babel/preset-env": "^7.9.6",
         "autoprefixer": "^9.7.6",
         "babel-preset-minify": "^0.5.1",
-        "cssnano": "^4.1.10",
         "postcss-modules": "^2.0.0",
         "sass": "^1.26.5"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/davidruvolo51/shiny-app-template"
+        "url": "https://github.com/davidruvolo51/shinyAppTutorials"
     },
     "bugs": {
-        "url": "https://github.com/davidruvolo51/shiny-app-template/issues"
+        "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
     }
 }

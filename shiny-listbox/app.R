@@ -22,6 +22,7 @@ ui <- tagList(
             content = "width=device-width, initial-scale=1"
         ),
         tags$link(rel = "stylesheet", href = "index.css"),
+        tags$link(rel = "stylesheet", href = "listbox.css"),
         # tags$style(
         #     "#popularTech .listbox-toggle {
         #         background-color: #2d7ddd;
@@ -84,7 +85,7 @@ ui <- tagList(
         ),
         verbatimTextOutput("result")
     ),
-    tags$script(src = "listbox.js")
+    tags$script(src = "js/listbox.js")
 )
 
 
