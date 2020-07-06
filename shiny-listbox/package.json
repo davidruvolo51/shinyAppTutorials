@@ -1,0 +1,36 @@
+{
+    "name": "custom-select-input",
+    "version": "1.0.0",
+    "description": "create listbox components in shiny",
+    "author": "@dcruvolo",
+    "license": "MIT",
+    "scripts": {
+        "shiny": "Rscript -e \"shiny::runApp(launch.browser = FALSE, port = 8000)\"",
+        "dev": "parcel src/index.scss src/listbox.scss -d www/ --no-source-maps --no-cache",
+        "build": "parcel build src/index.scss src/listbox.scss -d www/ --no-source-maps --no-cache",
+        "start": "concurrently \"npm run shiny\" \"npm run dev\""
+    },
+    "keywords": [
+        "r",
+        "shiny",
+        "components"
+    ],
+    "devDependencies": {
+        "concurrently": "^5.2.0",
+        "parcel": "^1.12.4",
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "autoprefixer": "^9.7.6",
+        "babel-preset-minify": "^0.5.1",
+        "postcss-modules": "^2.0.0",
+        "sass": "^1.26.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/davidruvolo51/shinyAppTutorials"
+    },
+    "bugs": {
+        "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
+    }
+}

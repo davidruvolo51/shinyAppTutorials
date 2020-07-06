@@ -1,0 +1,60 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    line-height: 1.5;
+}
+
+.main { 
+    width: 90%;
+    margin: 0 auto;
+    padding: 72px 0;
+
+    .form, .shiny-text-output {
+        margin: 0;
+        padding: 24px;
+    }
+
+    .form {
+        background-color: #f6f6f6;
+    }
+
+    .shiny-text-output {
+        background-color: #3f454b;
+        color: #f1f1f1;
+        word-break: break-all;
+   }
+}
+
+@media (min-width: 712px) {
+
+    .main {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "header header"
+            "form output";
+        column-gap: 2em;
+
+        .header {
+            grid-area: header;
+        }
+
+        .form, .shiny-text-output {
+            height: 300px;
+        }
+
+        .form {
+            grid-area: form;
+        }
+
+        .shiny-text-output {
+            grid-area: output;
+        }
+    }
+}
