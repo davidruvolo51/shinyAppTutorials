@@ -1,10 +1,10 @@
 #'////////////////////////////////////////////////////////////////////////////
-#' FILE: select_input.R
+#' FILE: listbox.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-06-29
-#' MODIFIED: 2020-06-29
+#' MODIFIED: 2020-07-06
 #' PURPOSE: UI component for creating a custom select input component
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: shiny; rheroicons
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ helpers$list_toggle <- function(inputId, labelId) {
     buttonLabelId <- paste0(buttonId, "_label")
     tags$button(
         id = buttonId,
-        class = "select-list-toggle",
+        class = "listbox-toggle",
         `data-group` = inputId,
         `aria-haspopup` = "listbox",
         `aria-expanded` = "false",
@@ -69,22 +69,22 @@ helpers$input_list_item <- function(inputId, option, value) {
     # generate html
     tags$li(
         id = forId,
-        class = "select-input-list-option",
+        class = "listbox-option",
         role = "option",
         `data-value` = value,
         `data-group` = inputId,
         `aria-labelledby` = forId,
-        tabIndex = "0",
+        # tabindex = "-1",
 
         # selected icon
         rheroicons::solid$check_circle(
             aria_hidden = TRUE,
-            class = "input-icon"
+            class = "option-icon"
         ),
         # label
         tags$span(
             id = paste0(forId, "-input-label"),
-            class = "input-text",
+            class = "option-text",
             option
         )
     )
@@ -103,12 +103,12 @@ helpers$input_list <- function(inputId, labelId, data) {
     # generate markup for parent element
     parent <- tags$ul(
         id = paste0(inputId, "__input_list"),
-        class = "select-input-list",
+        class = "listbox-list hidden",
         `data-group` = inputId,
         `aria-hidden` = "false",
         `aria-labelledby` = labelId,
         role = "listbox",
-        tabIndex = "0"
+        tabindex = "-1"
     )
 
     # generate markup for child (<li>) elements
@@ -140,7 +140,7 @@ helpers$input_list <- function(inputId, labelId, data) {
 #' @param options an array used to generate input options
 #' @param values an array of values to pass on to each inputs (gets `options`
 #'              if argument is NULL)
-select_input <- function(inputId, title, label = NULL, options, values = NULL) {
+listbox <- function(inputId, title, label = NULL, options, values = NULL) {
 
     # validate
     stopifnot(is.character(inputId))
@@ -166,21 +166,21 @@ select_input <- function(inputId, title, label = NULL, options, values = NULL) {
     # build component
     el <- tags$fieldset(
         id = inputId,
-        class = "select-input-group hidden",
+        class = "listbox-group hidden",
         `data-group` = inputId,
         `data-value` = "NULL",
 
         # define title for the input group
         tags$legend(
             id = titleId,
-            class = "select-input-title",
+            class = "listbox-title",
             title
         ),
 
         # define label for menu
         tags$span(
             id = labelId,
-            class = "select-input-label",
+            class = "listbox-label",
             lab
         ),
 

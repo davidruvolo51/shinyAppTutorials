@@ -2,14 +2,15 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-06-29
-#' MODIFIED: 2020-06-29
+#' MODIFIED: 2020-07-06
 #' PURPOSE: custom select input component example
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: shiny
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
 
-source("component/select_input.R")
+# source component
+source("listbox.R")
 
 # ui
 ui <- tagList(
@@ -20,8 +21,19 @@ ui <- tagList(
             name = "viewport",
             content = "width=device-width, initial-scale=1"
         ),
-        tags$link(rel = "stylesheet", href = "index.min.css"),
-        tags$title("shinyAppTutorials | custom select input component")
+        tags$link(rel = "stylesheet", href = "index.css"),
+        # tags$style(
+        #     "#popularTech .listbox-toggle {
+        #         background-color: #2d7ddd;
+        #         color: #f1f1f1;
+        #     }",
+        #     "#popularTech .listbox-option[aria-selected='true'] {
+        #         background-color: #2d7ddd;
+        #         color: #f1f1f1;
+        #     }
+        #     "
+        # ),
+        tags$title("shinyAppTutorials | Listbox Example")
     ),
     tags$main(
         class = "main",
@@ -30,19 +42,29 @@ ui <- tagList(
             `aria-labelledby` = "header-title",
             tags$h2(
                 id = "header-title",
-                "Custom Select Input"
+                "Building a Shiny Listbox Component"
             ),
             tags$p(
-                "This shiny app demonstrates how to create a custom select",
-                "input component using shiny Tags, SCSS, and JavaScript.",
-                "This is a potential solution for styling custom inputs, but",
-                "semantic HTML is always better than "
+                "This example shiny app demonstrates how to create a custom",
+                "listbox widget. Listboxes are a good alternative to select",
+                "inputs as select inputs have limited modifiable CSS",
+                "properties. To get listbox components working in shiny, you",
+                "will need a function that generates the HTML markup from",
+                "a data object, a CSS file that defines the base appearance",
+                "of the listbox element, and a javascript input binding that",
+                "registers our component with shiny. The following example",
+                "uses the Top 10 Technologies from the",
+                tags$a(
+                    href = "https://insights.stackoverflow.com/survey/2020#most-popular-technologies",
+                    "StackOverflow 2020 Survey"
+                ), ". Use the mouse to make a selection or use keyboard to",
+                "navigation the listbox (up, down, escape, enter)."
             )
         ),
         tags$form(
             class = "form",
             `aria-labelledby` = "popularTech__title",
-            select_input(
+            listbox(
                 inputId = "popularTech",
                 title = "Most Popular Technologies",
                 label = "Select a technology",
@@ -55,14 +77,14 @@ ui <- tagList(
                     "Bash/Shell/Powershell",
                     "C#",
                     "PHP",
-                    "C++",
-                    "Typescript"
+                    "Typescript",
+                    "C++"
                 )
             )
         ),
         verbatimTextOutput("result")
     ),
-    tags$script(src = "index.min.js")
+    tags$script(src = "listbox.js")
 )
 
 
