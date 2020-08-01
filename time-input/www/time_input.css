@@ -1,0 +1,28 @@
+/* <label> */
+.time__label {
+    font-family: inherit;
+    color: #353535;
+    font-size: 16pt;
+    line-height: 1.4;
+}
+
+/* optional caption */
+.time__caption {
+    font-family: inherit;
+    color: #53595f;
+    display: block;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-size: 12pt;
+}
+
+/* input[type='time'] */
+.time__input {
+    display: block;
+    width: 125px;
+    border: 1px solid #53595f;
+    padding: 12px;
+    font-size: 12pt;
+    text-align: center;
+    box-shadow: inset 0 0 4px 0 #c5c5c5;
+}

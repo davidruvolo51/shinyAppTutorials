@@ -2,7 +2,7 @@
 #' FILE: time_input.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-07-31
-#' MODIFIED: 2020-07-31
+#' MODIFIED: 2020-08-01
 #' PURPOSE: Shiny UI Component for Time Inputs
 #' STATUS: in.progress
 #' PACKAGES: Shiny
@@ -22,7 +22,6 @@
 #' @param max the latest time allowed (hh:mm; default: "10:00")
 #' @param caption text that provides additional infomration about the input
 #'
-#'
 time_input <- function(
     inputId,
     label,
@@ -39,6 +38,17 @@ time_input <- function(
         label
     )
 
+    # if caption
+    if (!is.null(caption)) {
+        lab$children <- shiny::tagList(
+            lab$children,
+            shiny::tags$span(
+                class = "time__caption",
+                caption
+            ),
+        )
+    }
+
     # generate HTML for input
     input <- shiny::tags$input(
         id = inputId,
@@ -50,19 +60,6 @@ time_input <- function(
         value = value
     )
 
-    # evaluate use of arg `caption`
-    if (is.null(caption)) out <- shiny::tagList(lab, input)
-    if (!is.null(caption)) {
-        out <- shiny::tagList(
-            lab,
-            shiny::tags$span(
-                class = "time__caption",
-                caption
-            ),
-            input
-        )
-    }
-
     # return
-    return(out)
+    shiny::tagList(lab, input)
 }
