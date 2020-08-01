@@ -31,12 +31,11 @@ My interests are in web accessibility, data visualization and communication of r
 | setting html attributes | define and set values for the `<html>` element | working | [tutoria](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/)
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 | shiny listbox | create a listbox component as an alternative to select inputs | working | tbd
-| time input | creating a time input widget | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
-| time input R6 | creating a time input widget using R6 classes | working | tbd
+| time input | getting started with input bindings | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 
 ## Resources
 
-Many of the tutorials use CSS and JavaScript, as well as HTML to create specific layouts and custom designs rather than ShinyUI functions (e.g., fluidPage, navbarPage, etc.). These are good skills to have and they will come in handy when building custom shiny applications. Here are some links that you may find useful.
+Many of the tutorials use CSS and JavaScript, as well as HTML to create specific layouts and custom designs rather than ShinyUI functions (e.g., fluidPage, navbarPage, etc.). These are good skills to have, and they will come in handy when building custom shiny applications. Here are some links that you may find useful.
 
 ### Web Development
 

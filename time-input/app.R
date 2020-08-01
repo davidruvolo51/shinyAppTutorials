@@ -2,55 +2,67 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-11-17
-#' MODIFIED: 2019-11-18
+#' MODIFIED: 2020-08-01
 #' PURPOSE: single file app for time-input shiny application
 #' STATUS: in.progress
 #' PACKAGES: shiny
 #' COMMENTS: NA
 #'//////////////////////////////////////////////////////////////////////////////
-options(stringsAsFactors = FALSE)
 
 # pkgs
-suppressPackageStartupMessages(library(shiny))
+library(shiny)
+
+# source component
+source("time_input.R")
 
 # app
-shinyApp(
-    ui = tagList(
-        # <head>
-        tags$head(
-            tags$link(type = "text/css", rel = "stylesheet", href = "css/styles.css"),
-            tags$title("Time Input Example")
+ui <- tagList(
+    tags$head(
+        tags$link(rel = "stylesheet", href = "time_input.css"),
+        tags$style(
+            "html, body {
+                font-family: Helvetica;
+                font-size: 16pt;
+            }",
+            "main {
+                width: 90%;
+                max-width: 912px;
+                margin: 0 auto;
+                padding: 32px;
+            }",
+            "#timeOutput {
+                background-color: #353535;
+                color: #f1f1f1;
+                box-sizing: content-box;
+                padding: 12px;
+            }"
         ),
-        # <body>
-        tags$body(
-            tags$header(class = "header",
-                tags$h1("shinyTutorials: Time Input Example")
+        tags$title("shinyAppTutorials | Time Input Example")
+    ),
+    tags$main(
+        tags$h1("Time Input Example"),
+        tags$form(
+            time_input(
+                inputId = "take_away",
+                label = "What time would you like to pick up your order?",
+                caption = "We are open everyday from 11:00 to 18:00",
+                value = "12:00",
+                min = "11:00",
+                max = "18:00"
             ),
-            tags$main(class = "main", 
-                tags$section(class="main-section",
-                    tags$form(class = "form", `aria-labelledby`="form-legend",
-                        tags$legend(id="form-legend","Time Input Example"),
-                        tags$label(`for`="time", "Enter a time"),
-                        tags$span(class="input-example", "(hh:mm am/pm)"),
-                        tags$input(type="time", id="time", class="shiny-bound-input", name="time"),
-                        tags$button(type="button", id="submit", class="action-button shiny-bound-input", "Enter")
-                    ),
-                    tags$label(`for`="output","Time Entered"),
-                    tags$output(id="output", class="output", "[ enter a time ]")
-                )
-            ),
-            tags$script(type="text/javascript", src="js/index.js")
+            tags$h2("Time Selected"),
+            verbatimTextOutput("timeOutput")
         )
     ),
-    server = function(input, output, session) {
-
-        # on form submit - explicit conditions
-        observeEvent(input$submit, {
-            if( is.null(input$time) ){
-                session$sendCustomMessage("innerHTML", list(".output", "[ no time entered ]"))
-            } else {
-                session$sendCustomMessage("innerHTML", list(".output", input$time))
-            }
-        })
-    }
+    tags$script(src = "time_input.js")
 )
+
+# server
+server <- function(input, output, session) {
+    output$timeOutput <- renderPrint({
+        input$take_away
+    })
+}
+
+# app
+shinyApp(ui, server)
