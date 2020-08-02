@@ -17,7 +17,7 @@ $.extend(shinyLink, {
             // does the link exist?
             if (target.length) {
 
-                // if the matching link has the class `.navbar-nav`,
+                // if the parent ul of the matching link has the class `.navbar-nav`,
                 // then click the link. Links with these classes are
                 // located in the navbar element.
                 if ($(target).parent().parent().hasClass("navbar-nav")) {
@@ -25,8 +25,8 @@ $.extend(shinyLink, {
                     window.scrollTo(0, 0,);
                 }
                 
-                // if the matching link has the class `.nav-tabs`, then
-                // this indicates that the link is part of of a tabSetPanel
+                // if the parent ul of the matching link has the class `.nav-tabs`,
+                // then this indicates that the link is part of of a tabSetPanel
                 // inside a tabPanel. This means, that parent tabPanel must
                 // be found and activated before activating the tabPanel.
                 if ($(target).parent().parent().hasClass("nav-tabs")) {
