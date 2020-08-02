@@ -1,0 +1,31 @@
+
+html, body {
+    font-size: 15pt;
+}
+
+p {
+    line-height: 1.6;
+    margin-top: 12px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.tab-content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.navbar-static-top + div.container-fluid {
+    padding-bottom: 72px;
+}
+
+@media (min-width: 972px) {
+    .tab-content {
+        max-width: 972px;
+    }
+}
+
