@@ -6,8 +6,9 @@
     "license": "MIT",
     "scripts": {
         "shiny": "Rscript -e \"shiny::runApp(launch.browser = FALSE, port = 8000)\"",
-        "dev": "parcel src/index.scss src/listbox.scss -d www/ --no-source-maps --no-cache",
-        "build": "parcel build src/index.scss src/listbox.scss -d www/ --no-source-maps --no-cache",
+        "dev": "parcel src/index.scss src/listbox.scss -d www/css/ --no-source-maps --no-cache --no-minify",
+        "build": "parcel build src/index.scss src/listbox.scss -d www/css/ --no-source-maps --no-cache --no-minify",
+        "clean": "rm -rf www/css/*",
         "start": "concurrently \"npm run shiny\" \"npm run dev\""
     },
     "keywords": [

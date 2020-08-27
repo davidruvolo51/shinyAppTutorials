@@ -124,13 +124,7 @@
   border-bottom: none;
 }
 .listbox-group .listbox-list.hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  clip: rect(0, 0, 0, 0);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  white-space: nowrap;
+  display: none;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
