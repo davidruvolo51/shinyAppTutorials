@@ -24,22 +24,24 @@ $.extend(listbox, {
     // on input initialize, select the first option
     initialize: function(el) {
 
-        // select elements
+        // select list (ul) and first item in the list (li)
         var list = $(el).find("ul[role='listbox']");
         var first = $(el).find("li[role='option']").first();
 
-        // update attributes
+        // update ARIA attributes
         list.attr("aria-activedescendant", first.attr("id"))
         first.attr("aria-selected", "true");
 
-        // set value to parent container
+        // add the value of the first item to the parent container (i.e., <fieldset>)
+        // to a custom data attribute
         $(el).attr("data-value", first.attr("id"));
 
-        // write value to toggle
+        // update displayed text
         $(el).find(".toggle-text").text(first.attr("data-value"));
     },
 
-    // when callback is triggered, get the value 
+    // when callback is triggered, get the value of the element
+    // with the attribute `aria-selected`
     getValue: function(el) {
         return $(el).find("li[aria-selected='true']").attr("data-value");
     },
@@ -56,7 +58,6 @@ $.extend(listbox, {
 
             // modify attributes
             menu.addClass("hidden");
-            menu.attr("aria-hidden", "true");
             toggle.attr("aria-expanded", "false");
             toggle.find(".toggle-icon").removeClass("rotated");
         }
@@ -70,7 +71,6 @@ $.extend(listbox, {
             
             // modify attributes
             menu.removeClass("hidden");
-            menu.removeAttr("aria-hidden");
             toggle.attr("aria-expanded", "false");
             toggle.find(".toggle-icon").addClass("rotated");
             
@@ -88,7 +88,7 @@ $.extend(listbox, {
             }
         }
 
-        // update selected option
+        // update component and selected item
         function updateInput(elem) {
             // focus new element
             var newElem = elem;
@@ -103,7 +103,7 @@ $.extend(listbox, {
             $(el).attr("data-value", elem.attr("data-value"));
             $(el).find(".toggle-text").text(elem.attr("data-value"));
 
-            // run callback
+            // run callback (i.e., getValue)
             callback();
             
         }
@@ -115,10 +115,10 @@ $.extend(listbox, {
 
         // event: watch for keydowns
         $(el).on("keydown", "ul[role='listbox']", function(e) {
-            switch(e.key) {
+            switch(e.keyCode) {
 
-                // on keydown: up arrow
-                case "ArrowUp":
+                // on keydown: ArrowUp - code 38
+                case 38:
                     var current = $(el).find("li[aria-selected='true']");
                     if (current.prev().length) {
                         var newElem = current.prev();
@@ -127,8 +127,8 @@ $.extend(listbox, {
                     }
                     break;
 
-                // on keydown: down arrow
-                case "ArrowDown":
+                // on keydown: ArrowDown - code 40
+                case 40:
                     var current = $(el).find("li[aria-selected='true']");
                     if (current.next().length) {
                         var newElem = current.next();
@@ -137,13 +137,29 @@ $.extend(listbox, {
                     }
                     break;
 
-                // on escape
-                case "Escape":
+                // on keydown: Home - code 36
+                case 36:
+                    var current = $(el).find("li[aria-selected='true']");
+                    var first = $(el).find("li[role='option']").first();
+                    current.removeAttr("aria-selected");
+                    updateInput(first);
+                    break;
+
+                // on keydown: End - code 35
+                case 35:
+                    var current = $(el).find("li[aria-selected='true']");
+                    var last = $(el).find("li[role='option']").last();
+                    current.removeAttr("aria-selected");
+                    updateInput(last);
+                    break;
+                
+                // on keydown: Escape - code 27
+                case 27:
                     closeMenu();
                     break;
 
-                // on enter
-                case "Enter":
+                // on keydown: Enter - code 13
+                case 13:
                     var selected = $(e.target);
                     updateInput(selected);
                     closeMenu();

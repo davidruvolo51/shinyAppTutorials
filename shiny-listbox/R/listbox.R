@@ -226,7 +226,7 @@ listbox <- function(inputId, title, label = NULL, options, values = NULL) {
             tags$span(
                 id = labelId,
                 class = "listbox-label",
-                lab
+                label
             ),
             el$children[2],
             el$children[3],
