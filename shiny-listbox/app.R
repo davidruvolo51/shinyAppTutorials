@@ -2,15 +2,14 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-06-29
-#' MODIFIED: 2020-07-06
+#' MODIFIED: 2020-08-27
 #' PURPOSE: custom select input component example
 #' STATUS: working
-#' PACKAGES: shiny
+#' PACKAGES: shiny; rheroicons;
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
 
-# source component
-source("listbox.R")
+library(shiny)
 
 # ui
 ui <- tagList(
@@ -21,8 +20,8 @@ ui <- tagList(
             name = "viewport",
             content = "width=device-width, initial-scale=1"
         ),
-        tags$link(rel = "stylesheet", href = "index.css"),
-        tags$link(rel = "stylesheet", href = "listbox.css"),
+        tags$link(rel = "stylesheet", href = "css/index.css"),
+        tags$link(rel = "stylesheet", href = "css/listbox.css"),
         # tags$style(
         #     "#popularTech .listbox-toggle {
         #         background-color: #2d7ddd;
