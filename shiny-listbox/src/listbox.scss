@@ -144,13 +144,14 @@ $shadow: hsla(0, 0%, 0%, 0.18);
         }
 
         &.hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            clip: rect(0, 0, 0, 0);
-            clip: rect(0 0 0 0);
-            overflow: hidden;
-            white-space: nowrap;
+            display: none;
+            // position: absolute;
+            // width: 1px;
+            // height: 1px;
+            // clip: rect(0, 0, 0, 0);
+            // clip: rect(0 0 0 0);
+            // overflow: hidden;
+            // white-space: nowrap;
         }
     }
 }
