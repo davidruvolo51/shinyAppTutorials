@@ -31,7 +31,7 @@ My interests are in web accessibility, data visualization and communication of r
 | setting html attributes | define and set values for the `<html>` element | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/)
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 | shiny links | create links to other tabs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/)
-| shiny listbox | create a listbox component as an alternative to select inputs | working | tbd
+| shiny listbox | create a listbox component as an alternative to select inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/)
 | time input | getting started with input bindings | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 
 \* These examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdir. (02 August 2020)

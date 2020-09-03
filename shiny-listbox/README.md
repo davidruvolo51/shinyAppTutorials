@@ -1,6 +1,6 @@
-# Shiny Listbox Component
+# Listbox Widget
 
-Create a listbox widget as a customizable, dynamic, and accessible alternative to select input widgets. For more information, see the longer post [listbox component](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-component/).
+Create a listbox widget as a customizable, dynamic, and accessible alternative to select input widgets. For more information, see the longer post [listbox widget](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/).
 
 To use this component, you will need the following files.
 
@@ -20,7 +20,7 @@ I've included the SASS file and build scripts (using Parcel JS) for compiling th
 
 You can use the listbox component in your apps like so.
 
-```
+```r
 listbox(
     inputId = "popularTech",
     title = "The Most Popular Technologies",
