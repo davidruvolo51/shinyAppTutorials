@@ -2,14 +2,14 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-06-29
-#' MODIFIED: 2020-08-27
+#' MODIFIED: 2020-09-07
 #' PURPOSE: custom select input component example
 #' STATUS: working
 #' PACKAGES: shiny; rheroicons;
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
 
-library(shiny)
+suppressPackageStartupMessages(library(shiny))
 
 # ui
 ui <- tagList(
