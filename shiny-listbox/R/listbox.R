@@ -2,7 +2,7 @@
 #' FILE: listbox.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-06-29
-#' MODIFIED: 2020-08-27
+#' MODIFIED: 2020-09-07
 #' PURPOSE: UI component for creating a custom select input component
 #' STATUS: working
 #' PACKAGES: shiny; rheroicons
@@ -47,10 +47,10 @@ helpers$list_toggle <- function(inputId, titleId) {
         ),
 
         # icon
-        rheroicons::icons$chevron_down(
+        rheroicons::rheroicon(
+            name = "chevron_down",
             type = "solid",
-            aria_hidden = TRUE,
-            class = "toggle-icon"
+            classnames = "toggle-icon"
         )
     )
 }
@@ -79,10 +79,10 @@ helpers$input_list_item <- function(inputId, option, value) {
         `aria-labelledby` = forId,
 
         # selected icon
-        rheroicons::icons$check_circle(
+        rheroicons::rheroicon(
+            name = "check_circle",
             type = "solid",
-            aria_hidden = TRUE,
-            class = "option-icon"
+            classnames = "option-icon"
         ),
         # label
         tags$span(
