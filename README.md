@@ -17,9 +17,6 @@ My interests are in web accessibility, data visualization and communication of r
 | data editor | edit a dataset in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/)
 | drag and drop | a shinyapp with elements that can be dragged and dropped | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/)
 | get window dimensions | how to use window dimensions in a Shiny app: an example on sending data from javascript | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims/)
-| internal links basic example\* | learn how to create a link from one shiny page to another | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
-| internal links demo\* | navigate to a specific tab on another shiny page | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
-| internal links\* | create a link to another tab from a leaflet map | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
 | js handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/)
 | leaflet loading screens | create a busy element during leaflet rendering | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/)
 | login screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
@@ -33,6 +30,18 @@ My interests are in web accessibility, data visualization and communication of r
 | shiny links | create links to other tabs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/)
 | shiny listbox | create a listbox component as an alternative to select inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/)
 | time input | getting started with input bindings | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
+
+
+### Archived Examples
+
+The examples listed in the following table are achived. They still work, but they are either outdated or were replaced by a newer example.
+
+| Name | Description | Status | Link |
+| :--- | :---------- | :----  | :--- |
+| internal links basic example\* | learn how to create a link from one shiny page to another | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
+| internal links demo\* | navigate to a specific tab on another shiny page | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
+| internal links\* | create a link to another tab from a leaflet map | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
+
 
 \* These examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdir. (02 August 2020)
 
