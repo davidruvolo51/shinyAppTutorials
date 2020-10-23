@@ -1,15 +1,7 @@
-# Applying CSS Styles to Select Inputs
+# Updates as of 23 October 2020
 
-The purpose of this app is to demonstration how to style the select input widget in shiny apps. This app was created in response to this community rstudio post: [https://community.rstudio.com/t/selectinput-css-customization/12664/](https://community.rstudio.com/t/selectinput-css-customization/12664).
+Since the last update of this demo application, I have created the [Shiny listbox example](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-listbox) as a replacement/alternative to this demo. This demo still works, but the methods in this app are outdated and will no longer be maintained.
 
-> Before you begin, I would use caution in using this approach as overriding browser defaults can cause things to break or not function properly. Check site such as caniuse.com for browerser support before implementing into your production app.
+Questions or comments are always welcome. Feel free to open a new issue.
 
-> Also, the `onfocus` and `onblur` and `onchange` should really be added through javascript listeners. Future updates will correct this and a longer post will be available.
-
-You can run this demo by cloning the [github repository](https://github.com/davidruvolo51/shinyAppTutorials) and opening the Rproject file in `select_input_styling` directory. Alternatively, you can run the app through the console using:
-
-```r
-install.packages(shiny)
-shiny::runGithub(repo="shinyAppTutorials", username="davidruvolo51", subdir="select_input_styling")
-```
-
+\- David
