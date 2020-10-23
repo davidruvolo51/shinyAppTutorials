@@ -24,7 +24,6 @@ My interests are in web accessibility, data visualization and communication of r
 | responsive datatables | creating datatables that look good on all screens | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/)
 | rmarkdown app | Write content in an RMD file and use it as the UI | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/)
 | sass in shiny | setting up sass for use in shiny apps | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/)
-| select input styling | custom styling for inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/)
 | setting html attributes | define and set values for the `<html>` element | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/)
 | shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
 | shiny links | create links to other tabs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/)
@@ -34,20 +33,23 @@ My interests are in web accessibility, data visualization and communication of r
 
 ### Archived Examples
 
-The examples listed in the following table are achived. They still work, but they are either outdated or were replaced by a newer example.
+The examples listed in the following table are achived. They still work, but they are either outdated or were replaced by a newer example. (I'm a bit hesitant to remove these examples in case some follows a link to a page that doesn't exist.)
 
 | Name | Description | Status | Link |
 | :--- | :---------- | :----  | :--- |
 | internal links basic example\* | learn how to create a link from one shiny page to another | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
 | internal links demo\* | navigate to a specific tab on another shiny page | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
 | internal links\* | create a link to another tab from a leaflet map | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
+| select input styling | custom styling for inputs | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/)
 
 
-\* These examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdir. (02 August 2020)
+\* These examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdirectory. (02 August 2020)
 
 ## Resources
 
-Many of the tutorials use CSS and JavaScript, as well as HTML to create specific layouts and custom designs rather than ShinyUI functions (e.g., fluidPage, navbarPage, etc.). These are good skills to have, and they will come in handy when building custom shiny applications. Here are some links that you may find useful.
+Many of the tutorials rely heavily on HTML, CSS and JavaScript to create specific layouts and interactivity. These are good skills to have, and they will come in handy when building custom applications. Throughout the examples, I've tried to keep things simple and provide links to outside sources where applicable. If something isn't clear or you have suggestions for improvement, feel free to open a new issue. 
+
+If you would like to learn more, here are some links that you may find useful.
 
 ### Web Development
 
