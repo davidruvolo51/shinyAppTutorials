@@ -2,7 +2,19 @@
 
 # shinyTutorials
 
-This repo contains the code for the examples and demonstrations presented on my shiny tutorials site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/). 
+This repo contains the code for the examples and demonstrations presented on my shiny tutorials site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/).
+
+- [Motivation](#motivation)
+- [Tutorials](#tutorials)
+  - [Cloning Tutorials](#cloning-tutorials)
+  - [Available Tutorias](#available-tutorials)
+  - [Archived Tutorias](#archived-tutorials)
+- [Resources](#resources)
+  - [Communities](#communities)
+  - [Courses](#courses)
+  - [Web Accessibility](#accessibility)
+  - [Web Development](#web-development)
+- [Contributing to this project](#contributing-to-this-project)
 
 ## Motivation
 
@@ -11,6 +23,25 @@ In my early days of learning shiny, I kept a document of all my tips and tricks.
 My interests are in web accessibility, data visualization and communication of results, and good design practices. Many of these tutorials focus heavily on HTML, CSS, and JavaScript, but I will try to keep things simple and provide links for further reading. Suggestions, comments, ideas for improvement are always welcome!
 
 ## Tutorials
+
+I plan on developing a new Shiny app every now and then. Checkout the issues label `Tutorial Ideas` for examples that I'm currently developing. If you have an idea, feel free to open a new issue.
+
+All *live* examples can be found in the [Available Tutorials](#available-tutorials) table. The *archived* example apps listed in the [Archived Tutorials](#archived-tutorials) section. These examples still work, but the methods are outdated or the example was replaced by a newer one.
+
+### Cloning Tutorials
+
+You can clone the entire repository, but be aware that you will also clone the entire git history. You can either download the files or folders that you want or use `git sparse-checkout`. In the terminal, run the following commands.
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/davidruvolo51/shinyAppTutorials
+cd shinyAppTutorials
+git sparse-checkout init --cone
+git sparse-checkout set drag-and-drop
+```
+
+Switch `drag-and-drop` for the subdirectory(ies) that you wish to checkoout. For more information, checkout the GitHub blog post: [Bring your monorepo down to size with sparse-checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/). Be aware that this is slightly experimental and these instructions may change.
+
+### Available Tutorials
 
 | Name | Description | Status | Link |
 | :--- | :---------- | :----  | :--- |
@@ -31,7 +62,7 @@ My interests are in web accessibility, data visualization and communication of r
 | time input | getting started with input bindings | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 
 
-### Archived Examples
+### Archived Tutorials
 
 The examples listed in the following table are achived. They still work, but they are either outdated or were replaced by a newer example. (I'm a bit hesitant to remove these examples in case some follows a link to a page that doesn't exist.)
 
@@ -51,16 +82,20 @@ Many of the tutorials rely heavily on HTML, CSS and JavaScript to create specifi
 
 If you would like to learn more, here are some links that you may find useful.
 
-### Web Development
+### Communities
 
-- [CSS Tricks](https://css-tricks.com)
-- [Mozilla's CSS documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [Mozilla's Learn CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)
-- [Mozilla's Learn HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
-- [Mozilla's Learn JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
-- [Resources for Front-End Beginners](https://github.com/thedaviddias/Resources-Front-End-Beginner)
+- [Data Visualization Society](https://www.datavisualizationsociety.com)
+- [dev.to](https://dev.to)
+- [RStudio Community](https://community.rstudio.com)
+- [r/rstats](https://www.reddit.com/r/rstats/)
+- [r/rshiny](https://www.reddit.com/r/rshiny/)
+- [Twitter #rstats](https://twitter.com/hashtag/rstats)
 
-### Accessibility
+### Courses
+
+- [W3C Online Courses](https://www.edx.org/school/w3cx) (free on [edx.org](https://www.edx.org))
+
+### Web Accessibility
 
 - [a11y project](https://a11yproject.com)
 - [Accessibility Developer Guide](https://www.accessibility-developer-guide.com)
@@ -69,16 +104,14 @@ If you would like to learn more, here are some links that you may find useful.
 - [WAI's Web Accessibility Tutorials](https://www.w3.org/WAI/tutorials/)
 - [Web Accessibility Initiative](https://www.w3.org/WAI/)
 
-### Communities
+### Web Development
 
-- [Data Visualization Society](https://www.datavisualizationsociety.com)
-- [dev.to](https://dev.to)
-- [RStudio Community](https://community.rstudio.com)
-
-
-### Courses
-
-- [W3C Online Courses](https://www.edx.org/school/w3cx) (free on [edx.org](https://www.edx.org))
+- [CSS Tricks](https://css-tricks.com)
+- [Mozilla's CSS documentation](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Mozilla's Learn CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)
+- [Mozilla's Learn HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML)
+- [Mozilla's Learn JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
+- [Resources for Front-End Beginners](https://github.com/thedaviddias/Resources-Front-End-Beginner)
 
 ## Contributing to this project
 
