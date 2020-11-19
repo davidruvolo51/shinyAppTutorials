@@ -1,13 +1,8 @@
 {
-  "name": "sass-in-shiny",
+  "name": "js-handlers",
   "version": "1.0.0",
   "description": "",
   "author": "@dcruvolo",
-  "scripts": {
-    "sass": "sass --watch www/css/index.scss:www/css/styles.css --style expanded",
-    "shiny": "Rscript -e 'shiny::runApp(launch.browser=FALSE, port=1234)'",
-    "dev": "npm run shiny & npm run sass"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
