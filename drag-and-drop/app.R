@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-04-24
-#' MODIFIED: 2020-05-05
+#' MODIFIED: 2020-11-20
 #' PURPOSE: example application for creating drag/drop elements
 #' STATUS: working
 #' PACKAGES: shiny
@@ -11,9 +11,6 @@
 
 # pkgs
 suppressPackageStartupMessages(library(shiny))
-
-# source component
-source("draggable_card.R")
 
 # ui
 ui <- tagList(
