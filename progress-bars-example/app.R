@@ -2,19 +2,15 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-03-28
-#' MODIFIED: 2020-03-30
+#' MODIFIED: 2020-11-21
 #' PURPOSE: example app demonstrating progress bars
 #' STATUS: working
-#' PACKAGES: shiny, R6
+#' PACKAGES: shiny; R6
 #' COMMENTS: NA
 #' ////////////////////////////////////////////////////////////////////////////
 
 # pkgs
-library(shiny)
-
-# source assets
-pages <- readRDS("demo_pages.RDS")
-source("progress.R")
+suppressPackageStartupMessages(library(shiny))
 
 # init new progress bar
 mybar <- shiny_progress$new(now = 1, min = 1, max = 10)
@@ -48,7 +44,6 @@ ui <- tagList(
     )
 )
 
-
 # server
 server <- function(input, output, session) {
 
@@ -77,7 +72,6 @@ server <- function(input, output, session) {
         })
     })
 }
-
 
 # app
 shinyApp(ui, server)

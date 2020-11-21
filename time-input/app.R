@@ -2,18 +2,15 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-11-17
-#' MODIFIED: 2020-08-01
+#' MODIFIED: 2020-11-20
 #' PURPOSE: single file app for time-input shiny application
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: shiny
 #' COMMENTS: NA
 #'//////////////////////////////////////////////////////////////////////////////
 
 # pkgs
-library(shiny)
-
-# source component
-source("time_input.R")
+suppressPackageStartupMessages(library(shiny))
 
 # app
 ui <- tagList(

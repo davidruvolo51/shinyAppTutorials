@@ -1,0 +1,17 @@
+{
+  "name": "setting-html-attributes",
+  "version": "1.0.0",
+  "description": "set document attributes",
+  "author": "@dcruvolo",
+  "status": "active",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
+  },
+  "keywords": ["r", "shiny", "tutorials"],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
+  },
+  "homepage": "https://github.com/davidruvolo51/shinyAppTutorials"
+}

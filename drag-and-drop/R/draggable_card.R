@@ -2,7 +2,7 @@
 #' FILE: draggable_card.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-05-05
-#' MODIFIED: 2020-05-05
+#' MODIFIED: 2020-11-20
 #' PURPOSE: functional component for creating a draggable card
 #' STATUS: working
 #' PACKAGES: shiny

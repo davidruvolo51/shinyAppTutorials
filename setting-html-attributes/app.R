@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-07-15
-#' MODIFIED: 2020-07-15
+#' MODIFIED: 2020-11-20
 #' PURPOSE: setting modifying global attributes
 #' STATUS: working
 #' PACKAGES: Shiny
@@ -12,10 +12,7 @@
 #'////////////////////////////////////////////////////////////////////////////
 
 # pkgs
-library(shiny)
-
-# source function
-source("set_html_attribs.R")
+suppressPackageStartupMessages(library(shiny))
 
 # ui
 ui <- tagList(

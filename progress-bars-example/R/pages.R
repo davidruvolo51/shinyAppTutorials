@@ -2,7 +2,7 @@
 #' FILE: pages.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-03-28
-#' MODIFIED: 2020-03-28
+#' MODIFIED: 2020-11-21
 #' PURPOSE: misc pages to demonstate subpages
 #' STATUS: working
 #' PACKAGES: stringr
@@ -27,5 +27,3 @@ lorem_lipsum <- function(n) {
 
 # save data
 pages <- lorem_lipsum(n = 10)
-saveRDS(pages, "demo_pages.RDS")
-
