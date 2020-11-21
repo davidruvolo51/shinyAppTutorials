@@ -2,21 +2,17 @@
 #' FILE: leaflet-on-render-app.R (generic loading)
 #' AUTHOR: @dcruvolo
 #' CREATED: 2020-04-01
-#' MODIFIED: 2020-04-02
+#' MODIFIED: 2020-11-20
 #' PACKAGES: shiny, leaflet
 #' STATUS: working
 #' PURPOSE: creating busy screens for leaflet maps in shiny
 #' COMMENTS: click `Run App` to view the app in the viewer pane
 #'/////////////////////////////////////////////////////////////////////////////
-options(stringsAsFactors = FALSE)
 
 # pkgs
 library(shiny)
 library(leaflet)
 library(htmlwidgets)
-
-# components
-source("leaflet_loader.R")
 
 # ui
 ui <- tagList(

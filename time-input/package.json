@@ -1,8 +1,9 @@
 {
   "name": "time-input",
   "version": "1.0.0",
-  "description": "",
+  "description": "creating a custom time input for use in shiny",
   "author": "@dcruvolo",
+  "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

@@ -1,8 +1,9 @@
 {
   "name": "Internal-Links",
   "version": "1.0.0",
-  "description": "",
+  "description": "creating links to other tabs",
   "author": "@dcruvolo",
+  "status": "archived",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

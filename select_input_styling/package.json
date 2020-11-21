@@ -1,8 +1,9 @@
 {
   "name": "select_input_styling",
   "version": "1.0.0",
-  "description": "",
+  "description": "customize select inputs",
   "author": "@dcruvolo",
+  "status": "archived",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

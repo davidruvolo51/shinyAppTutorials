@@ -2,9 +2,9 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-01-15
-#' MODIFIED: 2020-01-15
+#' MODIFIED: 2020-11-21
 #' PURPOSE: example shiny app using sass
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: shiny, dplyr, stringr
 #' COMMENTS: NA
 #' ////////////////////////////////////////////////////////////////////////////
@@ -13,13 +13,16 @@
 suppressPackageStartupMessages(library(shiny))
 suppressPackageStartupMessages(library(dplyr))
 
+# load data
+birds <- readRDS("data/birds_summary.RDS")
+
 # build ui
 ui <- tagList(
     tags$head(
         tags$link(
             type = "text/css",
             rel = "stylesheet",
-            href = "css/styles.css"
+            href = "styles.css"
         ),
         tags$title("SASS in Shiny")
     ),
@@ -60,11 +63,6 @@ ui <- tagList(
 
 # server
 server <- function(input, output) {
-
-    # load data and function
-    source("scripts/datatable.R", local = TRUE)
-    birds <- readRDS("data/birds_summary.RDS")
-
 
     # summarize data and build table
     birds2018 <- birds %>%

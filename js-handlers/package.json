@@ -1,8 +1,9 @@
 {
   "name": "js-handlers",
   "version": "1.0.0",
-  "description": "",
+  "description": "getting started with js handlers",
   "author": "@dcruvolo",
+  "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

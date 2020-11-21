@@ -1,8 +1,9 @@
 {
   "name": "Internal-Links-Demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "creating links to other pages in a shiny app",
   "author": "@dcruvolo",
+  "status": "archived",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
