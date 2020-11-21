@@ -27,63 +27,48 @@ source(".dev/R/json.R")
 #' Set version number to `1.0.0`; `description` will be blank
 
 # compile directories
-dirs <- list.dirs(recursive = FALSE) %>%
-    sapply(
-        .,
-        function(d) {
-            gsub(
-                pattern = "./",
-                replacement = "",
-                x = d
-            )
-        }
-    ) %>%
-    as.character(.) %>%
-    .[!. %in% c(".dev", ".git", ".github")]
+#' dirs <- list.dirs(recursive = FALSE) %>%
+#'     sapply(
+#'         .,
+#'         function(d) {
+#'             gsub(
+#'                 pattern = "./",
+#'                 replacement = "",
+#'                 x = d
+#'             )
+#'         }
+#'     ) %>%
+#'     as.character(.) %>%
+#'     .[!. %in% c(".dev", ".git", ".github")]
 
 #' init `package.json`
 #' system("rm -rf Data-Editor/package.json")  # for testing
-for (d in seq_len(length(dirs))) {
-    json$init(dir = dirs[d])
-    dat <- json$data(
-        name = dirs[d],
-        version = "1.0.0",
-        description = "",
-        author = "@dcruvolo",
-        status = "active"
-    )
-    json$write(,
-        data = dat,
-        path = paste0(dirs[d], "/package.json")
-    )
-}
+#' for (d in seq_len(length(dirs))) {
+#'     json$init(dir = dirs[d])
+#'     dat <- json$data(
+#'         name = dirs[d],
+#'         version = "1.0.0",
+#'         description = "",
+#'         author = "@dcruvolo",
+#'         status = "active"
+#'     )
+#'     json$write(,
+#'         data = dat,
+#'         path = paste0(dirs[d], "/package.json")
+#'     )
+#' }
 
 #'//////////////////////////////////////
 
 #' ~ 2 ~
 #' Badges
 
-#' make version and status branches
-#'
-#' @param dir directory name
-#' @param branch branch to target (dev for testing, main for prod)
-#'
-#' @noRd
-make_badges <- function(dir, branch) {
-    json$add_badge(
-        dir = dir,
-        branch = branch,
-        label = "version",
-        query = "version",
-        color = "22dd77"
-    )
-    json$add_badge(
-        dir = dir,
-        branch = branch,
-        label = "status",
-        query = "status",
-        color = "3772FF"
-    )
-}
+json$add_readme_badges(dir = "progress-bars-example", branch = "main")
 
-make_badges(dir = "progress-bars-example", branch = "main")
+#'//////////////////////////////////////
+
+#' ~ 3 ~
+#' Update main README.md tables
+
+d <- jsonlite::read_json(path = ".dev/data/tutorials.json", simplifyVector = TRUE)
+

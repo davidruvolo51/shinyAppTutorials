@@ -2,7 +2,7 @@
 #' FILE: json.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2020-11-20
+#' MODIFIED: 2020-11-21
 #' PURPOSE: utils for creating package json files
 #' STATUS: in.progress
 #' PACKAGES: cli; jsonlite
@@ -192,4 +192,29 @@ json$add_badge <- function(dir, branch = "main", label, query, color) {
             cli::cli_alert_success("Failed to add badge to {.file {input}}")
         })
     }
+}
+
+#' create readme badges
+#'
+#' Create version and status badges in READMEs
+#'
+#' @param dir path to example
+#' @param branch branch to use
+#'
+#' @noRd
+json$add_readme_badges <- function(dir, branch) {
+    json$add_badge(
+        dir = dir,
+        branch = branch,
+        label = "version",
+        query = "version",
+        color = "22dd77"
+    )
+    json$add_badge(
+        dir = dir,
+        branch = branch,
+        label = "status",
+        query = "status",
+        color = "3772FF"
+    )
 }

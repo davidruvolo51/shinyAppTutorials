@@ -61,10 +61,18 @@ Switch `drag-and-drop` for the subdirectory(ies) that you wish to checkoout. For
 | shiny listbox | create a listbox component as an alternative to select inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/)
 | time input | getting started with input bindings | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
 
+<!-- begin:activeTutorials -->
+
+<!-- end:activeTutorials -->
+
 
 ### Archived Tutorials
 
 The examples listed in the following table are achived. They still work, but they are either outdated or were replaced by a newer example. (I'm a bit hesitant to remove these examples in case some follows a link to a page that doesn't exist.)
+
+<!-- begin:archivedTutorials -->
+
+<!-- end:archivedTutorials -->
 
 | Name | Description | Status | Link |
 | :--- | :---------- | :----  | :--- |
