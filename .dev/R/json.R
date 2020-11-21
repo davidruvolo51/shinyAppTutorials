@@ -2,7 +2,7 @@
 #' FILE: json.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2020-11-19
+#' MODIFIED: 2020-11-20
 #' PURPOSE: utils for creating package json files
 #' STATUS: in.progress
 #' PACKAGES: cli; jsonlite
@@ -51,14 +51,16 @@ json$init <- function(dir) {
 #' @param version version number to assign
 #' @param description a short description about the project
 #' @param author project author
+#' @param status indicates app status (e.g., "active", "archived", etc.)
 #'
 #' @noRd
-json$data <- function(name, version, description, author) {
+json$data <- function(name, version, description, author, status) {
     list(
         name = name,
         version = version,
         description = description,
         author = author,
+        status = status,
         repository = list(
             type = "git",
             url = "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
@@ -107,5 +109,87 @@ json$write <- function(data, path, overwrite = TRUE) {
         })
     } else {
         cli::cli_alert_info("Skipped {.file {path}} to avoid overwriting it")
+    }
+}
+
+
+#' Create badges
+#'
+#' create shields inside README.md
+#'
+#' @param dir directory path
+#' @param branch repo branch (main)
+#' @param label a label for the badge
+#' @param query a package.json property to query
+#' @param color a color for the label
+#'
+#' @noRd
+json$add_badge <- function(dir, branch = "main", label, query, color) {
+
+    create_new_badge <- function(dir, branch, label, query, color) {
+        endpoint <- paste0(
+            "![", label, "]",
+            "(",
+            "https://img.shields.io/badge/dynamic/json?",
+            "color=%", color,
+            "&label=", label,
+            "&query=", query,
+            "&url=", paste0(
+                "https%3A%2F%2Fraw.githubusercontent.com%2Fdavidruvolo51",
+                "%2FshinyAppTutorials%2F", branch, "%2F",
+                dir,
+                "%2Fpackage.json"
+            ),
+            ")"
+        )
+    }
+    input <- paste0(dir, "/README.md")
+    if (!file.exists(input)) {
+        cli::cli_alert_danger("No {.file README.md} exists at {.path {dir}}")
+    }
+
+    if (file.exists(input)) {
+        raw <- readLines(input, warn = FALSE)
+        status <- stringr::str_detect(
+            string = raw,
+            pattern = "<!-- badges: start -->"
+        )
+
+        badge <- create_new_badge(
+            dir = dir,
+            branch = branch,
+            label = label,
+            query = query,
+            color = color
+        )
+
+        if (length(status[status == TRUE]) > 0) {
+            start <- match("<!-- badges: start -->", status)
+            end <- match("<!-- badges: end -->", raw)
+            new_md <- c(
+                raw[(1:end) - 1],
+                badge,
+                raw[end:length(raw)]
+            )
+        }
+
+        if (!length(status[status == TRUE] > 0)) {
+            new_md <- c(
+                "<!-- badges: start -->",
+                badge,
+                "<!-- badges: end -->",
+                "",
+                raw
+            )
+        }
+
+        tryCatch({
+            writeLines(new_md, input)
+            cli::cli_alert_success("Added badge to {.file {input}}")
+        }, error = function(e) {
+            cli::cli_alert_success("Failed to add badge to {.file {input}}")
+        }, warning = function(warn) {
+            cli::cli_alert_success("Failed to add badge to {.file {input}}")
+        })
     }
 }
