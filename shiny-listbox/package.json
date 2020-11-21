@@ -1,15 +1,16 @@
 {
   "name": "shiny-listbox",
   "version": "1.0.0",
-  "description": "",
+  "description": "create listbox components in shiny",
   "author": "@dcruvolo",
+  "status": "active",
   "scripts": {
     "shiny": "Rscript -e \"shiny::runApp(launch.browser = FALSE, port = 8000)\"",
     "dev": "parcel src/index.scss src/listbox.scss -d www/css/ --no-source-maps --no-cache --no-minify",
     "build": "parcel build src/index.scss src/listbox.scss -d www/css/ --no-source-maps --no-cache --no-minify",
     "clean": "rm -rf www/css/*",
     "start": "concurrently \"npm run shiny\" \"npm run dev\""
-  },
+},
   "devDependencies": {
     "concurrently": "^5.2.0",
     "parcel": "^1.12.4",
@@ -20,7 +21,7 @@
     "babel-preset-minify": "^0.5.1",
     "postcss-modules": "^2.0.0",
     "sass": "^1.26.5"
-  },
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

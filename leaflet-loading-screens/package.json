@@ -1,8 +1,9 @@
 {
   "name": "leaflet-loading-screens",
   "version": "1.0.0",
-  "description": "",
+  "description": "create a loading screen for leaflet applications",
   "author": "@dcruvolo",
+  "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

@@ -1,8 +1,9 @@
 {
   "name": "progress-bars-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "creating a shiny progressbar using R6 classes",
   "author": "@dcruvolo",
+  "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"

@@ -2,10 +2,10 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-05-18
-#' MODIFIED: 2020-05-18
+#' MODIFIED: 2020-11-20
 #' PURPOSE: get window dimensions app
 #' STATUS: working
-#' PACKAGES: shiny
+#' PACKAGES: shiny; json
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
 

@@ -1,12 +1,13 @@
 {
   "name": "sass-in-shiny",
   "version": "1.0.0",
-  "description": "",
+  "description": "integrating SASS into your Shiny development workflow",
   "author": "@dcruvolo",
+  "status": "active",
   "scripts": {
-    "sass": "sass --watch www/css/index.scss:www/css/styles.css --style expanded",
-    "shiny": "Rscript -e 'shiny::runApp(launch.browser=FALSE, port=1234)'",
-    "dev": "npm run shiny & npm run sass"
+    "start": "sass --watch src/index.scss:www/styles.css --style expanded --no-source-map",
+    "build": "sass src/index.scss:www/styles.css --style expanded --no-source-map",
+    "shiny": "Rscript -e 'shiny::runApp(launch.browser=FALSE, port=1234)'"
   },
   "repository": {
     "type": "git",

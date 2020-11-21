@@ -2,7 +2,7 @@
 #' FILE: datatable_tests.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-01-13
-#' MODIFIED: 2020-01-14
+#' MODIFIED: 2020-11-20
 #' PURPOSE: run tests for datatable.R
 #' STATUS: working
 #' PACKAGES: htmltools
@@ -10,7 +10,7 @@
 #'//////////////////////////////////////////////////////////////////////////////
 
 # load file
-source("datatable.R")
+source("./R/datatable.R")
 
 # create test data from iris 1st row
 df <- iris[1, ]
