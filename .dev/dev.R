@@ -2,7 +2,7 @@
 #' FILE: dev.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2020-11-19
+#' MODIFIED: 2020-11-21
 #' PURPOSE: repo management
 #' STATUS: in.progress
 #' PACKAGES: cli; jsonlite
@@ -49,7 +49,41 @@ for (d in seq_len(length(dirs))) {
         name = dirs[d],
         version = "1.0.0",
         description = "",
-        author = "@dcruvolo"
+        author = "@dcruvolo",
+        status = "active"
     )
-    json$write(data = dat, path = paste0(dirs[d], "/package.json"))
+    json$write(,
+        data = dat,
+        path = paste0(dirs[d], "/package.json")
+    )
 }
+
+#'//////////////////////////////////////
+
+#' ~ 2 ~
+#' Badges
+
+#' make version and status branches
+#'
+#' @param dir directory name
+#' @param branch branch to target (dev for testing, main for prod)
+#'
+#' @noRd
+make_badges <- function(dir, branch) {
+    json$add_badge(
+        dir = dir,
+        branch = branch,
+        label = "version",
+        query = "version",
+        color = "22dd77"
+    )
+    json$add_badge(
+        dir = dir,
+        branch = branch,
+        label = "status",
+        query = "status",
+        color = "3772FF"
+    )
+}
+
+make_badges(dir = "progress-bars-example", branch = "main")
