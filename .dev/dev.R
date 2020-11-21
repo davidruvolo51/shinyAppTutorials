@@ -72,3 +72,19 @@ json$add_readme_badges(dir = "progress-bars-example", branch = "main")
 
 d <- jsonlite::read_json(path = ".dev/data/tutorials.json", simplifyVector = TRUE)
 
+# inital time only
+for (index in seq_len(length(d$active))) {
+    path <- paste0(d$active[index, ]$dir, "/package.json")
+    json <- jsonlite::read_json(path)
+    json$name <- d$active[index, ]$dir
+    json$description <- d$active[index, ]$description
+    jsonlite::write_json(json, path, pretty = TRUE, auto_unbox = TRUE)
+}
+
+for (index in seq_len(length(d$archive))) {
+    path <- paste0(d$archive[index, ]$dir, "/package.json")
+    json <- jsonlite::read_json(path)
+    json$name <- d$archive[index, ]$dir
+    json$description <- d$archive[index, ]$description
+    jsonlite::write_json(json, path, pretty = TRUE, auto_unbox = TRUE)
+}

@@ -1,14 +1,18 @@
 {
-  "name": "Internal-Links",
+  "name": "internal-links",
   "version": "1.0.0",
-  "description": "creating links to other tabs",
+  "description": "Create a link from a leaflet popup to a shiny page",
   "author": "@dcruvolo",
   "status": "archived",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
   },
-  "keywords": ["r", "shiny", "tutorials"],
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"

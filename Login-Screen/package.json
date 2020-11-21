@@ -1,14 +1,18 @@
 {
-  "name": "Login-Screen",
+  "name": "login-screen",
   "version": "1.0.0",
-  "description": "create a custom login screen for shiny apps",
+  "description": "Adding *basic* user authentication to shiny apps",
   "author": "@dcruvolo",
   "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
   },
-  "keywords": ["r", "shiny", "tutorials"],
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
