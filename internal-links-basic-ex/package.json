@@ -1,0 +1,21 @@
+{
+  "name": "internal-links-basic-ex",
+  "version": "1.0.0",
+  "description": "Create links from one shiny page to another",
+  "author": "@dcruvolo",
+  "status": "archived",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
+  },
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
+  },
+  "homepage": "https://github.com/davidruvolo51/shinyAppTutorials"
+}
