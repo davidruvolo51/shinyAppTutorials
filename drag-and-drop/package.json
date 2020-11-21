@@ -1,14 +1,18 @@
 {
   "name": "drag-and-drop",
   "version": "1.0.0",
-  "description": "create a drag and drop container in a shiny app",
+  "description": "create a drag and drop component",
   "author": "@dcruvolo",
   "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
   },
-  "keywords": ["r", "shiny", "tutorials"],
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"

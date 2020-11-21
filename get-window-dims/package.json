@@ -1,14 +1,18 @@
 {
   "name": "get-window-dims",
   "version": "1.0.0",
-  "description": "",
+  "description": "sending data from javascript",
   "author": "@dcruvolo",
   "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
   },
-  "keywords": ["r", "shiny", "tutorials"],
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"

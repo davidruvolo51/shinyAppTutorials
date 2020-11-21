@@ -1,14 +1,18 @@
 {
   "name": "js-handlers",
   "version": "1.0.0",
-  "description": "getting started with js handlers",
+  "description": "getting started with custom handlers",
   "author": "@dcruvolo",
   "status": "active",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
   },
-  "keywords": ["r", "shiny", "tutorials"],
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
