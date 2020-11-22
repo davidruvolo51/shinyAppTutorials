@@ -131,7 +131,7 @@ json$add_badge <- function(dir, branch = "main", label, query, color) {
             "![", label, "]",
             "(",
             "https://img.shields.io/badge/dynamic/json?",
-            "color=%", color,
+            "color=", color,
             "&label=", label,
             "&query=", query,
             "&url=", paste0(
@@ -217,4 +217,22 @@ json$add_readme_badges <- function(dir, branch) {
         query = "status",
         color = "3772FF"
     )
+}
+
+#' get md5 sum
+#'
+#' Create md5 sum from package.json files in specific dir
+#'
+#' @param dir folder to check
+#'
+#' @noRd
+json$get_json_md5 <- function(dir) {
+    if (!dir.exists(dir)) {
+        cli::cli_alert_danger("{.path {dir}} does not exit")
+    }
+
+    if (dir.exists(dir)) {
+        sh <- system(paste0("md5 ", dir, "/README.md"), intern = TRUE)
+        trimws(strsplit(sh, "=")[[1]][2])
+    }
 }

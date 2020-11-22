@@ -1,159 +1,175 @@
 {
-    "active": [
-        {
-            "dir": "data-editor",
-            "name": "Data editor",
-            "description": "A shiny app for editing dataset in shiny",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/"
-        },
-        {
-            "dir": "drag-and-drop",
-            "name": "Drag and drop",
-            "description": "create a drag and drop component",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/"
-        },
-        {
-            "dir": "get-window-dims",
-            "name": "Get window dimensions",
-            "description": "sending data from javascript",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims/"
-        },
-        {
-            "dir": "js-handlers",
-            "name": "JS handlers",
-            "description": "getting started with custom handlers",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/"
-        },
-        {
-            "dir": "leaflet-loading-screens",
-            "name": "Loading screens for leaflet",
-            "description": "creating a loading screen for leaflet",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/"
-        },
-        {
-            "dir": "login-screen",
-            "name": "login screen",
-            "description": "Adding *basic* user authentication to shiny apps",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/"
-        },
-        {
-            "dir": "progress-bars-example",
-            "name": "R6 progress bars",
-            "description": "Create a progress bar component using R6 classes",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "TBD"
-        },
-        {
-            "dir": "responsive-datatables",
-            "name": "Responsive Datatables",
-            "description": "Optimize datatables for all screens",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/"
-        },
-        {
-            "dir": "rmarkdown-app",
-            "name": "Rmarkdown in Shiny",
-            "description": "Using Rmd files as Shiny UI",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/"
-        },
-        {
-            "dir": "sass-in-shiny",
-            "name": "SASS in Shiny",
-            "description": "Getting started with SASS",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/"
-        },
-        {
-            "dir": "setting-html-attributes",
-            "name": "Setting HTML Attributes",
-            "description": "Modifying `<html>` attributes",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/"
-        },
-        {
-            "dir": "shiny-landing-page",
-            "name": "Landing Pages",
-            "description": "Create cool landing pages in Shiny apps",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/"
-        },
-        {
-            "dir": "shiny-links",
-            "name": "Shiny Links",
-            "description": "Creating links to other pages in a shiny app",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/"
-        },
-        {
-            "dir": "shiny-listbox",
-            "name": "Shiny Listbox",
-            "description": "Create a customizeable dropdown menu for shiny",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/"
-        },
-        {
-            "dir": "time-inputs",
-            "name": "Time Inputs",
-            "description": "Getting started with shiny input bindings",
-            "version": "1.0.0",
-            "status": "active",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/"
-        }
-    ],
-    "archived": [
-        {
-            "dir": "internal-links-basic-ex",
-            "name": "Internal Links (Part 1)",
-            "description": "Create links from one shiny page to another",
-            "version": "1.0.0",
-            "status": "archived",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/"
-        },
-        {
-            "dir": "internal-links",
-            "name": "Internal Links (Part 2)",
-            "description": "Create a link from a leaflet popup to a shiny page",
-            "version": "1.0.0",
-            "status": "archived",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/"
-        },
-        {
-            "dir": "internal-links-demo",
-            "name": "Internal Links (Part 3)",
-            "description": "Navigate to a specific tab on another page",
-            "version": "1.0.0",
-            "status": "archived",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/"
-        },
-        {
-            "dir": "select-input-styling",
-            "name": "Select input styling",
-            "description": "Style a select input element using CSS",
-            "version": "1.0.0",
-            "status": "archived",
-            "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/"
-        }
-
-    ]
+  "data": [
+    {
+      "dir": "data-editor",
+      "name": "Data editor",
+      "description": "A shiny app for editing dataset in shiny",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/",
+      "md5": "8897f6ab947838f3eea8cf75eb46efc3"
+    },
+    {
+      "dir": "drag-and-drop",
+      "name": "Drag and drop",
+      "description": "create a drag and drop component",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/",
+      "md5": "be3446cfa302239266bb0863ad8bd03a"
+    },
+    {
+      "dir": "get-window-dims",
+      "name": "Get window dimensions",
+      "description": "sending data from javascript",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims/",
+      "md5": "d70c830222c375f7b7bc865d31b24bd2"
+    },
+    {
+      "dir": "js-handlers",
+      "name": "JS handlers",
+      "description": "getting started with custom handlers",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/",
+      "md5": "3b676b0473c9e035ce5a346a91492c45"
+    },
+    {
+      "dir": "leaflet-loading-screens",
+      "name": "Loading screens for leaflet",
+      "description": "creating a loading screen for leaflet",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/",
+      "md5": "e3bf21321819fb15b27fadaf150a356f"
+    },
+    {
+      "dir": "login-screen",
+      "name": "login screen",
+      "description": "Adding *basic* user authentication to shiny apps",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/",
+      "md5": "01cd5b9801dde5231b20b71efc920680"
+    },
+    {
+      "dir": "progress-bars-example",
+      "name": "R6 progress bars",
+      "description": "Create a progress bar component using R6 classes",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "TBD",
+      "md5": "6d5b76348e62b43e091927aa565e3c83"
+    },
+    {
+      "dir": "responsive-datatables",
+      "name": "Responsive Datatables",
+      "description": "Optimize datatables for all screens",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/",
+      "md5": "79bb6e84e6f530352c5fca8466a77524"
+    },
+    {
+      "dir": "rmarkdown-app",
+      "name": "Rmarkdown in Shiny",
+      "description": "Using Rmd files as Shiny UI",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/",
+      "md5": "1c54c89907449b0ceaac16c3b4ca919d"
+    },
+    {
+      "dir": "sass-in-shiny",
+      "name": "SASS in Shiny",
+      "description": "Getting started with SASS",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/",
+      "md5": "d3fbee5b82601b7bc6cc280b375a4662"
+    },
+    {
+      "dir": "setting-html-attributes",
+      "name": "Setting HTML Attributes",
+      "description": "Modifying `<html>` attributes",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/",
+      "md5": "f65b04b92f3eb944a450ea2a1f77665c"
+    },
+    {
+      "dir": "shiny-landing-page",
+      "name": "Landing Pages",
+      "description": "Create cool landing pages in Shiny apps",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/",
+      "md5": "0e9ca9c40774a48822db563d66227692"
+    },
+    {
+      "dir": "shiny-links",
+      "name": "Shiny Links",
+      "description": "Creating links to other pages in a shiny app",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/",
+      "md5": "75ff350290bcbd8e1929769bd0612e4a"
+    },
+    {
+      "dir": "shiny-listbox",
+      "name": "Shiny Listbox",
+      "description": "Create a customizeable dropdown menu for shiny",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/",
+      "md5": "77603ef0b1440dc5832d41211b620005"
+    },
+    {
+      "dir": "time-input",
+      "name": "Time Inputs",
+      "description": "Getting started with shiny input bindings",
+      "version": "1.0.0",
+      "status": "active",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/",
+      "md5": "47c4d198b3ea295ed3f7335d1e8222eb"
+    },
+    {
+      "dir": "internal-links-basic-ex",
+      "name": "Internal Links (Part 1)",
+      "description": "Create links from one shiny page to another",
+      "version": "1.0.0",
+      "status": "archived",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/",
+      "md5": "6680b0f273ed5caac931d1cb8eeb920d"
+    },
+    {
+      "dir": "internal-links",
+      "name": "Internal Links (Part 2)",
+      "description": "Create a link from a leaflet popup to a shiny page",
+      "version": "1.0.0",
+      "status": "archived",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/",
+      "md5": "dec5eec8e55769bab7b6ca9f42478a08"
+    },
+    {
+      "dir": "internal-links-demo",
+      "name": "Internal Links (Part 3)",
+      "description": "Navigate to a specific tab on another page",
+      "version": "1.0.0",
+      "status": "archived",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/",
+      "md5": "8873eb23ba367b9f95487e44caedc3f6"
+    },
+    {
+      "dir": "select-input-styling",
+      "name": "Select input styling",
+      "description": "Style a select input element using CSS",
+      "version": "1.0.0",
+      "status": "archived",
+      "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/",
+      "md5": "9270d63022aafd10aa90a82217351269"
+    }
+  ]
 }

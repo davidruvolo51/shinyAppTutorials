@@ -2,9 +2,9 @@
 #' FILE: dev.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2020-11-21
+#' MODIFIED: 2020-11-22
 #' PURPOSE: repo management
-#' STATUS: in.progress
+#' STATUS: working; ongoing
 #' PACKAGES: cli; jsonlite
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
@@ -18,6 +18,7 @@ suppressPackageStartupMessages(library(dplyr))
 
 #' source utils
 source(".dev/R/json.R")
+source(".dev/R/readme.R")
 
 #'//////////////////////////////////////
 
@@ -73,18 +74,31 @@ json$add_readme_badges(dir = "progress-bars-example", branch = "main")
 d <- jsonlite::read_json(path = ".dev/data/tutorials.json", simplifyVector = TRUE)
 
 # inital time only
-for (index in seq_len(length(d$active))) {
-    path <- paste0(d$active[index, ]$dir, "/package.json")
-    json <- jsonlite::read_json(path)
-    json$name <- d$active[index, ]$dir
-    json$description <- d$active[index, ]$description
-    jsonlite::write_json(json, path, pretty = TRUE, auto_unbox = TRUE)
+for (index in seq_len(NROW(d$data))) {
+
+    # populate package.json files with main data
+    #' path <- paste0(d$data[index, ]$dir, "/package.json")
+    #' json <- jsonlite::read_json(path)
+    #' json$name <- d$data[index, ]$dir
+    #' json$description <- d$data[index, ]$description
+    #' jsonlite::write_json(json, path, pretty = TRUE, auto_unbox = TRUE)
+
+    # add md5 check to main data
+    d$data[index, ]$md5 <- json$get_json_md5(dir = d$data[index, ]$dir)
+
 }
 
-for (index in seq_len(length(d$archive))) {
-    path <- paste0(d$archive[index, ]$dir, "/package.json")
-    json <- jsonlite::read_json(path)
-    json$name <- d$archive[index, ]$dir
-    json$description <- d$archive[index, ]$description
-    jsonlite::write_json(json, path, pretty = TRUE, auto_unbox = TRUE)
-}
+jsonlite::write_json(d, ".dev/data/tutorials.json", pretty = TRUE, auto_unbox = TRUE)
+
+# generate table markup
+active_md <- d$data %>%
+    filter(status == "active") %>%
+    readme$as_md_table(.)
+
+archived_md <- d$data %>%
+    filter(status == "archived") %>%
+    readme$as_md_table(.)
+
+# write tables to markdown file
+readme$write_md_table("README.md", "activeTutorials", active_md)
+readme$write_md_table("README.md", "archivedTutorials", archived_md)
