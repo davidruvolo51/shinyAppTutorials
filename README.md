@@ -4,17 +4,21 @@
 
 This repo contains the code for the examples and demonstrations presented on my shiny tutorials site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/).
 
+<!-- TOC depthFrom:2 -->
+
 - [Motivation](#motivation)
 - [Tutorials](#tutorials)
-  - [Cloning Tutorials](#cloning-tutorials)
-  - [Available Tutorias](#available-tutorials)
-  - [Archived Tutorias](#archived-tutorials)
+    - [Cloning Tutorials](#cloning-tutorials)
+    - [Available Tutorials](#available-tutorials)
+    - [Archived Tutorials](#archived-tutorials)
 - [Resources](#resources)
-  - [Communities](#communities)
-  - [Courses](#courses)
-  - [Web Accessibility](#accessibility)
-  - [Web Development](#web-development)
+    - [Communities](#communities)
+    - [Courses](#courses)
+    - [Web Accessibility](#web-accessibility)
+    - [Web Development](#web-development)
 - [Contributing to this project](#contributing-to-this-project)
+
+<!-- /TOC -->
 
 ## Motivation
 
@@ -43,28 +47,27 @@ Switch `drag-and-drop` for the subdirectory(ies) that you wish to checkoout. For
 
 ### Available Tutorials
 
-| Name | Description | Status | Link |
-| :--- | :---------- | :----  | :--- |
-| data editor | edit a dataset in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/)
-| drag and drop | a shinyapp with elements that can be dragged and dropped | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/)
-| get window dimensions | how to use window dimensions in a Shiny app: an example on sending data from javascript | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims/)
-| js handlers | learn how to create a theme switcher through custom js handlers | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/)
-| leaflet loading screens | create a busy element during leaflet rendering | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/)
-| login screen | demo for creating a log in screen with "admin rights" | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)
-| progress bar R6 | example app to create a progress bar while clicking through screens | working | tbd
-| responsive datatables | creating datatables that look good on all screens | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/)
-| rmarkdown app | Write content in an RMD file and use it as the UI | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/)
-| sass in shiny | setting up sass for use in shiny apps | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/)
-| setting html attributes | define and set values for the `<html>` element | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/)
-| shiny landing page | create cool landing pages in shiny | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)
-| shiny links | create links to other tabs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/)
-| shiny listbox | create a listbox component as an alternative to select inputs | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/)
-| time input | getting started with input bindings | working | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)
-
 <!-- begin:activeTutorials -->
 
-<!-- end:activeTutorials -->
+|name                        |description                                      |version |link                                                                                          |
+|:---------------------------|:------------------------------------------------|:-------|:---------------------------------------------------------------------------------------------|
+|Data editor                 |A shiny app for editing dataset in shiny         |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/)             |
+|Drag and drop               |create a drag and drop component                 |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/)           |
+|Get window dimensions       |sending data from javascript                     |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims/)         |
+|JS handlers                 |getting started with custom handlers             |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/)             |
+|Loading screens for leaflet |creating a loading screen for leaflet            |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/) |
+|login screen                |Adding *basic* user authentication to shiny apps |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/)            |
+|R6 progress bars            |Create a progress bar component using R6 classes |1.0.0   |TBD                                                                                           |
+|Responsive Datatables       |Optimize datatables for all screens              |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/)       |
+|Rmarkdown in Shiny          |Using Rmd files as Shiny UI                      |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/)         |
+|SASS in Shiny               |Getting started with SASS                        |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/)           |
+|Setting HTML Attributes     |Modifying `<html>` attributes                    |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/) |
+|Landing Pages               |Create cool landing pages in Shiny apps          |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/)            |
+|Shiny Links                 |Creating links to other pages in a shiny app     |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/)              |
+|Shiny Listbox               |Create a customizeable dropdown menu for shiny   |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/)          |
+|Time Inputs                 |Getting started with shiny input bindings        |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/)              |
 
+<!-- end:activeTutorials -->
 
 ### Archived Tutorials
 
@@ -72,21 +75,20 @@ The examples listed in the following table are achived. They still work, but the
 
 <!-- begin:archivedTutorials -->
 
+|name                    |description                                        |version |link                                                                                       |
+|:-----------------------|:--------------------------------------------------|:-------|:------------------------------------------------------------------------------------------|
+|Internal Links (Part 1) |Create links from one shiny page to another        |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)     |
+|Internal Links (Part 2) |Create a link from a leaflet popup to a shiny page |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)     |
+|Internal Links (Part 3) |Navigate to a specific tab on another page         |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)     |
+|Select input styling    |Style a select input element using CSS             |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/) |
+
 <!-- end:archivedTutorials -->
 
-| Name | Description | Status | Link |
-| :--- | :---------- | :----  | :--- |
-| internal links basic example\* | learn how to create a link from one shiny page to another | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/)
-| internal links demo\* | navigate to a specific tab on another shiny page | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/)
-| internal links\* | create a link to another tab from a leaflet map | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/)
-| select input styling | custom styling for inputs | archived | [tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/)
-
-
-\* These examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdirectory. (02 August 2020)
+The internal links examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdirectory (02 August 2020).
 
 ## Resources
 
-Many of the tutorials rely heavily on HTML, CSS and JavaScript to create specific layouts and interactivity. These are good skills to have, and they will come in handy when building custom applications. Throughout the examples, I've tried to keep things simple and provide links to outside sources where applicable. If something isn't clear or you have suggestions for improvement, feel free to open a new issue. 
+Many of the tutorials rely heavily on HTML, CSS and JavaScript to create specific layouts and interactivity. These are good skills to have, and they will come in handy when building custom applications. Throughout the examples, I've tried to keep things simple and provide links to outside sources where applicable. If something isn't clear or you have suggestions for improvement, feel free to open a new issue.
 
 If you would like to learn more, here are some links that you may find useful.
 

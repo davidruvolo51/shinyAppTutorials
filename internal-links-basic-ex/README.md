@@ -1,6 +1,6 @@
 <!-- badges: start -->
-![version](https://img.shields.io/badge/dynamic/json?color=%22dd77&label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdavidruvolo51%2FshinyAppTutorials%2Fmain%2Finternal-links-basic-ex%2Fpackage.json)
-![status](https://img.shields.io/badge/dynamic/json?color=%3772FF&label=status&query=status&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdavidruvolo51%2FshinyAppTutorials%2Fmain%2Finternal-links-basic-ex%2Fpackage.json)
+![version](https://img.shields.io/badge/dynamic/json?color=2d7ddd&label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdavidruvolo51%2FshinyAppTutorials%2Fmain%2Finternal-links-basic-ex%2Fpackage.json)
+![status](https://img.shields.io/badge/dynamic/json?color=critical&label=status&query=status&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdavidruvolo51%2FshinyAppTutorials%2Fmain%2Finternal-links-basic-ex%2Fpackage.json)
 <!-- badges: end -->
 
 # Internal Links (Basic Example)
