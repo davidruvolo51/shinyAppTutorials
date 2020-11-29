@@ -64,17 +64,17 @@ source(".dev/R/readme.R")
 #' ~ 2 ~
 #' Badges
 
-json$add_readme_badges(dir = "progress-bars-example", branch = "main")
+# json$add_readme_badges(dir = "progress-bars-example", branch = "main")
 
 #'//////////////////////////////////////
 
 #' ~ 3 ~
 #' Update main README.md tables
 
-d <- jsonlite::read_json(path = ".dev/data/tutorials.json", simplifyVector = TRUE)
+# d <- jsonlite::read_json(path = ".dev/data/tutorials.json", simplifyVector = TRUE)
 
 # inital time only
-for (index in seq_len(NROW(d$data))) {
+# for (index in seq_len(NROW(d$data))) {
 
     # populate package.json files with main data
     #' path <- paste0(d$data[index, ]$dir, "/package.json")
@@ -84,11 +84,98 @@ for (index in seq_len(NROW(d$data))) {
     #' jsonlite::write_json(json, path, pretty = TRUE, auto_unbox = TRUE)
 
     # add md5 check to main data
-    d$data[index, ]$md5 <- json$get_json_md5(dir = d$data[index, ]$dir)
+    # d$data[index, ]$md5 <- json$get_json_md5(dir = d$data[index, ]$dir)
 
+# }
+
+# jsonlite::write_json(d, ".dev/data/tutorials.json", pretty = TRUE, auto_unbox = TRUE)
+
+# generate table markup
+# active_md <- d$data %>%
+#     filter(status == "active") %>%
+#     readme$as_md_table(.)
+
+# archived_md <- d$data %>%
+#     filter(status == "archived") %>%
+#     readme$as_md_table(.)
+
+# write tables to markdown file
+# readme$write_md_table("README.md", "activeTutorials", active_md)
+# readme$write_md_table("README.md", "archivedTutorials", archived_md)
+
+
+#'//////////////////////////////////////
+
+#' ~ 4 ~
+#' Ongoing Management of files
+
+d <- jsonlite::read_json(".dev/data/tutorials.json", simplifyVector = TRUE)
+d$data$updated <- as.Date("2020-11-22")
+
+# check files
+for (i in seq_len(NROW(d$data))) {
+    path <- paste0(d$data[i, ]$dir, "/package.json")
+    check <- trimws(
+        strsplit(
+            x = system(
+                paste0("md5 ", path),
+                intern = TRUE
+            ),
+            split = "="
+        )[[1]][2]
+    )
+
+    if (d$data[i, ]$md5 != check) {
+        cli::cli_alert_info("{.path {path}} is newer. Checking properties...")
+        new <- jsonlite::read_json(path)
+        d$data[i, ]$md5 <- check
+        updates <- 0
+
+        # check all props: name, version, description, status
+        # check name/dir
+        if (d$data[i, ]$dir != new$name) {
+            cli::cli_alert_success(
+                "Updated property {.val name}: {.val {new$name}}"
+            )
+            updates <- updates + 1
+            d$data[i, ]$dir <- new$name
+        }
+
+        # update version
+        if (d$data[i, ]$version != new$version) {
+            cli::cli_alert_success("Updated version: {.val {new$version}}")
+            updates <- updates + 1
+            d$data[i, ]$version <- new$version
+        }
+
+        # update description
+        if (d$data[i, ]$description != new$description) {
+            cli::cli_alert_success("Updated description")
+            updates <- updates + 1
+            d$data[i, ]$description <- new$description
+        }
+
+        # update status
+        if (d$data[i, ]$status != new$status) {
+            cli::cli_alert_success("Updating app status {.val {new$status}}")
+            updates <- updates + 1
+            d$data[i, ]$status <- new$status
+        }
+
+        # check for target changes
+        if (updates == 0) {
+            cli::cli_alert_info("Target properties haven't changed")
+        }
+
+        if (updates > 0) {
+            d$data[i, ]$updated <- Sys.Date()
+        }
+    }
 }
 
+# save changes
 jsonlite::write_json(d, ".dev/data/tutorials.json", pretty = TRUE, auto_unbox = TRUE)
+
 
 # generate table markup
 active_md <- d$data %>%

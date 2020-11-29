@@ -7,7 +7,8 @@
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor/",
-      "md5": "8897f6ab947838f3eea8cf75eb46efc3"
+      "md5": "1fdd2a6cfcaf85eb8c9fa8caa4f95f2d",
+      "updated": "2020-11-22"
     },
     {
       "dir": "drag-and-drop",
@@ -16,7 +17,8 @@
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop/",
-      "md5": "be3446cfa302239266bb0863ad8bd03a"
+      "md5": "ce3430c51442e9375f77a1c0bd14b984",
+      "updated": "2020-11-22"
     },
     {
       "dir": "get-window-dims",
@@ -25,7 +27,8 @@
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims/",
-      "md5": "d70c830222c375f7b7bc865d31b24bd2"
+      "md5": "7586506bad6955a3f870df8aa51489e9",
+      "updated": "2020-11-22"
     },
     {
       "dir": "js-handlers",
@@ -34,7 +37,8 @@
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers/",
-      "md5": "3b676b0473c9e035ce5a346a91492c45"
+      "md5": "b6ac87f391e2509f4f783a3ad0542faa",
+      "updated": "2020-11-22"
     },
     {
       "dir": "leaflet-loading-screens",
@@ -43,7 +47,8 @@
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens/",
-      "md5": "e3bf21321819fb15b27fadaf150a356f"
+      "md5": "7a255f80928c861d8862e6b7d183ba3d",
+      "updated": "2020-11-22"
     },
     {
       "dir": "login-screen",
@@ -52,88 +57,98 @@
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/",
-      "md5": "01cd5b9801dde5231b20b71efc920680"
+      "md5": "260da8ba498e542c8df69c3e59180827",
+      "updated": "2020-11-22"
     },
     {
       "dir": "progress-bars-example",
       "name": "R6 progress bars",
-      "description": "Create a progress bar component using R6 classes",
+      "description": "creating a shiny progressbar using R6 classes",
       "version": "1.0.0",
       "status": "active",
       "link": "TBD",
-      "md5": "6d5b76348e62b43e091927aa565e3c83"
+      "md5": "2a93d21db0785b75ae5958c3f90be5c5",
+      "updated": "2020-11-29"
     },
     {
       "dir": "responsive-datatables",
       "name": "Responsive Datatables",
-      "description": "Optimize datatables for all screens",
+      "description": "create responsive datatables in R",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-tables/",
-      "md5": "79bb6e84e6f530352c5fca8466a77524"
+      "md5": "5539a2f076f7f604342834dbd09fcc51",
+      "updated": "2020-11-29"
     },
     {
       "dir": "rmarkdown-app",
       "name": "Rmarkdown in Shiny",
-      "description": "Using Rmd files as Shiny UI",
+      "description": "using Rmarkdown as Shiny UI",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-shiny/",
-      "md5": "1c54c89907449b0ceaac16c3b4ca919d"
+      "md5": "488945ca6a2dd082a358ff94f235ec0f",
+      "updated": "2020-11-29"
     },
     {
       "dir": "sass-in-shiny",
       "name": "SASS in Shiny",
-      "description": "Getting started with SASS",
+      "description": "integrating SASS into your Shiny development workflow",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny/",
-      "md5": "d3fbee5b82601b7bc6cc280b375a4662"
+      "md5": "1174d82ecbecf209f82376563fceb879",
+      "updated": "2020-11-29"
     },
     {
       "dir": "setting-html-attributes",
       "name": "Setting HTML Attributes",
-      "description": "Modifying `<html>` attributes",
+      "description": "set document attributes",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes/",
-      "md5": "f65b04b92f3eb944a450ea2a1f77665c"
+      "md5": "b50d064bf22b51f95cc13d34adadd2aa",
+      "updated": "2020-11-29"
     },
     {
       "dir": "shiny-landing-page",
       "name": "Landing Pages",
-      "description": "Create cool landing pages in Shiny apps",
+      "description": "create a landing page",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/landing-page/",
-      "md5": "0e9ca9c40774a48822db563d66227692"
+      "md5": "e771f6b874b333dc4d4127d58604e272",
+      "updated": "2020-11-29"
     },
     {
       "dir": "shiny-links",
       "name": "Shiny Links",
-      "description": "Creating links to other pages in a shiny app",
+      "description": "a component for within app navigation",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-link/",
-      "md5": "75ff350290bcbd8e1929769bd0612e4a"
+      "md5": "1515ba9b4b429c3b034f3a6893450ddf",
+      "updated": "2020-11-29"
     },
     {
       "dir": "shiny-listbox",
       "name": "Shiny Listbox",
-      "description": "Create a customizeable dropdown menu for shiny",
+      "description": "create listbox components in shiny",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/listbox-widget/",
-      "md5": "77603ef0b1440dc5832d41211b620005"
+      "md5": "f730a70b1b050ac57cfad267d7c723f7",
+      "updated": "2020-11-29"
     },
     {
       "dir": "time-input",
       "name": "Time Inputs",
-      "description": "Getting started with shiny input bindings",
+      "description": "creating a custom time input for use in shiny",
       "version": "1.0.0",
       "status": "active",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/time-input/",
-      "md5": "47c4d198b3ea295ed3f7335d1e8222eb"
+      "md5": "30431b2130a8360ace9807b0acee36cd",
+      "updated": "2020-11-29"
     },
     {
       "dir": "internal-links-basic-ex",
@@ -142,7 +157,8 @@
       "version": "1.0.0",
       "status": "archived",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-a/",
-      "md5": "6680b0f273ed5caac931d1cb8eeb920d"
+      "md5": "73023a29e42cc6bb272d1fa74f9a1fee",
+      "updated": "2020-11-22"
     },
     {
       "dir": "internal-links",
@@ -151,7 +167,8 @@
       "version": "1.0.0",
       "status": "archived",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-b/",
-      "md5": "dec5eec8e55769bab7b6ca9f42478a08"
+      "md5": "5aebd42e8245f7e61f1fb9a9ca970f82",
+      "updated": "2020-11-22"
     },
     {
       "dir": "internal-links-demo",
@@ -160,7 +177,8 @@
       "version": "1.0.0",
       "status": "archived",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-c/",
-      "md5": "8873eb23ba367b9f95487e44caedc3f6"
+      "md5": "2db62a33b96d633639b3f92c6c62e505",
+      "updated": "2020-11-22"
     },
     {
       "dir": "select-input-styling",
@@ -169,7 +187,8 @@
       "version": "1.0.0",
       "status": "archived",
       "link": "https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling/",
-      "md5": "9270d63022aafd10aa90a82217351269"
+      "md5": "ccf9dcbf44af5c21c8012138ff754d4c",
+      "updated": "2020-11-22"
     }
   ]
 }
