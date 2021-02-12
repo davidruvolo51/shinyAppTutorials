@@ -1,0 +1,42 @@
+{
+    "README Template": {
+        "prefix": "readme",
+        "body": [
+            "<!-- badges: start -->",
+            "",
+            "<!-- badges: end -->",
+            "",
+            "# ${1:title}",
+            "",
+            "${2:description}",
+            "",
+            "## Getting Started",
+            "",
+            "You can run this app locally using the following methods: running within your R environment or cloning this subdirectory.",
+            "",
+            "### Running in your R environment",
+            "",
+            "You can run this app within your R environment using the `runGithub` function. Enter the following command in the console.",
+            "",
+            "```r",
+            "shiny::runGitHub(username = \"davidruvolo51\", repo = \"shinyAppTutorials\", subdir = \"${3:subdir}\")",
+            "```",
+            "",
+            "### Cloning the subdirectory",
+            "",
+            "You can clone the data editor subdirectory using `git sparse-checkout`.",
+            "",
+            "```bash",
+            "git clone --filter=blob:none --sparse https://github.com/davidruvolo51/",
+            "shinyAppTutorials",
+            "cd shinyAppTutorials",
+            "git sparse-checkout init --cone",
+            "git sparse-checkout set ${3:subdir}",
+            "```",
+            "",
+            "Then you can run the shiny app in your preferred R environment.",
+            ""
+        ],
+        "description": "Generates the standard README structure for new examples"
+    }
+}
