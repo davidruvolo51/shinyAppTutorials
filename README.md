@@ -2,10 +2,15 @@
 
 # shinyTutorials
 
-This repo contains the code for the examples and demonstrations presented on my shiny tutorials site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/).
+This repo contains the code for the examples and demonstrations presented on my site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/).
+
+For a complete list of examples, see: *INSERT LINK HERE*
+
+## Contents
 
 <!-- TOC depthFrom:2 -->
 
+- [Contents](#contents)
 - [Motivation](#motivation)
 - [Tutorials](#tutorials)
     - [Cloning Tutorials](#cloning-tutorials)
@@ -22,15 +27,19 @@ This repo contains the code for the examples and demonstrations presented on my 
 
 ## Motivation
 
-In my early days of learning shiny, I kept a document of all my tips and tricks. It worked nicely, but it quickly became too cluttered and scattered. I decided to create this project to organize the material in to a series of practical examples and to make it available for the wider R community.
+In my early days of learning shiny, I kept a document of tips and tricks. It worked nicely, but it quickly became too cluttered and scattered. I decided to create this project to organize the material in to a series of practical examples and to make it available for the wider R community.
 
-My interests are in web accessibility, data visualization and communication of results, and good design practices. Many of these tutorials focus heavily on HTML, CSS, and JavaScript, but I will try to keep things simple and provide links for further reading. Suggestions, comments, ideas for improvement are always welcome!
+I am interested in web accessibility, data visualization and the communication of results, and good design practices. Many of the examples that I developed rely heavily on HTML, CSS, and JavaScript methods. I will try to keep things simple and provide links for further reading.
+
+Suggestions for improvement are always welcome!
 
 ## Tutorials
 
-I plan on developing a new Shiny app every now and then. Checkout the issues label `Tutorial Ideas` for examples that I'm currently developing. If you have an idea, feel free to open a new issue.
+For a complete list of examples, see: *INSERT LINK HERE*
 
-All *live* examples can be found in the [Available Tutorials](#available-tutorials) table. The *archived* example apps listed in the [Archived Tutorials](#archived-tutorials) section. These examples still work, but the methods are outdated or the example was replaced by a newer one.
+I plan on developing a new Shiny app every now and then. Checkout the issues label `Tutorial Ideas` for examples that I'm currently developing or planning. New ideas are also welcome!
+
+There are two types of examples: available and archived. *Available* examples are regularly maintained and updated. The *archived* examples still work, but the methods are outdated or the example was replaced by a newer one.
 
 ### Cloning Tutorials
 
@@ -43,7 +52,7 @@ git sparse-checkout init --cone
 git sparse-checkout set drag-and-drop
 ```
 
-Switch `drag-and-drop` for the subdirectory(ies) that you wish to checkoout. For more information, checkout the GitHub blog post: [Bring your monorepo down to size with sparse-checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/). Be aware that this is slightly experimental and these instructions may change.
+Replace `drag-and-drop` for the subdirectory that you wish to checkout locally. For more information, take a look at this GitHub blog post: [Bring your monorepo down to size with sparse-checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/).
 
 ### Available Tutorials
 
@@ -125,4 +134,4 @@ If you would like to learn more, here are some links that you may find useful.
 
 ## Contributing to this project
 
-I plan on writing an example once in a while. Check open issues for the label `tutorial ideas`. Comments and suggestions are always welcome. If you would like to add your own tutorial, that would be wonderful! Get in touch with me by opening a new issue and checkout the [Contributing Guidelines](https://github.com/davidruvolo51/shinyAppTutorials/blob/master/CONTRIBUTING.md) for more information.
+If you would like to add your own tutorial, that would be wonderful! Get in touch with me by opening a new issue and checkout the [Contributing Guidelines](https://github.com/davidruvolo51/shinyAppTutorials/blob/master/CONTRIBUTING.md).
