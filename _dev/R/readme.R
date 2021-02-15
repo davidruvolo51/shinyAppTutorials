@@ -54,9 +54,9 @@ readme$write_md_table <- function(path, id, table) {
         end <- match(tbl_end, md)
         new_md <- c(
             md[1:start],
-            "",
+            # "",
             table,
-            "",
+            # "",
             md[end:length(md)]
         )
         writeLines(new_md, path)

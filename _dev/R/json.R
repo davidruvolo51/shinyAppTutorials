@@ -2,11 +2,11 @@
 #' FILE: json.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2020-11-21
+#' MODIFIED: 2021-02-15
 #' PURPOSE: utils for creating package json files
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: cli; jsonlite
-#' COMMENTS: NA
+#' COMMENTS: source locally or in GH Action
 #'////////////////////////////////////////////////////////////////////////////
 
 #' create json
@@ -167,7 +167,7 @@ json$add_badge <- function(dir, branch = "main", label, query, color) {
             start <- match("<!-- badges: start -->", status)
             end <- match("<!-- badges: end -->", raw)
             new_md <- c(
-                raw[(1:end) - 1],
+                raw[(1:start)],
                 badge,
                 raw[end:length(raw)]
             )
