@@ -81,6 +81,12 @@ Replace `drag-and-drop` for the subdirectory that you wish to checkout locally. 
 The examples listed in the following table are achived. They still work, but they are either outdated or were replaced by a newer example. (I'm a bit hesitant to remove these examples in case some follows a link to a page that doesn't exist.)
 
 <!-- begin:archivedTutorials -->
+|name                    |description                                        |version |link                                                                                         |
+|:-----------------------|:--------------------------------------------------|:-------|:--------------------------------------------------------------------------------------------|
+|internal-links          |Create a link from a leaflet popup to a shiny page |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links)          |
+|internal-links-basic-ex |Create links from one shiny page to another        |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-basic-ex) |
+|internal-links-demo     |Navigate to a specific tab on another page         |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-demo)     |
+|select-input-styling    |Style a select input element using CSS             |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling)    |
 <!-- end:archivedTutorials -->
 
 The internal links examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdirectory (02 August 2020).
