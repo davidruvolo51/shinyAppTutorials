@@ -16,4 +16,6 @@ RoxygenNote: 7.1.1
 Imports: 
     cli,
     dplyr,
-    jsonlite
+    jsonlite,
+    knitr,
+    readr
