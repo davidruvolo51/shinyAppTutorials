@@ -60,7 +60,7 @@ jobs:
 
       - name: Update README
         run: |
-          source("_dev/readme.R")
+          source("_dev/R/readme.R")
           source("_dev/update_readme.R")
         shell: Rscript {0}
 
