@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - v1.0-md
   workflow_dispatch:
 
 jobs: 
@@ -76,7 +75,8 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add --all
           git commit -m 'updated readme tables'
-          git push
+          git tag -a v1.0-md -m "trigger readme workflow"
+          git push origin -f --follow-tags
 
       - name: Session info
         run: |
