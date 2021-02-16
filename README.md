@@ -1,10 +1,10 @@
 ![the shiny app tutorials project](shinytutorials.png)
 
+![Update README](https://github.com/davidruvolo51/shinyAppTutorials/workflows/Update%20tables%20in%20README/badge.svg?branch=main)
+
 # shinyTutorials
 
 This repo contains the code for the examples and demonstrations presented on my site: [davidruvolo51.github.io/shinytutorials/](https://davidruvolo51.github.io/shinytutorials/).
-
-For a complete list of examples, see: *INSERT LINK HERE*
 
 ## Contents
 
@@ -34,8 +34,6 @@ I am interested in web accessibility, data visualization and the communication o
 Suggestions for improvement are always welcome!
 
 ## Tutorials
-
-For a complete list of examples, see: *INSERT LINK HERE*
 
 I plan on developing a new Shiny app every now and then. Checkout the issues label `Tutorial Ideas` for examples that I'm currently developing or planning. New ideas are also welcome!
 
