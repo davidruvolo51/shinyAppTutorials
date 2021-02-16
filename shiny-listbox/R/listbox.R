@@ -50,7 +50,7 @@ helpers$list_toggle <- function(inputId, titleId) {
         rheroicons::rheroicon(
             name = "chevron_down",
             type = "solid",
-            classnames = "toggle-icon"
+            class = "toggle-icon"
         )
     )
 }
@@ -82,7 +82,7 @@ helpers$input_list_item <- function(inputId, option, value) {
         rheroicons::rheroicon(
             name = "check_circle",
             type = "solid",
-            classnames = "option-icon"
+            class = "option-icon"
         ),
         # label
         tags$span(
