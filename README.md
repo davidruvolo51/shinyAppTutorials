@@ -68,7 +68,7 @@ Replace `drag-and-drop` for the subdirectory that you wish to checkout locally. 
 |rmarkdown-app           |using Rmarkdown as Shiny UI                           |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-app)           |
 |sass-in-shiny           |integrating SASS into your Shiny development workflow |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny)           |
 |setting-html-attributes |set document attributes                               |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes) |
-|shiny-landing-page      |create a landing page                                 |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-landing-page)      |
+|shiny-landing-page      |create a landing page                                 |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-landing-page)      |
 |shiny-links             |a component for within app navigation                 |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-links)             |
 |shiny-listbox           |create listbox components in shiny                    |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-listbox)           |
 |time-input              |creating a custom time input for use in shiny         |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/time-input)              |
