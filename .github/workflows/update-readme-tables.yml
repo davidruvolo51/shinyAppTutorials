@@ -61,13 +61,27 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
+      # Run main R scripts
       - name: Update README
         run: |
           source("_dev/R/readme.R")
           source("_dev/update_readme.R")
         shell: Rscript {0}
 
+      # If there are no changes to the README, the workflow will error out.
+      # To avoid GitHub Action failures, the following step checks for all
+      # available commits via environment variables
+      - name: Check for Changes
+        run: |
+            if git diff --exit-code; then
+              echo "::set-env name=should_commit::false"
+            else
+              echo "::set-env name=should_commit::true"
+            fi
+
+      # Commit changes using the var `should_commit`
       - name: Commit
+        if: env.should_commit == 'true'
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
@@ -75,6 +89,7 @@ jobs:
           git commit -m 'updated readme tables'
           git push
 
+      # Log session info (from r-lib/actions)
       - name: Session info
         run: |
           options(width = 100)
