@@ -1,11 +1,9 @@
-name: Update tables in README
+name: Update README
 
 on:
   push:
     branches:
       - main
-    tags:
-      - v1.0-md
   workflow_dispatch:
 
 jobs: 
@@ -75,8 +73,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git add --all
           git commit -m 'updated readme tables'
-          git tag -a v1.0-md -m "trigger readme workflow"
-          git push origin -f --follow-tags
+          git push
 
       - name: Session info
         run: |
