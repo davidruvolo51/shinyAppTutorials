@@ -1,6 +1,8 @@
 ![the shiny app tutorials project](shinytutorials.png)
 
-![Update README](https://github.com/davidruvolo51/shinyAppTutorials/workflows/Update%20tables%20in%20README/badge.svg?branch=main)
+<!--- badges: start --->
+[![Update README](https://github.com/davidruvolo51/shinyAppTutorials/actions/workflows/update-readme-tables.yml/badge.svg)](https://github.com/davidruvolo51/shinyAppTutorials/actions/workflows/update-readme-tables.yml)
+<!--- badges: end --->
 
 # shinyTutorials
 
