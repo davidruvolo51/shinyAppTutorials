@@ -2,12 +2,32 @@
 #' FILE: update_readme.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2021-02-15
-#' MODIFIED: 2021-02-15
+#' MODIFIED: 2021-02-20
 #' PURPOSE: update tables in readme
 #' STATUS: working
 #' PACKAGES: NA
 #' COMMENTS: NA
 #' ////////////////////////////////////////////////////////////////////////////
+
+cli::cli_div(
+    id = "update-readme-workflow",
+    theme = list(
+        span.info = list(
+            color = "lightblue"
+        ),
+        span.success = list(
+            color = "green"
+        ),
+        span.error = list(
+            color = "red"
+        ),
+        span.warning = list(
+            color = "yellow"
+        )
+    )
+)
+
+cli::cli_text("{.info [{Sys.time()}] Starting workflow}")
 
 # pkgs
 suppressPackageStartupMessages(library(dplyr))
@@ -65,27 +85,33 @@ pull_data <- function(dirs) {
 # all avilable subdirectories and exclude non-shiny apps
 
 # build data
+cli::cli_text("{.info [{Sys.time()}] Building subdirectory list}")
 dirs <- list_dirs(exclude = c("_dev", ".github", ".git", ".vscode"))
 
 # error checking
 if (!is.null(dirs)) {
-    cli::cli_alert_success("Built list of directories ")
+    cli::cli_text(
+        "{.success [{Sys.time()}] Built directory data (n = {length(dirs)})}"
+    )
 } else {
-    cli::cli_alert_danger("Cannot build list of directories")
+    cli::cli_text("{.error [{Sys.time()}] Failed to compile data}")
 }
 
 
 # build tutorials
 tutorials <- pull_data(dirs)
 if (NROW(tutorials) > 0) {
-    cli::cli_alert_success("Build directories dataset")
+    cli::cli_text("{.success [{Sys.time()}] Collated subdir data}")
+} else {
+    cli::cli_text("{.error [{Sys.time()}] Failed to collated subdir data}")
 }
 
+cli::cli_text("{.info [{Sys.time()}] Generating markdown tables}")
 
 # write 'activeTutorial' tables
 tryCatch({
-    cli::cli_alert_success(
-        "Successfully wrote {.val activeTutorials} in README"
+    cli::cli_text(
+        "{.success [{Sys.time()}] Wrote 'active' apps}"
     )
     tutorials %>%
         filter(status == "active") %>%
@@ -96,15 +122,19 @@ tryCatch({
             table = .
         )
 }, error = function() {
-    cli::cli_alert_danger("Failed to write {.val activeTutorials} in README")
+    cli::cli_text(
+        "{.error [{Sys.time()}] Failed to write 'active' apps}"
+    )
 }, warning = function() {
-    cli::cli_alert_danger("Failed to write {.val activeTutorials} in README")
+    cli::cli_text(
+        "{.error [{Sys.time()}] Failed to write 'active' apps}"
+    )
 })
 
 # write 'archivedTutorials' table
 tryCatch({
-    cli::cli_alert_success(
-        "Successfully wrote {.val archivedTutorials} in README"
+    cli::cli_text(
+        "{.success [{Sys.time()}] Wrote 'archived' apps}"
     )
     tutorials %>%
         filter(status == "archived") %>%
@@ -115,23 +145,27 @@ tryCatch({
             table = .
         )
 }, error = function() {
-    cli::cli_alert_danger("Failed to write {.val archivedTutorials} in README")
+    cli::cli_text(
+        "{.error [{Sys.time()}] Failed to write 'archived' apps}"
+    )
 }, warning = function() {
-    cli::cli_alert_danger("Failed to write {.val archivedTutorials} in README")
+    cli::cli_text(
+        "{.error [{Sys.time()}] Failed to write 'archived' apps}"
+    )
 })
 
 # save data
 tryCatch({
-    cli::cli_alert_success(
-        "Saved tutorials data as {.file _dev/data/tutorials.csv}"
+    cli::cli_text(
+        "{.success [{Sys.time()}] Wrote data to '_dev/data/tutorials.csv'}"
     )
     readr::write_csv(tutorials, "_dev/data/tutorials.csv")
 }, error = function() {
-    cli::cli_alert_success(
-        "Failed to save tutorials data as {.file _dev/data/tutorials.csv}"
+    cli::cli_text(
+        "{.error [{Sys.time()}] Failed to write '_dev/data/tutorials.csv'}"
     )
 }, warning = function() {
-    cli::cli_alert_success(
-        "Failed to save tutorials data as {.file _dev/data/tutorials.csv}"
+    cli::cli_text(
+        "{.error [{Sys.time()}] Failed to write '_dev/data/tutorials.csv'}"
     )
 })

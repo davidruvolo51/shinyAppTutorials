@@ -68,20 +68,9 @@ jobs:
           source("_dev/update_readme.R")
         shell: Rscript {0}
 
-      # If there are no changes to the README, the workflow will error out.
-      # To avoid GitHub Action failures, the following step checks for all
-      # available commits via environment variables
-      - name: Check for Changes
-        run: |
-            if git diff --exit-code; then
-              echo "::set-env name=should_commit::false"
-            else
-              echo "::set-env name=should_commit::true"
-            fi
-
       # Commit changes using the var `should_commit`
       - name: Commit
-        if: env.should_commit == 'true'
+        continue-on-error: true
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
