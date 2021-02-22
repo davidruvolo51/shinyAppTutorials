@@ -2,10 +2,10 @@
 // FILE: time_input.js
 // AUTHOR: David Ruvolo
 // CREATED: 2020-07-31
-// MODIFIED: 2020-08-01
+// MODIFIED: 2021-02-22
 // PURPOSE: input binding for time inputs
 // DEPENDENCIES: NA
-// STATUS: in.progress
+// STATUS: working
 // COMMENTS: NA
 ////////////////////////////////////////////////////////////////////////////////
 

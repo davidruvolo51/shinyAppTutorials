@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-11-17
-#' MODIFIED: 2020-11-20
+#' MODIFIED: 2021-02-22
 #' PURPOSE: single file app for time-input shiny application
 #' STATUS: working
 #' PACKAGES: shiny
@@ -15,18 +15,17 @@ suppressPackageStartupMessages(library(shiny))
 # app
 ui <- tagList(
     tags$head(
-        tags$link(rel = "stylesheet", href = "time_input.css"),
+        tags$link(
+            rel = "stylesheet",
+            type = "text/css",
+            href = "styles.css"
+        ),
+        tags$link(
+            type = "text/css",
+            rel = "stylesheet",
+            href = "time_input.css"
+        ),
         tags$style(
-            "html, body {
-                font-family: Helvetica;
-                font-size: 16pt;
-            }",
-            "main {
-                width: 90%;
-                max-width: 912px;
-                margin: 0 auto;
-                padding: 32px;
-            }",
             "#timeOutput {
                 background-color: #353535;
                 color: #f1f1f1;
@@ -34,7 +33,7 @@ ui <- tagList(
                 padding: 12px;
             }"
         ),
-        tags$title("shinyAppTutorials | Time Input Example")
+        tags$title("Time Input Example | shinyAppTutorials ")
     ),
     tags$main(
         tags$h1("Time Input Example"),

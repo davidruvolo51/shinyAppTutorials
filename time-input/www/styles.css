@@ -1,0 +1,12 @@
+html, body {
+    font-family: Helvetica;
+    font-size: 16pt;
+}
+
+
+main {
+    width: 90%;
+    max-width: 912px;
+    margin: 0 auto;
+    padding: 32px;
+}
