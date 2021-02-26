@@ -5,7 +5,7 @@ get-window-dims,1.0.0,sending data from javascript,@dcruvolo,active,https://davi
 internal-links,1.0.0,Create a link from a leaflet popup to a shiny page,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links
 internal-links-basic-ex,1.0.0,Create links from one shiny page to another,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-basic-ex
 internal-links-demo,1.0.0,Navigate to a specific tab on another page,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-demo
-js-handlers,1.1.0,getting started with custom handlers,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers
+js-handlers,1.1.1,getting started with custom handlers,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers
 leaflet-loading-screens,1.0.0,creating a loading screen for leaflet,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens
 login-screen,1.0.0,Adding *basic* user authentication to shiny apps,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen
 progress-bars-example,1.0.0,creating a shiny progressbar using R6 classes,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/progress-bars-example
