@@ -2,7 +2,7 @@
 #' FILE: update_readme.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2021-02-15
-#' MODIFIED: 2021-02-20
+#' MODIFIED: 2021-02-26
 #' PURPOSE: update tables in readme
 #' STATUS: working
 #' PACKAGES: NA
@@ -13,16 +13,16 @@ cli::cli_div(
     id = "update-readme-workflow",
     theme = list(
         span.info = list(
-            color = "lightblue"
+            color = "#5465FF"
         ),
         span.success = list(
-            color = "green"
+            color = "#8AEA92"
         ),
         span.error = list(
-            color = "red"
+            color = "#CA054D"
         ),
         span.warning = list(
-            color = "yellow"
+            color = "#FFCF00"
         )
     )
 )

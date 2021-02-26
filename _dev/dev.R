@@ -2,7 +2,7 @@
 #' FILE: dev.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2021-02-15
+#' MODIFIED: 2021-02-26
 #' PURPOSE: repo management
 #' STATUS: working; ongoing
 #' PACKAGES: see below
