@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2021-02-22
-#' MODIFIED: 2021-02-22
+#' MODIFIED: 2021-02-26
 #' PURPOSE: Shiny app
 #' STATUS: working
 #' PACKAGES: Shiny
@@ -24,7 +24,7 @@ ui <- tagList(
         tags$link(
             type = "text/css",
             rel = "stylesheet",
-            href = "css/styles.css"
+            href = "styles.css"
         ),
         tags$title("Custom JS Handlers | shinyAppTutorials")
     ),
