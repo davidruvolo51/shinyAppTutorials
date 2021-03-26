@@ -1,6 +1,6 @@
 {
   "name": "internal-links",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Create a link from a leaflet popup to a shiny page",
   "author": "@dcruvolo",
   "status": "archived",
