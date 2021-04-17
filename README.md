@@ -61,7 +61,7 @@ Replace `drag-and-drop` for the subdirectory that you wish to checkout locally. 
 |:-----------------------|:-----------------------------------------------------|:-------|:--------------------------------------------------------------------------------------------|
 |data-editor             |A shiny app for editing dataset in shiny              |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor)             |
 |drag-and-drop           |create a drag and drop component                      |1.0.1   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop)           |
-|get-window-dims         |sending data from javascript                          |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims)         |
+|get-window-dims         |sending data from javascript                          |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims)         |
 |js-handlers             |getting started with custom handlers                  |1.1.1   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers)             |
 |leaflet-loading-screens |creating a loading screen for leaflet                 |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens) |
 |login-screen            |Adding *basic* user authentication to shiny apps      |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen)            |

@@ -1,7 +1,7 @@
 name,version,description,author,status,link
 data-editor,1.0.0,A shiny app for editing dataset in shiny,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/data-editor
 drag-and-drop,1.0.1,create a drag and drop component,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/drag-and-drop
-get-window-dims,1.0.0,sending data from javascript,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims
+get-window-dims,1.1.0,sending data from javascript,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims
 internal-links,1.1.0,Create a link from a leaflet popup to a shiny page,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links
 internal-links-basic-ex,1.1.0,Create links from one shiny page to another,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-basic-ex
 internal-links-demo,1.1.0,Navigate to a specific tab on another page,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-demo
