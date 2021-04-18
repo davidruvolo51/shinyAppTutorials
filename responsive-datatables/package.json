@@ -1,6 +1,6 @@
 {
   "name": "responsive-datatables",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "create responsive datatables in R",
   "author": "@dcruvolo",
   "status": "active",
