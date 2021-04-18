@@ -2,7 +2,7 @@
 #' FILE: datatable.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-12-05
-#' MODIFIED: 2020-01-13
+#' MODIFIED: 2021-04-18
 #' PURPOSE: build datatable function and helpers
 #' STATUS: working
 #' PACKAGES: htmltools
@@ -42,15 +42,18 @@
 #'      the display properties are altered in css.
 #'//////////////////////////////////////////////////////////////////////////////
 
-# ~ 1 ~
-# DEFINE HELPER FUNCTIONS
+#' @name datatable_helpers
+#' @description object containing the datatable helper functions
 datatable_helpers <- list()
 
-# ~ a ~
-# FUNCTION: build_header
+#' @name build_header
+#' @description generate the table header markup
+#'
+#' @param data input database (from `datatable`)
+#' @param options internal configuration object (from `datatable`)
 datatable_helpers$build_header <- function(data, options) {
     columns <- colnames(data)
-    cells <- lapply(1:length(columns), function(n) {
+    cells <- lapply(seq_len(length(columns)), function(n) {
 
         # define cell content: as html or text
         if (isTRUE(options$asHTML)) {
@@ -70,11 +73,16 @@ datatable_helpers$build_header <- function(data, options) {
     )
 }
 
-# ~ b ~
-# FUNCTION: build_body
+#' @name build_body
+#' @description generate the markup for the table body
+
+#' @param data input dataset (from `datatable`)
+#' @param options internal configuration object (from `datatable`)
+#'
+#' @return shiny.tag object
 datatable_helpers$build_body <- function(data, options) {
-    body <- lapply(1:NROW(data), function(row) {
-        cells <- lapply(1:NCOL(data), function(col) {
+    body <- lapply(seq_len(NROW(data)), function(row) {
+        cells <- lapply(seq_len(NCOL(data)), function(col) {
 
             # process options: render as html or escape?
             if (isTRUE(options$asHTML)) {
@@ -105,37 +113,50 @@ datatable_helpers$build_body <- function(data, options) {
                     cell_value
                 )
             }
-
-            # return cell
             cell
         })
-
-        # return cells in a row
         htmltools::tags$tr(role = "row", cells)
     })
-
-    # return body
     htmltools::tags$tbody(body)
 }
 
-#'////////////////////////////////////////
 
-# ~ 2 ~
-# FUNCTION: datatable
-datatable <- function(data, id = NULL, caption = NULL, options = list(responsive = TRUE, rowHeaders = TRUE, asHTML = FALSE)) {
+#' @name datatable
+#'
+#' @description generate a responsive datatable
+#'
+#' @param data input dataset
+#' @param id a unique identifier for the table
+#' @param caption an optional caption to render
+#' @param options a list containing additional parameters for configuring
+#'          the table output
+#'
+#' @section Options
+#'
+#' `responsive`: If TRUE (default), the table markup will be generated for
+#'      responsiveness
+#' `rowHeaders`: If TRUE (default), the first value in each row is considered
+#'      as a row header (required for responsive tables)
+#' `asHTML`: if TRUE, all values will be treated as HTML and rendered
+#'      accordingly
+#'
+#' @return a shiny.tag object
+datatable <- function(
+    data,
+    id = NULL,
+    caption = NULL,
+    options = list(responsive = TRUE, rowHeaders = TRUE, asHTML = FALSE)
+) {
 
     # render table and table elements
-    tbl <- htmltools::tags$table(class = "datatable",
+    tbl <- htmltools::tags$table(
+        class = "datatable",
         datatable_helpers$build_header(data, options),
         datatable_helpers$build_body(data, options)
     )
 
-    # add id
-    if (!is.null(id)) {
-        tbl$attribs$id <- id
-    }
-
-    # should a caption be rendered?
+    # add id, caption
+    if (!is.null(id)) tbl$attribs$id <- id
     if (!is.null(caption)) {
         tbl$children <- list(
             htmltools::tags$caption(caption),
@@ -143,6 +164,5 @@ datatable <- function(data, id = NULL, caption = NULL, options = list(responsive
         )
     }
 
-    # return
-    tbl
+    return(tbl)
 }

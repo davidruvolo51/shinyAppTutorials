@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2019-12-05
-#' MODIFIED: 2020-11-20
+#' MODIFIED: 2021-04-18
 #' PURPOSE: create responsive datatables in shiny
 #' STATUS: working
 #' PACKAGES: shiny
@@ -10,6 +10,9 @@
 #' The datatable function can be found here: R/datatable.R. The
 #' re-orgranizing of content is handled by css (see www/css/*.css for info).
 #'//////////////////////////////////////////////////////////////////////////////
+
+# tests
+# testthat::test_file("tests/test-datatable.R")
 
 # pkgs
 suppressPackageStartupMessages(library(shiny))
