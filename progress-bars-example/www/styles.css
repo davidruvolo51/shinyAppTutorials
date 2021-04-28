@@ -1,29 +1,30 @@
-.progress-bar-parent {
+/* parent element */
+.progressbar__parent {
     position: relative;
 }
 
-.progress-bar-container {
+.progressbar {
     display: block;
     width: 100%;
-    background-color: transparent;
+    background-color: #ffffff;
 }
 
-.progress-bar-container.progress-bar-fixed {
+.progressbar.progressbar__fixed {
     position: fixed;
-    z-index: 100;
+    z-index: 10
 }
 
-.progress-bar-container.position-top {
+.progressbar.position__top {
     top: 0;
-    left: 0;
+    left: 0
 }
 
-.progress-bar-container.position-bottom {
+.progressbar .position__bottom {
     bottom: 0;
-    left: 0;
+    left: 0
 }
 
-.progress-bar-container .progress-bar {
+.progressbar .bar {
     height: 13px;
     background-color: #bdbdbd;
     -webkit-transform: scaleX(0);
@@ -40,6 +41,7 @@
 }
 
 /* example styling */
+
 :root {
     --brand: #299996;
     --brand-alt: hsla(178, 58%, 38%, 0.06);
@@ -113,8 +115,11 @@ button.secondary {
     color: var(--dark);
 }
 
-@media (min-width: 912px) {
+@media screen and (min-width:972px) {
     main {
         max-width: 912px;
+    }
+    .progressbar {
+        background-color: var(--light)
     }
 }
