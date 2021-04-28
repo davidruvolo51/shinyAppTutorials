@@ -1,6 +1,6 @@
 {
   "name": "progress-bars-example",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "creating a shiny progressbar using R6 classes",
   "author": "@dcruvolo",
   "status": "active",
