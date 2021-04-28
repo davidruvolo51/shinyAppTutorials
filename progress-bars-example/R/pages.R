@@ -10,20 +10,41 @@
 #'////////////////////////////////////////////////////////////////////////////
 
 # function to generate lipsum paragraphs
-lorem_lipsum <- function(n) {
+lorem_lipsum <- function(n, max) {
     paragraphs <- stringi::stri_rand_lipsum(n)
     html <- list()
     lapply(seq_len(length(paragraphs)), function(d) {
-        html[[d]] <<- shiny::tagList(
+        page <- shiny::tagList(
             shiny::tags$p(
                 class = "page-num",
-                paste0("Page ", d)
+                paste0("Page ", d, " of ", max)
             ),
             shiny::tags$p(paragraphs[d])
         )
+        if (d > 1) {
+            page$children <- tagList(
+                page$children,
+                tags$button(
+                    id = "previousPage",
+                    class = "action-button shiny-bound-input secondary",
+                    "Previous"
+                )
+            )
+        }
+        if (d < max) {
+            page$children <- tagList(
+                page$children,
+                tags$button(
+                    id = "nextPage",
+                    class = "action-button shiny-bound-input primary",
+                    "Next"
+                )
+            )
+        }
+        html[[d]] <<- page
     })
     return(html)
 }
 
 # save data
-pages <- lorem_lipsum(n = 10)
+pages <- lorem_lipsum(n = 6, max = 6)
