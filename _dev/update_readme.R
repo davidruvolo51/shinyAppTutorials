@@ -9,25 +9,8 @@
 #' COMMENTS: NA
 #' ////////////////////////////////////////////////////////////////////////////
 
-cli::cli_div(
-    id = "update-readme-workflow",
-    theme = list(
-        span.info = list(
-            color = "#5465FF"
-        ),
-        span.success = list(
-            color = "#8AEA92"
-        ),
-        span.error = list(
-            color = "#CA054D"
-        ),
-        span.warning = list(
-            color = "#FFCF00"
-        )
-    )
-)
-
-cli::cli_text("{.info [{Sys.time()}] Starting workflow}")
+msg <- function(text) message("[", Sys.time(), "] ", text)
+msg("Starting workflow")
 
 # pkgs
 suppressPackageStartupMessages(library(dplyr))
@@ -85,34 +68,30 @@ pull_data <- function(dirs) {
 # all avilable subdirectories and exclude non-shiny apps
 
 # build data
-cli::cli_text("{.info [{Sys.time()}] Building subdirectory list}")
+msg("Building subdirectory list")
 dirs <- list_dirs(exclude = c("_dev", ".github", ".git", ".vscode"))
 
 # error checking
 if (!is.null(dirs)) {
-    cli::cli_text(
-        "{.success [{Sys.time()}] Built directory data (n = {length(dirs)})}"
-    )
+    msg(paste0("Build directory data (n = ", length(dirs), ")"))
 } else {
-    cli::cli_text("{.error [{Sys.time()}] Failed to compile data}")
+    msg("Failed to compile data")
 }
 
 
 # build tutorials
 tutorials <- pull_data(dirs)
 if (NROW(tutorials) > 0) {
-    cli::cli_text("{.success [{Sys.time()}] Collated subdir data}")
+    msg("Collated subdirectory data")
 } else {
-    cli::cli_text("{.error [{Sys.time()}] Failed to collated subdir data}")
+    msg("Failed to collate subdirectory data")
 }
 
-cli::cli_text("{.info [{Sys.time()}] Generating markdown tables}")
+msg("Generating markdown tables")
 
 # write 'activeTutorial' tables
 tryCatch({
-    cli::cli_text(
-        "{.success [{Sys.time()}] Wrote 'active' apps}"
-    )
+    msg("Wrote 'active' table")
     tutorials %>%
         filter(status == "active") %>%
         readme$as_md_table(data = .) %>%
@@ -122,20 +101,14 @@ tryCatch({
             table = .
         )
 }, error = function() {
-    cli::cli_text(
-        "{.error [{Sys.time()}] Failed to write 'active' apps}"
-    )
+    msg("Failed to write 'active' table")
 }, warning = function() {
-    cli::cli_text(
-        "{.error [{Sys.time()}] Failed to write 'active' apps}"
-    )
+    msg("Failed to write 'active' table")
 })
 
 # write 'archivedTutorials' table
 tryCatch({
-    cli::cli_text(
-        "{.success [{Sys.time()}] Wrote 'archived' apps}"
-    )
+    msg("Wrote 'archived' table")
     tutorials %>%
         filter(status == "archived") %>%
         readme$as_md_table(data = .) %>%
@@ -145,27 +118,17 @@ tryCatch({
             table = .
         )
 }, error = function() {
-    cli::cli_text(
-        "{.error [{Sys.time()}] Failed to write 'archived' apps}"
-    )
+    msg("Failed to write 'archived' table")
 }, warning = function() {
-    cli::cli_text(
-        "{.error [{Sys.time()}] Failed to write 'archived' apps}"
-    )
+    msg("Failed to write 'archived' table")
 })
 
 # save data
 tryCatch({
-    cli::cli_text(
-        "{.success [{Sys.time()}] Wrote data to '_dev/data/tutorials.csv'}"
-    )
+    msg("Wrote data to '_dev/data/tutorials.csv'")
     readr::write_csv(tutorials, "_dev/data/tutorials.csv")
 }, error = function() {
-    cli::cli_text(
-        "{.error [{Sys.time()}] Failed to write '_dev/data/tutorials.csv'}"
-    )
+    msg("Failed to write '_dev/data/tutorials.csv'")
 }, warning = function() {
-    cli::cli_text(
-        "{.error [{Sys.time()}] Failed to write '_dev/data/tutorials.csv'}"
-    )
+    msg("Failed to write '_dev/data/tutorials.csv'")
 })
