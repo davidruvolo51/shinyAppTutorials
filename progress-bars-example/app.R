@@ -2,18 +2,22 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-03-28
-#' MODIFIED: 2020-11-21
+#' MODIFIED: 2021-04-28
 #' PURPOSE: example app demonstrating progress bars
 #' STATUS: working
 #' PACKAGES: shiny; R6
 #' COMMENTS: NA
 #' ////////////////////////////////////////////////////////////////////////////
 
+# install
+# install.packages("shiny")
+# install.packages("R6")
+
 # pkgs
 suppressPackageStartupMessages(library(shiny))
 
 # init new progress bar
-mybar <- shiny_progress$new(now = 1, min = 1, max = 10)
+app_progress <- progressbar(min = 0, start = 0, max = 6)
 
 # ui
 ui <- tagList(
@@ -21,24 +25,18 @@ ui <- tagList(
     tags$head(
         tags$link(rel = "stylesheet", href = "styles.css")
     ),
-    mybar$ui(id = "mybar", fill = "#299996"),
-    # mybar$ui(id = "mybar", fixed = TRUE, position = "bottom", fill = "#299996"),
+    app_progress$bar(
+        inputId = "appProgress",
+        fill = "#299996",
+        fixed = TRUE,
+        text = "page {value} of {max}"
+    ),
     tags$main(
         id = "main",
         class = "main",
         tags$section(
             tags$h2("Lorem Ipsum"),
-            uiOutput("page"),
-            tags$button(
-                id = "previousPage",
-                class = "action-button shiny-bound-input secondary",
-                "Previous"
-            ),
-            tags$button(
-                id = "nextPage",
-                class = "action-button shiny-bound-input primary",
-                "Next"
-            )
+            uiOutput("page")
         ),
         tags$script(src = "index.js")
     )
@@ -47,29 +45,25 @@ ui <- tagList(
 # server
 server <- function(input, output, session) {
 
-    # use reset if there is a browser refresh
-    mybar$reset()
-    mybar$init()
-
     # set default page
-    output$page <- renderUI({
-        pages[[mybar$now]]
+    page_counter <- reactiveVal(1)
+    app_progress$increase()
+    observe({
+        output$page <- renderUI({
+            pages[[page_counter()]]
+        })
     })
 
     # event for next page
     observeEvent(input$nextPage, {
-        mybar$increase()
-        output$page <- renderUI({
-            pages[[mybar$now]]
-        })
+        page_counter(page_counter() + 1)
+        app_progress$increase()
     })
 
-    # event for previous page
+    # # event for previous page
     observeEvent(input$previousPage, {
-        mybar$decrease()
-        output$page <- renderUI({
-            pages[[mybar$now]]
-        })
+        page_counter(page_counter() - 1)
+        app_progress$decrease()
     })
 }
 
