@@ -67,7 +67,7 @@ Replace `drag-and-drop` for the subdirectory that you wish to checkout locally. 
 |login-screen            |Adding *basic* user authentication to shiny apps      |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen)            |
 |progress-bars-example   |creating a shiny progressbar using R6 classes         |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/progress-bars-example)   |
 |responsive-datatables   |create responsive datatables in R                     |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-datatables)   |
-|rmarkdown-app           |using Rmarkdown as Shiny UI                           |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-app)           |
+|rmarkdown-app           |using Rmarkdown as Shiny UI                           |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-app)           |
 |sass-in-shiny           |integrating SASS into your Shiny development workflow |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny)           |
 |setting-html-attributes |set document attributes                               |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes) |
 |shiny-landing-page      |create a landing page                                 |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-landing-page)      |
