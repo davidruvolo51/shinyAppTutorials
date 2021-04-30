@@ -1,14 +1,11 @@
 html, body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
 }
 
-main, header {
+main {
     margin: 0 auto;
     width: 90%;
-}
-
-header {
-    padding-top: 32px;
 }
 
 main {
@@ -26,21 +23,8 @@ h1, h2, h3 {
 
 p {
     color: #3f454b;
-    line-height: 1.8;
-}
-
-header h1, header h2 {
-    line-height: 1.1;
-}
-
-header h2 {
-    font-weight: 400;
-}
-
-button, select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    line-height: 1.7;
+    font-size: 16pt;
 }
 
 button {
@@ -49,8 +33,7 @@ button {
     border-radius: 4px;
     margin: 0;
     border: none;
-    border: 2px solid #666A86;
-    background-color: #666A86;
+    background-color: #3f454b;
     color: #f3f3f3;
     font-size: 11pt;
     text-transform: uppercase;
@@ -60,23 +43,14 @@ button {
 }
 
 button:hover {
-    background-color: #f3f3f3;
-    border: 2px solid #666A86;
-    color: #666A86;
+    text-decoration: underline;
 }
 
 select {
     padding: 6px 0;
     padding-left: 6px;
     width: 250px;
-    font-size: 11pt;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     font-weight: 600;
-    cursor: pointer;
-    border: none;
-    background: url(menu-chevron-down.svg) no-repeat;
-    background-position: 90% 10px;
     background-color: white;
     background-size: 16px;
 }
@@ -117,6 +91,12 @@ form select {
     font-size: 16pt;
 }
 
+#report pre {
+    overflow-x: scroll;
+    padding: 1em;
+    background-color: #f6f6f6;
+}
+
 #report pre code {
     font-size: 14pt;
 }
@@ -128,7 +108,7 @@ form select {
 }
 
 @media screen and (min-width: 972px) {
-    main, header {
+    main {
         width: 100%;
         max-width: 912px;
     }
