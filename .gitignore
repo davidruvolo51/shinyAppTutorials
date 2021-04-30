@@ -7,3 +7,4 @@
 .cache
 node_modules
 yarn.lock
+rmarkdown-app/report_template.html

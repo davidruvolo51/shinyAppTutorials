@@ -1,2 +1,4 @@
 linters: with_defaults(line_length_linter = line_length_linter(81), commented_code_linter = NULL, object_usage_linter = NULL)
 exclusions: list("renv/")
+exclude_start: "# nolint start"
+exclude_end: "# nolint end"
