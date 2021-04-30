@@ -1,5 +1,8 @@
 ---
-output: html_document
+output:
+    html_document:
+        theme: null
+        mathjax: null
 params: 
     selection: null
     data: null
@@ -9,10 +12,9 @@ params:
 knitr::opts_chunk$set(echo = FALSE, eval=TRUE, message=FALSE, warning=FALSE)
 ```
 
-
 # Here is your the report
 
-You selected `r params$selection`. 
+You selected `r params$selection`.
 
 This is an example of a parameterized report in shiny. The markdown template is stored in the same location as the `app.R` file. There isn't much to the markdown template except for the YAML setup. Here's how the data is passed from shiny into the markdown file.
 
@@ -27,7 +29,7 @@ params:
 ---
 ```
 
-I set each param to null in this example. If you want the document to render when the app is started, then set the params accordingly. 
+I set each param to null in this example. If you want the document to render when the app is started, then set the params accordingly.
 
 To access the params in the markdown file, use `params$some_param_name`. In this example, we will use `param$selection` and `param$data`. Define other parameters as needed.
 
@@ -41,10 +43,10 @@ includeMarkdown(
 
 `librariansDF` is an object that is created when the render button is clicked and we can define the selection by calling `input$state`.
 
-
 ```{r}
 # pkgs
-suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(kableExtra))
 
 
