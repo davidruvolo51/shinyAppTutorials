@@ -1,6 +1,6 @@
 {
   "name": "sass-in-shiny",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "integrating SASS into your Shiny development workflow",
   "author": "@dcruvolo",
   "status": "active",
