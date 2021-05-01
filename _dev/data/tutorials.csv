@@ -11,7 +11,7 @@ login-screen,1.0.0,Adding *basic* user authentication to shiny apps,@dcruvolo,ac
 progress-bars-example,1.1.0,creating a shiny progressbar using R6 classes,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/progress-bars-example
 responsive-datatables,1.1.0,create responsive datatables in R,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-datatables
 rmarkdown-app,1.1.0,using Rmarkdown as Shiny UI,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-app
-sass-in-shiny,1.0.0,integrating SASS into your Shiny development workflow,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny
+sass-in-shiny,1.1.0,integrating SASS into your Shiny development workflow,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny
 select-input-styling,1.0.0,Style a select input element using CSS,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling
 setting-html-attributes,1.0.0,set document attributes,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes
 shiny-landing-page,1.1.0,create a landing page,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-landing-page
