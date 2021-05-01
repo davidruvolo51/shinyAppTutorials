@@ -2,9 +2,9 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-08-02
-#' MODIFIED: 2020-08-02
+#' MODIFIED: 2021-05-01
 #' PURPOSE: Update example on creating internal links
-#' STATUS: in.progress
+#' STATUS: working
 #' PACKAGES: Shiny
 #' COMMENTS: This Shiny app replaces previous example apps as there were
 #' accessibility concerns with the previous method. This approach is much
@@ -15,9 +15,10 @@
 # pkgs
 library(shiny)
 
-
-rCode <- paste0(readLines("R/shinyLink.R"), collapse = "\n")
-jsCode <- paste0(readLines("www/shinyLink.js"), collapse = "\n")
+code <- list(
+    r = paste0(readLines("R/shinyLink.R"), collapse = "\n"),
+    js = paste0(readLines("www/shinyLink.js"), collapse = "\n")
+)
 
 # ui
 ui <- tagList(
@@ -27,8 +28,6 @@ ui <- tagList(
     ),
     navbarPage(
         title = "shinyLink",
-
-        # tab 1 - home
         tabPanel(
             title = "Home",
             value = "home",
@@ -36,7 +35,7 @@ ui <- tagList(
             tags$img(
                 src = "chain-image.jpg",
                 alt = "the ends of two metal chains linked together by a ring"
-            ), 
+            ),
             tags$p(
                 "This Shiny app uses a custom input component with a Shiny",
                 "input binding to create internal links to other pages in a",
@@ -49,8 +48,6 @@ ui <- tagList(
                 shinyLink(to = "javascript", "JavaScript input binding")
             )
         ),
-
-        # tab 2 - code
         tabPanel(
             title = "Code",
             value = "code",
@@ -92,7 +89,7 @@ ui <- tagList(
                         "and Tables', then the value should be 'data' or",
                         "'data-viz'."
                     ),
-                    tags$pre(tags$code(rCode)),
+                    tags$pre(tags$code(code$r)),
                     tags$p(
                         shinyLink(
                             to = "javascript",
@@ -114,7 +111,7 @@ ui <- tagList(
                         "Here is the shiny input binding for the",
                         tags$code("shinyLink"), "component."
                     ),
-                    tags$pre(tags$code(jsCode)),
+                    tags$pre(tags$code(code$js)),
                     tags$p(
                         shinyLink(
                             to = "r",
