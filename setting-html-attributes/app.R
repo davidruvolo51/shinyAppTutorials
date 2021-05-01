@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-07-15
-#' MODIFIED: 2020-11-20
+#' MODIFIED: 2021-05-01
 #' PURPOSE: setting modifying global attributes
 #' STATUS: working
 #' PACKAGES: Shiny
@@ -16,7 +16,7 @@ suppressPackageStartupMessages(library(shiny))
 
 # ui
 ui <- tagList(
-    set_html_attribs(),
+    set_html_attribs(lang = "en", dir = "ltr"),
     tags$h2("Setting HTML Attributes"),
     tags$p(
         "Use 'view page source' to see where the html attributes were added."
