@@ -2,7 +2,7 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-01-15
-#' MODIFIED: 2020-11-21
+#' MODIFIED: 2021-05-01
 #' PURPOSE: example shiny app using sass
 #' STATUS: working
 #' PACKAGES: shiny, dplyr, stringr
@@ -12,11 +12,9 @@
 # pkgs
 suppressPackageStartupMessages(library(shiny))
 suppressPackageStartupMessages(library(dplyr))
-
-# load data
 birds <- readRDS("data/birds_summary.RDS")
 
-# build ui
+
 ui <- tagList(
     tags$head(
         tags$link(
@@ -24,38 +22,32 @@ ui <- tagList(
             rel = "stylesheet",
             href = "styles.css"
         ),
-        tags$title("SASS in Shiny")
+        tags$title("SASS in Shiny | shinyAppTutorials")
     ),
-    tags$body(
-
-        # <header>
-        tags$header(
-            class = "header",
-            tags$h1("shinyTutorials")
-        ),
-
-        # <main>
-        tags$main(
-            class = "main",
-            tags$section(
-                class = "section",
-                tags$h2("Using SASS in shiny"),
-                tags$p(
-                    "This shiny app recreates the earlier tutorial",
-                    tags$a(
-                        href = "https://github.com/davidruvolo51/shinyAppTutorials",
-                        "Responsive Datatables in Shiny"
-                    ),
-                    "using SASS. The UI is the same (minus the content).",
-                    "Take a look at the other application and then this one",
-                    "to compare css and sass outputs. The benefits of writing",
-                    "applications with sass is for css specificty, ease of",
-                    "writing, and optimizing css for all browsers. This app",
-                    "uses the following npm packages: sass and post-css.",
-                    "Visit the tutorial for more information."
+    tags$header(
+        class = "header",
+        tags$h1("shinyTutorials")
+    ),
+    tags$main(
+        class = "main",
+        tags$section(
+            class = "section",
+            tags$h2("Using SASS in shiny"),
+            tags$p(
+                "This shiny app recreates the earlier tutorial",
+                tags$a(
+                    href = "https://github.com/davidruvolo51/shinyAppTutorials",
+                    "Responsive Datatables in Shiny"
                 ),
-                uiOutput("table")
-            )
+                "using SASS. The UI is the same (minus the content).",
+                "Take a look at the other application and then this one",
+                "to compare css and sass outputs. The benefits of writing",
+                "applications with sass is for css specificty, ease of",
+                "writing, and optimizing css for all browsers. This app",
+                "uses the following npm packages: sass and post-css.",
+                "Visit the tutorial for more information."
+            ),
+            uiOutput("table")
         )
     )
 )
