@@ -86,7 +86,7 @@ The examples listed in the following table are achived. They still work, but the
 |internal-links          |Create a link from a leaflet popup to a shiny page |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links)          |
 |internal-links-basic-ex |Create links from one shiny page to another        |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-basic-ex) |
 |internal-links-demo     |Navigate to a specific tab on another page         |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/internal-links-demo)     |
-|select-input-styling    |Style a select input element using CSS             |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling)    |
+|select-input-styling    |Style a select input element using CSS             |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling)    |
 <!-- end:archivedTutorials -->
 
 The internal links examples are outdated. Instead, use the `shinyLink` component described in the [Shiny Link](https://github.com/davidruvolo51/shinyAppTutorials/tree/prod/shiny-links) subdirectory (02 August 2020).
