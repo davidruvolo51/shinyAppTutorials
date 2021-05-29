@@ -2,46 +2,37 @@
 // FILE: index.js
 // AUTHOR: David Ruvolo
 // CREATED: 2019-11-07
-// MODIFIED: 2019-11-07
+// MODIFIED: 2021-05-29
 // PURPOSE: main index file for app
-// DEPENDENCIES: using Shiny.js
+// DEPENDENCIES: NA
 // STATUS: working
-// COMMENTS: NA
+// COMMENTS: see R/handlers.R
 ////////////////////////////////////////////////////////////////////////////////
-// BEGIN
 
-// custom handler for sending outputs from shiny server to the ui
-Shiny.addCustomMessageHandler('innerHTML', function(value){
-    document.getElementById(value[0]).innerHTML = value[1]
-}) 
-
-// add and remove classes on form
+// define methods for receiving data from R
 const utils = (function(){
 
-    // add class
-    function addCSS(id, css){
+    function inner_html(id, html) {
+        document.getElementById(id).innerHTML = html;
+    }
+
+    function add_css(id, css){
         document.getElementById(id).classList.add(css);
     }
 
-    // remove class
-    function removeCSS(id, css){
+    function remove_css(id, css){
         document.getElementById(id).classList.remove(css);
     }
 
-
-    // export
     return {
-        addCSS    : addCSS,
-        removeCSS : removeCSS
+        add_css    : add_css,
+        remove_css : remove_css,
+        inner_html : inner_html
     }
 
 })();
 
-// register add and remove with shiny
-Shiny.addCustomMessageHandler("addCSS", function(value){
-    utils.addCSS(value[0], value[1]);
-});
-
-Shiny.addCustomMessageHandler("removeCSS", function(value){
-    utils.removeCSS(value[0], value[1]);
-});
+// bind
+Shiny.addCustomMessageHandler("add_css", (value) => utils.add_css(value.id, value.css));
+Shiny.addCustomMessageHandler("remove_css", (value) => utils.remove_css(value.id, value.css));
+Shiny.addCustomMessageHandler("inner_html", (value) => utils.inner_html(value.id, value.html))

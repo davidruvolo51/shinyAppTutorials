@@ -106,12 +106,12 @@ server <- function(input, output, session) {
     observeEvent(input$submit, {
 
         # reset all form statuses
-        js$innerHTML(id = "form_status", "")
-        js$innerHTML(id = "user_status", "")
-        js$innerHTML(id = "password_status", "")
-        js$removeCSS(id = "form", css = "invalid-all")
-        js$removeCSS(id = "form", css = "invalid-usr")
-        js$removeCSS(id = "form", css = "invalid-pwd")
+        js$inner_html(id = "form_status", "")
+        js$inner_html(id = "user_status", "")
+        js$inner_html(id = "password_status", "")
+        js$remove_css(id = "form", css = "invalid-all")
+        js$remove_css(id = "form", css = "invalid-usr")
+        js$remove_css(id = "form", css = "invalid-pwd")
 
         # search users for match this returns row.index
         # use it to verify password via sodium's password_verify function
@@ -121,23 +121,23 @@ server <- function(input, output, session) {
         if (input$username == "" || input$password == "") {
             # further validate blank inputs
             if (input$username == "" && input$password == "") {
-                js$innerHTML(
+                js$inner_html(
                     id = "form_status",
                     "Username and password is missing."
                 )
-                js$addCSS(id = "form", css = "invalid-all")
+                js$add_css(id = "form", css = "invalid-all")
             } else if (input$username == "" && !(input$password == "")) {
-                js$innerHTML(id = "user_status", "Username is missing")
-                js$addCSS(id = "form", css = "invalid-usr")
+                js$inner_html(id = "user_status", "Username is missing")
+                js$add_css(id = "form", css = "invalid-usr")
             } else if (!(input$username == "") && input$password == "") {
-                js$innerHTML(id = "password_status", "No password was entered.")
-                js$addCSS(id = "form", css = "invalid-pwd")
+                js$inner_html(id = "password_status", "No password was entered.")
+                js$add_css(id = "form", css = "invalid-pwd")
             } else {
-                js$innerHTML(
+                js$inner_html(
                     id = "form_status",
                     "Something went wrong. Please enter your details again."
                 )
-                js$addCSS(id = "form", css = "invalid-all")
+                js$add_css(id = "form", css = "invalid-all")
             }
         } else if (length(usr)) {
 
@@ -149,21 +149,21 @@ server <- function(input, output, session) {
                 username(input$username)
                 logged(TRUE)
             } else {
-                js$innerHTML(
+                js$inner_html(
                     id = "password_status",
                     string = "The password is incorrect."
                 )
-                js$addCSS(id = "form", css = "invalid-pwd")
+                js$add_css(id = "form", css = "invalid-pwd")
             }
         } else if (!length(usr)) {
-            js$innerHTML(id = "user_status", "The username is incorrect")
-            js$addCSS(id = "form", css = "invalid-usr")
+            js$inner_html(id = "user_status", "The username is incorrect")
+            js$add_css(id = "form", css = "invalid-usr")
         } else {
-            js$innerHTML(
+            js$inner_html(
                 id = "form_status",
                 "The username or password is incorrect"
             )
-            js$addCSS(id = "form", css = "invalid-all")
+            js$add_css(id = "form", css = "invalid-all")
         }
     })
 
