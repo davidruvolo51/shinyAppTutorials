@@ -2,7 +2,7 @@
 #' FILE: update_readme.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2021-02-15
-#' MODIFIED: 2021-02-26
+#' MODIFIED: 2021-07-05
 #' PURPOSE: update tables in readme
 #' STATUS: working
 #' PACKAGES: NA
@@ -69,7 +69,15 @@ pull_data <- function(dirs) {
 
 # build data
 msg("Building subdirectory list")
-dirs <- list_dirs(exclude = c("_dev", ".github", ".git", ".vscode"))
+dirs <- list_dirs(
+    exclude = c(
+        "_dev",
+        "renv",
+        ".github",
+        ".git",
+        ".vscode"
+    )
+)
 
 # error checking
 if (!is.null(dirs)) {
