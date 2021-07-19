@@ -52,9 +52,9 @@ signin_ui <- function(id) {
 #'      was stored in the same location
 #' @param id required shiny param
 #' @param users reference dataset
-#' @param username a global reactive object that manages current user
+#' @param userdata a global reactive object that manages current user
 #' @param logged a global reactive object that manages logged state
-signin_server <- function(id, users, username, logged) {
+signin_server <- function(id, users, userdata, logged) {
     moduleServer(
         id,
         function(input, output, session) {
@@ -78,7 +78,7 @@ signin_server <- function(id, users, username, logged) {
                     )
 
                     if (pwd) {
-                        username(input$username)
+                        userdata(users[usr, c("username", "emoji")])
                         logged(TRUE)
                     } else {
                         stop()
