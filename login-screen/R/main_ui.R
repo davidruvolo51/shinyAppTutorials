@@ -10,15 +10,20 @@
 #'////////////////////////////////////////////////////////////////////////////
 
 #' Main UI
-#' @param username string containing an account name
+#' @param userdata object containing username and user emoji
 #' @noRd
-main_ui <- function(id, username) {
+main_ui <- function(id, userdata) {
     ns <- NS(id)
     tags$main(
         class = "main",
         tags$div(
             class = "header",
-            tags$h1("Welcome,", tags$span(username), "!"),
+            tags$h1(
+                "Welcome,",
+                tags$span(userdata$username),
+                tags$span(userdata$emoji),
+                "!"
+            ),
             tags$p("You are now signed in."),
             actionButton(inputId = ns("signout"), "Sign out")
         )
