@@ -64,7 +64,7 @@ Replace `drag-and-drop` for the subdirectory that you wish to checkout locally. 
 |get-window-dims         |sending data from javascript                          |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/get-window-dims)         |
 |js-handlers             |getting started with custom handlers                  |1.1.1   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/js-handlers)             |
 |leaflet-loading-screens |creating a loading screen for leaflet                 |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/leaflet-loading-screens) |
-|login-screen            |Adding *basic* user authentication to shiny apps      |1.0.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen)            |
+|login-screen            |Adding *basic* user authentication to shiny apps      |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen)            |
 |progress-bars-example   |creating a shiny progressbar using R6 classes         |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/progress-bars-example)   |
 |responsive-datatables   |create responsive datatables in R                     |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/responsive-datatables)   |
 |rmarkdown-app           |using Rmarkdown as Shiny UI                           |1.1.0   |[tutorial](https://davidruvolo51.github.io/shinytutorials/tutorials/rmarkdown-app)           |
