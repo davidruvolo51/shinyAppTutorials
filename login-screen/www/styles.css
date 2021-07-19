@@ -111,6 +111,10 @@ input[type=password]:focus {
     box-shadow: 0 0 8px 2px hsla(0, 0%, 0%, 0.18);
 }
 
+.main .header h1 span {
+    color: #2d7ddd;
+}
+
 .error-message {
     display: block;
     color: red;
@@ -125,6 +129,6 @@ input[type=password]:focus {
 @media screen and (min-width: 912px){
 
     .signin-form, .header {
-        max-width: 400px;
+        max-width: 500px;
     }
 }
