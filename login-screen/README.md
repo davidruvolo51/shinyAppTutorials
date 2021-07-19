@@ -7,14 +7,16 @@
 
 Implement user authentication into your shiny app. For more information, checkout the blog post [Login Screen: Building a simple password protected shiny app](https://davidruvolo51.github.io/shinytutorials/tutorials/login-screen/).
 
-This method offers some sort of "protection" for your app. I've used this method to create a project management tool to manage daily activities and tasks. It was hosted on department servers and I added this login screen only those with an account could view it. If you have sensitive data, you should follow your organization's guidelines for best practices and security guidelines.```
+This method offers some sort of "protection" for your app. I've used this method to create a project management tool to manage daily activities and tasks. It was hosted on department servers and I added this login screen only those with an account could view it. If you have sensitive data, you should follow your organization's guidelines for best practices and security guidelines.
 
 Test out the app with one of the following accounts.
 
-| type     | Username | password  |
-|----------|----------|-----------|
-| standard | user     | user1234  |
-| admin    | admin    | admin1234 |
+| type     | Username | password |
+|----------|----------|----------|
+| standard | koala    | 8888     |
+| admin    | kangaroo | 9999     |
+
+**Note**: Userdata should be stored in an external database. To make a standalone example, the demo accounts are created at the top of `app.R`. Ideally, user data should be stored in another secure location (e.g., SQL database) and the server-side of the login module should send and process the user validation requests.
 
 ## Getting Started
 
