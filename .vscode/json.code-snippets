@@ -1,0 +1,29 @@
+{
+    "Package JSON Template": {
+        "prefix": "package",
+        "description": "create package.json template",
+        "body": [
+            "{",
+            "\t\"name\": \"${TM_DIRECTORY/^.+\\/(.*)$/$1/}\",",
+            "\t\"version\": \"0.9.0\",",
+            "\t\"description\": \"<brief description about the app>\",",
+            "\t\"author\": \"@dcruvolo\",",
+            "\t\"status\": \"active\",",
+            "\t\"repository\": {",
+            "\t\t\"type\": \"git\",",
+            "\t\t\"url\": \"git+https://github.com/davidruvolo51/shinyAppTutorials.git\"",
+            "\t},",
+            "\t\"keywords\": [",
+            "\t\t\"r\",",
+            "\t\t\"shiny\",",
+            "\t\t\"tutorials\"",
+            "\t],",
+            "\t\"license\": \"MIT\",",
+            "\t\"bugs\": {",
+            "\t\t\"url\": \"https://github.com/davidruvolo51/shinyAppTutorials/issues\"",
+            "\t},",
+            "\t\"homepage\": \"https://github.com/davidruvolo51/shinyAppTutorials\"",
+            "}"
+        ]
+    }
+}
