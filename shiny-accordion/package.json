@@ -1,0 +1,21 @@
+{
+  "name": "shiny-accordion",
+  "version": "0.9.0",
+  "description": "A component for collapsing HTML elements",
+  "author": "@dcruvolo",
+  "status": "active",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidruvolo51/shinyAppTutorials.git"
+  },
+  "keywords": [
+    "r",
+    "shiny",
+    "tutorials"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidruvolo51/shinyAppTutorials/issues"
+  },
+  "homepage": "https://github.com/davidruvolo51/shinyAppTutorials"
+}
