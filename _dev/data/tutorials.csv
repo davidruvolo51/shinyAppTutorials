@@ -14,6 +14,7 @@ rmarkdown-app,1.1.0,using Rmarkdown as Shiny UI,@dcruvolo,active,https://davidru
 sass-in-shiny,1.1.0,integrating SASS into your Shiny development workflow,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/sass-in-shiny
 select-input-styling,1.1.0,Style a select input element using CSS,@dcruvolo,archived,https://davidruvolo51.github.io/shinytutorials/tutorials/select-input-styling
 setting-html-attributes,1.0.1,set document attributes,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/setting-html-attributes
+shiny-accordion,1.0.0,A component for collapsing HTML elements,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-accordion
 shiny-landing-page,1.1.0,create a landing page,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-landing-page
 shiny-links,1.1.0,a component for within app navigation,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-links
 shiny-listbox,1.1.0,create listbox components in shiny,@dcruvolo,active,https://davidruvolo51.github.io/shinytutorials/tutorials/shiny-listbox
