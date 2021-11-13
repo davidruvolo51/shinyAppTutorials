@@ -2,10 +2,10 @@
 #' FILE: app.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2021-11-11
-#' MODIFIED: 2021-11-11
+#' MODIFIED: 2021-11-13
 #' PURPOSE: example Shiny app for accordion components
-#' STATUS: in.progress
-#' PACKAGES: shiny
+#' STATUS: working
+#' PACKAGES: shiny; rheroicons
 #' COMMENTS: NA
 #'////////////////////////////////////////////////////////////////////////////
 
@@ -20,14 +20,14 @@ ui <- tagList(
             name = "viewport",
             content = "width=device-width, initial-scale=1"
         ),
-        tags$link(rel = "stylesheet", href = "css/app.css"),
-        tags$link(rel = "stylesheet", href = "css/accordion.css"),
+        tags$link(rel = "stylesheet", href = "app.css"),
+        tags$link(rel = "stylesheet", href = "accordion.css"),
         tags$title("Accordion Component | shinyAppTutorials")
     ),
     tags$main(
         tags$header(
             tags$h1(
-                title = "title",
+                class = "title",
                 "Shiny Accordion"
             ),
             tags$h2(
@@ -40,14 +40,29 @@ ui <- tagList(
             `aria-labelledby` = "section-example-title",
             tags$h2(
                 id = "section-example-title",
-                "Example Usage"
+                "About"
             ),
             tags$p(
                 "The accordion component is useful for creating interfaces",
                 "where certain elements on a page can be collapsed.",
                 "For example, FAQ pages or visually hidding secondary",
-                "information. In this example, I created a simple FAQ page that",
-                "demonstrates the functionality of the accordion component."
+                "information.",
+                "It is recommended to use the", tags$code("details"), "element",
+                "for better browser support and functionality, but it is",
+                "possible to create a custom component for specific cases",
+                "that meets web standards. Please visit the",
+                tags$a(
+                    # nolint start
+                    href = "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details",
+                    # nolint end,
+                    "details element docs"
+                ),
+                "for more information."
+            ),
+            tags$p(
+                "In this example, I created a simple FAQ page that",
+                "demonstrates the functionality of the accordion component.",
+                "Click a question to see the accordion component in action."
             )
         ),
         tags$section(
@@ -75,8 +90,7 @@ ui <- tagList(
                             href = "https://shiny.rstudio.com/",
                             "shiny.rstudio.com"
                         )
-                    ),
-                    tags$cite("Rstudio.org")
+                    )
                 )
             ),
             accordion(
@@ -99,13 +113,13 @@ ui <- tagList(
                                 href = "https://rmarkdown.rstudio.com/",
                                 "rmarkdown.rstudio.com"
                             )
-                        ),
-                        tags$cite("Rstudio.org")
+                        )
                     )
                 )
             )
         )
-    )
+    ),
+    tags$script(src = "accordion.js")
 )
 
 

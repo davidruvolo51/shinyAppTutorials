@@ -15,13 +15,20 @@
     padding: 16px 12px;
 	border: 2px solid var(--accordion-border);
     border-radius: var(--border-radius);
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
 }
 
 /* accordion heading styles (includes button) */
 .accordion .accordion__heading {
+    display: -webkit-flex;
+    display: -ms-flex;
     display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -32,8 +39,14 @@
 
 /* reset button styles */
 .accordion  .accordion__toggle {
+    display: -webkit-flex;
+    display: -ms-flex;
     display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     border: none;
@@ -63,7 +76,7 @@
     width: var(--icon-size);
     height: var(--icon-size);
     transform: rotate(0);
-    transform-origin: center;
+    transform-origin: center center; 
     transition: transform 0.3s ease-in-out;
 }
 
@@ -78,6 +91,7 @@
     margin: 0;
     padding: 0;
     margin-left: var(--left-offest);
+    margin-right: var(--left-offest);
 }
 
 /* focus event */
