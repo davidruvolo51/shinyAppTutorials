@@ -1,0 +1,108 @@
+.accordion {
+	--accordion-primary: #47a9a1;
+	--accordion-background: #ffffff;
+	--accordion-border: transparent;
+	--accordion-color: inherit;
+    --border-radius: 6px;
+    --box-shadow: 0 0 6px 4px hsla(0, 0%, 0%, 0.2);
+    --left-offest: 21px;
+
+	font-family: inherit;
+	background-color: var(--accordion-background);
+	box-sizing: border-box;
+	color: var(--accordion-color);
+	margin: 16px 0;
+    padding: 16px 12px;
+	border: 2px solid var(--accordion-border);
+    border-radius: var(--border-radius);
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+}
+
+/* accordion heading styles (includes button) */
+.accordion .accordion__heading {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 100%;
+    word-break: break-word;
+}
+
+/* reset button styles */
+.accordion  .accordion__toggle {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    border: none;
+    position: relative;
+    background: none;
+    background-color: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
+    text-align: left;
+    color: currentColor;
+}
+
+/* add spacing to button label (internal text) */
+.accordion  .accordion__toggle .toggle__label {
+    display: inline-block;
+    width: calc(100% - 24px);
+    margin-left: var(--left-offest);
+    word-break: break-word;
+}
+
+/* <svg> element */
+.accordion  .accordion__toggle .toggle__icon {
+    --icon-size: 26px;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    transform: rotate(0);
+    transform-origin: center center; 
+    transition: transform 0.3s ease-in-out;
+}
+
+/* rotate (will be added to element via JS) */
+.accordion  .accordion__toggle .toggle__icon.rotated {
+    transform: rotate(180deg);
+}
+
+
+/* inner accordion content */
+.accordion .accordion__content {
+    margin: 0;
+    padding: 0;
+    margin-left: var(--left-offest);
+    margin-right: var(--left-offest);
+}
+
+/* focus event */
+.accordion.accordion__focused {
+    border: 2px solid var(--accordion-primary);
+}
+
+/* eliminate transition for accessibility support */
+@media (prefers-reduced-motion) {
+    /* enforce instant rotation for button icon */
+    .accordion .accordion__toggle .toggle__icon {
+        transition: all 1ms ease-in-out;
+    }
+}
