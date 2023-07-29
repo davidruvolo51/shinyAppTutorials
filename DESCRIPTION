@@ -18,4 +18,5 @@ Imports:
     dplyr,
     jsonlite,
     knitr,
-    readr
+    readr,
+    stringr

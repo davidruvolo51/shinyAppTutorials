@@ -2,7 +2,7 @@
 #' FILE: dev.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2020-11-19
-#' MODIFIED: 2021-02-26
+#' MODIFIED: 2023-07-29
 #' PURPOSE: repo management
 #' STATUS: working; ongoing
 #' PACKAGES: see below
@@ -23,6 +23,7 @@ usethis::use_package("jsonlite")
 usethis::use_package("dplyr")
 usethis::use_package("knitr")
 usethis::use_package("readr")
+usethis::use_package("stringr")
 
 #' source utils
 #' source("_dev/R/json.R")
