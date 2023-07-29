@@ -2,7 +2,7 @@
 #' FILE: update_readme.R
 #' AUTHOR: David Ruvolo
 #' CREATED: 2021-02-15
-#' MODIFIED: 2021-07-05
+#' MODIFIED: 2023-07-29
 #' PURPOSE: update tables in readme
 #' STATUS: working
 #' PACKAGES: NA
@@ -67,7 +67,6 @@ pull_data <- function(dirs) {
 #' Compile all subdirectories
 # all avilable subdirectories and exclude non-shiny apps
 
-# build data
 msg("Building subdirectory list")
 dirs <- list_dirs(
     exclude = c(
@@ -98,45 +97,27 @@ if (NROW(tutorials) > 0) {
 msg("Generating markdown tables")
 
 # write 'activeTutorial' tables
-tryCatch({
-    msg("Wrote 'active' table")
-    tutorials %>%
-        filter(status == "active") %>%
-        readme$as_md_table(data = .) %>%
-        readme$write_md_table(
-            path = "README.md",
-            id = "activeTutorials",
-            table = .
-        )
-}, error = function() {
-    msg("Failed to write 'active' table")
-}, warning = function() {
-    msg("Failed to write 'active' table")
-})
+msg("Writing 'active' table")
+tutorials %>%
+    filter(status == "active") %>%
+    readme$as_md_table(data = .) %>%
+    readme$write_md_table(
+        path = "README.md",
+        id = "activeTutorials",
+        table = .
+    )
 
 # write 'archivedTutorials' table
-tryCatch({
-    msg("Wrote 'archived' table")
-    tutorials %>%
-        filter(status == "archived") %>%
-        readme$as_md_table(data = .) %>%
-        readme$write_md_table(
-            path = "README.md",
-            id = "archivedTutorials",
-            table = .
-        )
-}, error = function() {
-    msg("Failed to write 'archived' table")
-}, warning = function() {
-    msg("Failed to write 'archived' table")
-})
+msg("Writing 'archived' table")
+tutorials %>%
+    filter(status == "archived") %>%
+    readme$as_md_table(data = .) %>%
+    readme$write_md_table(
+        path = "README.md",
+        id = "archivedTutorials",
+        table = .
+    )
 
 # save data
-tryCatch({
-    msg("Wrote data to '_dev/data/tutorials.csv'")
-    readr::write_csv(tutorials, "_dev/data/tutorials.csv")
-}, error = function() {
-    msg("Failed to write '_dev/data/tutorials.csv'")
-}, warning = function() {
-    msg("Failed to write '_dev/data/tutorials.csv'")
-})
+msg("Writing data to '_dev/data/tutorials.csv'")
+readr::write_csv(tutorials, "_dev/data/tutorials.csv")
